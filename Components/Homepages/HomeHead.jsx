@@ -21,7 +21,7 @@ const HomeHead = () => {
                                 <h5 className="hello">Hello My Name is</h5>
                             </div>
                             <div className="big-text">
-                                <h1 className="name"><span className="text-green">Zeuc</span> </h1>
+                                <h1 className="name"><span className="text-green">Ajay Kumar</span> </h1>
                             </div>
 
                             <div className="info-text">
@@ -47,7 +47,7 @@ const HomeHead = () => {
                     <div className="col-xl-6 col-md-6 col-sm-12 col-12">
                         <div className="img-sec">
                             <div className="img-wrapper">
-                                <img src="/images/main-icon.png" alt="Logo img" />
+                                <img src="/images/profile.jpg" alt="Logo img" />
                             </div>
                         </div>
                     </div>

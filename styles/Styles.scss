@@ -23,6 +23,19 @@ body {
         width: 100%;
     }
 }
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
 
 .main-wrapper {
     position: relative;
@@ -118,12 +131,43 @@ body {
     }
 
     .nav-toggler {
-        margin-left: 15px;
         cursor: pointer;
+        position: relative;
 
         svg {
             width: 25px;
             fill: var(--dark-color);
+        }
+
+        .dropdown-toggle,.btn {
+            border: 0px !important;
+            &:after {
+                display: none;
+            }
+            &.show{
+                border-color: transparent;
+            }
+        }
+
+        .dropdown-menu {
+            &.show {
+                right: 0px !important;
+                left: auto !important;
+
+                .MainMenu{
+                    .listItem{
+                        list-style-type: none;
+                        margin-bottom: 0px;
+                        a{
+                            color: var(--dark-color);
+
+                            &:hover{
+                                color: var(--green-color);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -194,12 +238,8 @@ body {
         bottom: -30px;
     }
 
-    .container {
-        height: 80vh;
-    }
-
     .row {
-        height: 80vh;
+        height: 90vh;
         align-items: center;
     }
 
@@ -260,7 +300,7 @@ body {
 
             &::before {
                 position: absolute;
-                content: '';
+                // content: '';
                 width: 80%;
                 height: 80%;
                 background-color: var(--green-color);
@@ -277,6 +317,7 @@ body {
                 left: 0px;
                 max-width: 100%;
                 z-index: 1;
+                border-radius: 50%;
             }
         }
     }
@@ -309,6 +350,7 @@ body {
         padding: 20px;
         border-radius: 10px;
         background-color: var(--pure-white);
+
         .header {
             display: flex;
             align-items: center;
@@ -366,7 +408,8 @@ body {
                 font-weight: 500;
                 cursor: pointer;
             }
-            a{
+
+            a {
                 text-decoration: none;
             }
         }
@@ -500,7 +543,7 @@ body {
                 }
             }
 
-          /*   .MainMenu {
+            /*   .MainMenu {
                 position: fixed;
                 right: 0px;
                 top: 0px;

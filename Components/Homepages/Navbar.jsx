@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Link from 'next/link'
 import Sun from '../Svg/Sun'
 import Moon from '../Svg/Moon'
-import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useSelector, useDispatch } from 'react-redux'
 import { nightMode, lightMode, gradient } from '../../store/themeSlice'
@@ -49,7 +48,7 @@ const Navbar = () => {
                         <DropdownButton variant="none" id="dropdown-basic-button" title={<MenuIcon />}>
                            <div className="MainMenu">
                                 <ul className="listItem">
-                                    <li className="list-item">Home</li>
+                                   <Link href='/'> <li className="list-item">Home</li></Link>
                                 </ul>
                            </div>
                         </DropdownButton>

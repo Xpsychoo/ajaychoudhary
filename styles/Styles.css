@@ -21,6 +21,21 @@ body .container {
   width: 100%;
 }
 
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
 .main-wrapper {
   position: relative;
   max-width: 100%;
@@ -104,12 +119,35 @@ body .container {
   height: 100%;
 }
 .navbar .nav-toggler {
-  margin-left: 15px;
   cursor: pointer;
+  position: relative;
 }
 .navbar .nav-toggler svg {
   width: 25px;
   fill: var(--dark-color);
+}
+.navbar .nav-toggler .dropdown-toggle, .navbar .nav-toggler .btn {
+  border: 0px !important;
+}
+.navbar .nav-toggler .dropdown-toggle:after, .navbar .nav-toggler .btn:after {
+  display: none;
+}
+.navbar .nav-toggler .dropdown-toggle.show, .navbar .nav-toggler .btn.show {
+  border-color: transparent;
+}
+.navbar .nav-toggler .dropdown-menu.show {
+  right: 0px !important;
+  left: auto !important;
+}
+.navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem {
+  list-style-type: none;
+  margin-bottom: 0px;
+}
+.navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem a {
+  color: var(--dark-color);
+}
+.navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem a:hover {
+  color: var(--green-color);
 }
 .navbar .collapse-bar {
   position: relative;
@@ -168,11 +206,8 @@ body .container {
   right: 50%;
   bottom: -30px;
 }
-.header_sec .container {
-  height: 80vh;
-}
 .header_sec .row {
-  height: 80vh;
+  height: 90vh;
   align-items: center;
 }
 .header_sec .name-box {
@@ -216,7 +251,6 @@ body .container {
 }
 .header_sec .img-sec .img-wrapper::before {
   position: absolute;
-  content: "";
   width: 80%;
   height: 80%;
   background-color: var(--green-color);
@@ -232,6 +266,7 @@ body .container {
   left: 0px;
   max-width: 100%;
   z-index: 1;
+  border-radius: 50%;
 }
 
 .homeSecHead {
@@ -392,14 +427,14 @@ body .container {
 }
 .main-wrapper.dark .navbar .nav-toggler {
   /*   .MainMenu {
-        position: fixed;
-        right: 0px;
-        top: 0px;
-        height: 90vh;
-        width: 200px;
-        background-color: var(--pure-white);
-        color: var(--dark-color);
-    } */
+      position: fixed;
+      right: 0px;
+      top: 0px;
+      height: 90vh;
+      width: 200px;
+      background-color: var(--pure-white);
+      color: var(--dark-color);
+  } */
 }
 .main-wrapper.dark .navbar .nav-toggler .btn {
   border: 0px;
