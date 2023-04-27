@@ -36,7 +36,7 @@ export default function MyProjects() {
         <div className="container">
             <div className="main-head">
                 <h3 className="head text-center">  <span className="text-green">MY</span> Projects</h3>
-                <h5 className="sub_head text-center"> Projects <span className="text-green text-cursive">I've Worked on</span> </h5>
+                <h5 className="sub_head text-center"> Projects <span className="text-green text-cursive">I&apos;ve Worked on</span> </h5>
             </div>
             <div className="SkillsSec">
                 <Slider {...settings}>
