@@ -6,6 +6,7 @@ import HomeHead from './HomeHead'
 import WhatIDo from './WhatIDo'
 import MySkills from './MySkills'
 import MyProjects from './MyProjects'
+import ContactUs from './ContactUs'
 
 const HomeScreen = () => {
     const count = useSelector((state) => state.counter.value)
@@ -25,6 +26,9 @@ const HomeScreen = () => {
             </div>
             <div className="homeSecHead">
                 <MyProjects />
+            </div>
+            <div className="homeSecHead">
+                <ContactUs />
             </div>
         </>
     )

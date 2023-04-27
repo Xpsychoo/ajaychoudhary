@@ -1,9 +1,5 @@
 import React from 'react'
 import DotsShape from '../Svg/DotsShape'
-import TwitterIcon from '../Svg/TwitterIcon'
-import LinkedIn from '../Svg/LinkedIn'
-import InstaGramIcon from '../Svg/InstaGramIcon'
-import GitHubIcon from '../Svg/GitHubIcon'
 
 const HomeHead = () => {
     return (

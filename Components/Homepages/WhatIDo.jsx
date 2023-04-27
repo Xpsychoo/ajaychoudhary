@@ -18,13 +18,8 @@ const WhatIDo = () => {
                                     With my expertise, I have successfully designed and developed websites
                                     that not only look great but also function seamlessly on
                                     different devices and platforms  I am adept at using software such as
-                                    Adobe Creative Suite, Sketch, and Figma, and am always
-                                    up-to-date with the latest design trends and technologies.....
-                                </div>
-                                <div className="card-footer">
-                                    <div className="seeMoreText">
-                                        See More
-                                    </div>
+                                    Adobe photoshop, Adobe XD, and Figma, and am always
+                                    up-to-date with the latest design trends and technologies
                                 </div>
                             </div>
                         </div>
@@ -35,19 +30,9 @@ const WhatIDo = () => {
                                 <div className="desc">
                                     As a software developer with 1.6 years of experience, I have honed my skills in technologies such as ReactJS,
                                     NextJS, and JavaScript. I am a detail-oriented and driven individual who is passionate about
-                                    creating high-quality software solutions...
-                                    {/* that meet the needs of clients and end-users.
-                                    Throughout my career, I have gained expertise in front-end development,
-                                    including building responsive and user-friendly web applications,
-                                    implementing complex UI designs, and optimizing web performance. I am also proficient in using
-                                    various tools and technologies such as Git, npm, and Webpack to streamline the development
-                                    process and improve code quality. */}
+                                    creating high-quality software solutions.
                                 </div>
-                                <div className="card-footer">
-                                    <div className="seeMoreText">
-                                        See More
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                         <div className="col-xl-4 col-md-4 col-sm-12 col-12">
@@ -58,14 +43,10 @@ const WhatIDo = () => {
                                     As a self-motivated individual with a passion for mobile app development, I have taken it upon myself to
                                     learn the necessary skills to create cutting-edge mobile applications. If given the opportunity,
                                     I am eager to apply my skills and knowledge to develop
-                                    innovative mobile applications that meet the needs of clients and users alike...
+                                    innovative mobile applications.
 
                                 </div>
-                                <div className="card-footer">
-                                    <div className="seeMoreText">
-                                        See More
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

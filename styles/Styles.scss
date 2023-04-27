@@ -23,14 +23,19 @@ body {
         width: 100%;
     }
 }
+
 html {
     overflow: scroll;
     overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
 }
+
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
@@ -139,12 +144,15 @@ html {
             fill: var(--dark-color);
         }
 
-        .dropdown-toggle,.btn {
+        .dropdown-toggle,
+        .btn {
             border: 0px !important;
+
             &:after {
                 display: none;
             }
-            &.show{
+
+            &.show {
                 border-color: transparent;
             }
         }
@@ -154,14 +162,15 @@ html {
                 right: 0px !important;
                 left: auto !important;
 
-                .MainMenu{
-                    .listItem{
+                .MainMenu {
+                    .listItem {
                         list-style-type: none;
                         margin-bottom: 0px;
-                        a{
+
+                        a {
                             color: var(--dark-color);
 
-                            &:hover{
+                            &:hover {
                                 color: var(--green-color);
                             }
                         }
@@ -212,7 +221,6 @@ html {
 }
 
 .header_sec {
-    min-height: 80vh;
     position: relative;
 
     .dots-shapes {
@@ -239,7 +247,7 @@ html {
     }
 
     .row {
-        height: 90vh;
+        min-height: 90vh;
         align-items: center;
     }
 
@@ -292,11 +300,13 @@ html {
         width: 100%;
 
         .img-wrapper {
-            max-width: 80%;
-            height: 25em;
+            height: 100%;
             margin: auto;
             padding: 30px;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             &::before {
                 position: absolute;
@@ -311,11 +321,7 @@ html {
             }
 
             img {
-                position: absolute;
-                width: 93%;
-                top: 0px;
-                left: 0px;
-                max-width: 100%;
+                width: 70%;
                 z-index: 1;
                 border-radius: 50%;
             }
@@ -721,6 +727,80 @@ html {
 
         .card-footer {
             color: var(--dark-color);
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .main-wrapper {
+        padding: 30px 0px;
+    }
+    .header_sec {
+        padding-top: 56px;
+        .row{
+            min-height: auto;
+        }
+        .name-box{
+            .hello-text{
+                .hello{
+                    font-size: 15px;
+                }
+            }
+            .big-text{
+                .name{
+                    font-size: 50px;
+                }
+            }
+            .info-text{
+                font-size: 15px;
+                .info{
+                    .big{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+        .intro-text{
+            .intro{
+                font-size: 14px;
+            }
+        }
+        .btn-sec{
+            .cv-btn {
+                .common-btn{
+                    font-style: 12px;
+                    line-height: 30px;
+                    height: 30px;
+                    padding: 5px 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+     
+
+    .homeSecHead {
+        padding: 10px 10px 30px;
+        min-height: 10vh;
+
+        .main-head {
+            .head {
+                font-size: 30px;
+            }
+
+            .sub_head {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .ServicesCards {
+        .serviceCard {
+            margin: 10px 0px;
+            padding: 13px;
         }
     }
 }
