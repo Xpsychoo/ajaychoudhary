@@ -1,0 +1,529 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+:root {
+  --light-color: #f1ece4;
+  --dark-color: #232932;
+  --green-color: #29a587;
+  --grey-color: #a3a5a7;
+  --pure-white: #fff;
+  --blue-color: #00a6de;
+  --cursive-font: "Caveat", cursive;
+  --default-font: "Outfit", sans-serif;
+  --kanit-font: "Kanit", sans-serif;
+}
+
+body {
+  font-family: var(--default-font) !important;
+  overflow-x: hidden;
+}
+body .container {
+  width: 100%;
+}
+
+.main-wrapper {
+  position: relative;
+  max-width: 100%;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+.main-wrapper .text-green {
+  color: var(--green-color);
+}
+.main-wrapper .text-cursive {
+  font-family: var(--cursive-font);
+}
+.main-wrapper .common-btn {
+  padding: 0 40px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  height: 56px;
+  line-height: 52px;
+  text-align: center;
+  text-decoration: none;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
+  border: 2px solid var(--dark-color);
+  background: 0 0;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 56px;
+  border-color: var(--grey-color);
+  box-shadow: 5px 5px rgba(255, 255, 255, 0.1);
+}
+
+.navbar {
+  position: relative;
+  min-height: 33px;
+}
+.navbar .container {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  position: fixed;
+  left: 50%;
+  top: 33px;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+.navbar a {
+  text-decoration: none;
+  color: #000;
+}
+.navbar .main-icon {
+  width: 50px;
+}
+.navbar .main-icon img {
+  max-width: 100%;
+}
+.navbar .theme-btns {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .theme-btns .icon {
+  margin: 0px 10px;
+  width: 25px;
+  height: 25px;
+}
+.navbar .theme-btns .icon.brush {
+  margin: 0px 10px;
+  width: 18px;
+}
+.navbar .theme-btns svg {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.navbar .nav-toggler {
+  margin-left: 15px;
+  cursor: pointer;
+}
+.navbar .nav-toggler svg {
+  width: 25px;
+  fill: var(--dark-color);
+}
+.navbar .collapse-bar {
+  position: relative;
+}
+.navbar .collapse-bar .navigation-links {
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  width: 200px;
+  height: 88vh;
+  z-index: 9;
+  background-color: var(--light-color);
+  color: var(--green-color);
+}
+.navbar .collapse-bar .navigation-links .navigation-list {
+  position: relative;
+  list-style-type: none;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+.navbar .collapse-bar .navigation-links .navigation-list::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  rotate: 45deg;
+  background-color: var(--light-color);
+}
+.navbar .collapse-bar .navigation-links .navigation-list .list-item {
+  padding: 0px 10px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.header_sec {
+  min-height: 80vh;
+  position: relative;
+}
+.header_sec .dots-shapes svg {
+  width: 100%;
+  fill: var(--light-color);
+}
+.header_sec .dots-shapes.top {
+  opacity: 0.3;
+  width: 200px;
+  position: absolute;
+  left: -6em;
+  top: 4.5em;
+}
+.header_sec .dots-shapes.bottom {
+  opacity: 0.3;
+  width: 200px;
+  position: absolute;
+  right: 50%;
+  bottom: -30px;
+}
+.header_sec .container {
+  height: 80vh;
+}
+.header_sec .row {
+  height: 80vh;
+  align-items: center;
+}
+.header_sec .name-box {
+  height: 100%;
+}
+.header_sec .name-box .hello-text .hello {
+  font-size: 25px;
+}
+.header_sec .name-box .big-text .name {
+  font-family: "Caveat", cursive;
+  font-size: 80px;
+  font-weight: 600;
+}
+.header_sec .name-box .info-text .info {
+  font-size: 20px;
+}
+.header_sec .name-box .info-text .info .big {
+  font-size: 30px;
+}
+.header_sec .intro-text .intro {
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+.header_sec .btn-sec {
+  padding: 30px 0px;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header_sec .img-sec {
+  height: 100%;
+  width: 100%;
+}
+.header_sec .img-sec .img-wrapper {
+  max-width: 80%;
+  height: 25em;
+  margin: auto;
+  padding: 30px;
+  position: relative;
+}
+.header_sec .img-sec .img-wrapper::before {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 80%;
+  background-color: var(--green-color);
+  z-index: 0;
+  bottom: -10px;
+  left: 6px;
+  border-radius: 50%;
+}
+.header_sec .img-sec .img-wrapper img {
+  position: absolute;
+  width: 93%;
+  top: 0px;
+  left: 0px;
+  max-width: 100%;
+  z-index: 1;
+}
+
+.homeSecHead {
+  min-height: 80vh;
+  padding: 4em 0px 2em;
+}
+.homeSecHead .main-head .head {
+  font-size: 60px;
+}
+.homeSecHead .main-head .sub_head {
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+
+.SkillsSec {
+  position: relative;
+}
+.SkillsSec .skillsCard {
+  width: 90% !important;
+  color: var(--dark-color);
+  margin: 15px 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--pure-white);
+}
+.SkillsSec .skillsCard .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.SkillsSec .skillsCard .header .name {
+  font-size: 30px;
+  font-weight: 500;
+}
+.SkillsSec .skillsCard .percentRange {
+  position: relative;
+  margin-bottom: 10px;
+}
+.SkillsSec .skillsCard .percentRange .percentageBar {
+  min-height: 3px;
+  width: 100%;
+  border-bottom: 3px solid var(--grey-color);
+}
+.SkillsSec .skillsCard .percentRange .activebar {
+  content: "";
+  position: absolute;
+  height: 3px;
+  border-bottom: 3px solid var(--green-color);
+  left: 0px;
+  top: 0px;
+}
+.SkillsSec .skillsCard .percentRange .activebar::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  min-height: 12px;
+  min-width: 12px;
+  border: 1px solid var(--dark-color);
+  background-color: #29a587;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.SkillsSec .skillsCard .description {
+  min-height: 200px;
+}
+.SkillsSec .skillsCard .card-footer {
+  text-align: right;
+}
+.SkillsSec .skillsCard .card-footer .addMoreBtn {
+  color: var(--green-color);
+  font-weight: 500;
+  cursor: pointer;
+}
+.SkillsSec .skillsCard .card-footer a {
+  text-decoration: none;
+}
+
+.footer {
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+}
+.footer .social-links {
+  display: flex;
+  align-items: center;
+}
+.footer .social-links .social-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 50%;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  background-color: #fff;
+  transition: all 0.7s ease-in-out;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.footer .social-links .social-icon img {
+  width: 100%;
+  height: 100%;
+  background-color: var(--pure-white);
+  border-radius: 50%;
+}
+.footer .social-links .social-icon svg {
+  width: 100%;
+  fill: var(--dark-color);
+}
+.footer .social-links .social-icon:hover {
+  background-color: var(--blue-color);
+}
+.footer .social-links .social-icon:hover svg {
+  fill: var(--pure-white);
+  scale: 1.2;
+}
+
+/* ============ for Theme css  =============== */
+.main-wrapper.light {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+.main-wrapper.light .header_sec .img-sec .img-wrapper::before {
+  background-color: var(--pure-white);
+}
+.main-wrapper.light .header_sec .dots-shapes svg {
+  fill: var(--green-color);
+}
+.main-wrapper.light .header_sec .btn-sec .common-btn {
+  color: var(--dark-color);
+}
+.main-wrapper.light .header_sec .btn-sec .common-btn:hover {
+  background-color: var(--green-color);
+  color: var(--light-color);
+}
+.main-wrapper.light .navbar .collapse-bar .navigation-links {
+  background-color: var(--pure-white);
+  color: var(--green-color);
+}
+.main-wrapper.light .navbar .collapse-bar .navigation-links .navigation-list::before {
+  background-color: var(--pure-white);
+}
+.main-wrapper.light .footer .social-links .social-icon svg {
+  width: 100%;
+  fill: var(--dark-color);
+}
+
+.main-wrapper.dark {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+.main-wrapper.dark .navbar .nav-toggler {
+  /*   .MainMenu {
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        height: 90vh;
+        width: 200px;
+        background-color: var(--pure-white);
+        color: var(--dark-color);
+    } */
+}
+.main-wrapper.dark .navbar .nav-toggler .btn {
+  border: 0px;
+}
+.main-wrapper.dark .navbar .nav-toggler .btn.show {
+  border: 0px;
+}
+.main-wrapper.dark .navbar .nav-toggler .btn::after {
+  display: none;
+}
+.main-wrapper.dark .navbar .theme-btns svg {
+  fill: var(--dark-color);
+  cursor: pointer;
+  width: 100%;
+}
+.main-wrapper.dark .header_sec {
+  z-index: 2;
+}
+.main-wrapper.dark .header_sec .btn-sec .common-btn {
+  color: var(--light-color);
+}
+.main-wrapper.dark .header_sec .btn-sec .common-btn:hover {
+  background-color: var(--green-color);
+}
+.main-wrapper.dark .footer .social-links .social-icon svg {
+  width: 100%;
+  fill: var(--dark-color);
+}
+
+.main-wrapper.gradient {
+  background: url(../public/images/bg-img-blur.png);
+  background-size: cover;
+  color: var(--dark-color);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /*     &::before {
+      content: '';
+      position: absolute;
+      left: 0px;
+      backdrop-filter: blur(3px);
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+  } */
+}
+.main-wrapper.gradient .text-green {
+  color: var(--green-color);
+}
+.main-wrapper.gradient .navbar .container {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.5960784314);
+}
+.main-wrapper.gradient .navbar .theme-btns svg {
+  fill: var(--dark-color);
+  cursor: pointer;
+  width: 100%;
+}
+.main-wrapper.gradient .header_sec .img-sec .img-wrapper {
+  position: relative;
+}
+.main-wrapper.gradient .header_sec .img-sec .img-wrapper::before {
+  background-color: var(--light-color);
+}
+.main-wrapper.gradient .header_sec .btn-sec .common-btn {
+  color: var(--pure-white);
+  background-color: var(--green-color);
+}
+.main-wrapper.gradient .header_sec .btn-sec .common-btn:hover {
+  color: var(--pure-white);
+  background-color: var(--green-color);
+}
+.main-wrapper.gradient .footer .social-links .social-icon svg {
+  width: 100%;
+  fill: var(--dark-color);
+}
+.main-wrapper.gradient .ServicesCards .serviceCard {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgba(255, 255, 255, 0.3568627451);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+.main-wrapper.gradient .SkillsSec .skillsCard {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgba(255, 255, 255, 0.3568627451);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+
+/* ============ for Theme css  =============== */
+.ServicesCards .serviceCard {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 35px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background-color: rgb(255, 255, 255);
+}
+.ServicesCards .serviceCard .topHead {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 3em;
+}
+.ServicesCards .serviceCard .secHead {
+  font-family: "Jost";
+  margin: 0;
+  margin-bottom: 15px;
+  color: #000;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.ServicesCards .serviceCard .desc {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--dark-color);
+  min-height: 170px;
+}
+.ServicesCards .serviceCard .card-footer {
+  color: var(--dark-color);
+}/*# sourceMappingURL=Styles.css.map */
