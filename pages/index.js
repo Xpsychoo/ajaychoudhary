@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="stylesheet" type="text/css" charSet="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
       </Head>
-      <div className={theme + ' main-wrapper'}>
+      <div className={theme + ' main-wrapper'} style={{backgroundImage : theme == 'gradient' ?  '/images/bg-img-blur.png' : ''}}>
         <HomeScreen />
         <Footer />
       </div>
