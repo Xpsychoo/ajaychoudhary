@@ -38,6 +38,37 @@ html {
   background: #FF0000;
 }
 
+.btn-success {
+  background-color: var(--green-color) !important;
+  display: flex !important;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+.btn-success .svgIcon {
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  display: flex !important;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(10px);
+  width: 0px;
+}
+.btn-success .svgIcon svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+.btn-success:hover {
+  background-color: #4aa18d !important;
+  transition: all 0.5s ease-in-out;
+}
+.btn-success:hover .svgIcon {
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(0px);
+}
+
 .main-wrapper {
   position: relative;
   max-width: 100%;
@@ -273,7 +304,6 @@ html {
 
 .homeSecHead {
   padding: 2em 0px;
-  opacity: 0;
   transition: opacity 1s ease-in-out;
 }
 .homeSecHead .main-head .head {
@@ -297,6 +327,7 @@ html {
   padding: 20px;
   border-radius: 10px;
   background-color: var(--pure-white);
+  position: relative;
 }
 .SkillsSec .skillsCard .header {
   display: flex;
@@ -342,7 +373,6 @@ html {
 }
 .SkillsSec .skillsCard .card-footer {
   text-align: right;
-  position: relative;
 }
 .SkillsSec .skillsCard .card-footer .addMoreBtn {
   color: var(--green-color);
@@ -354,15 +384,76 @@ html {
 }
 .SkillsSec .skillsCard .card-footer .bgWalls {
   position: absolute;
-  left: 0px;
-  bottom: 0px;
-  height: 30px;
-  width: 30px;
+  top: 65%;
+  left: 4%;
+  height: 100px;
+  width: 100px;
+  transform: translate(-7%, 19%);
 }
 .SkillsSec .skillsCard .card-footer .bgWalls svg {
   width: 100%;
   height: 100%;
-  fill: var(--green-color);
+  fill: rgba(112, 198, 176, 0.1411764706);
+}
+
+.ContactUs {
+  position: relative;
+}
+.ContactUs .getintouch {
+  padding: 25px 20px 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgba(255, 255, 255, 0.3568627451);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  height: 100%;
+}
+.ContactUs .getintouch .head {
+  font-size: 15px;
+  text-align: center;
+  font-size: 15px;
+  background: rgba(41, 165, 135, 0.831372549);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+.ContactUs .getintouch .contact-form {
+  margin: 20px 0px 0px;
+}
+.ContactUs .getintouch .contact-form .form-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+.ContactUs .getintouch .contact-form .form-box label {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  margin-bottom: 0px;
+  color: var(--green-color);
+  z-index: 2;
+  line-height: 0px;
+  padding: 5px 7px;
+  transition: all 0.5s ease-in-out;
+}
+.ContactUs .getintouch .contact-form .form-box .form-control {
+  position: relative;
+  border: 2px solid var(--green-color);
+}
+.ContactUs .getintouch .contact-form .form-box .form-control:focus-within + label,
+.ContactUs .getintouch .contact-form .form-box .notEmpty {
+  top: -5px;
+  background-color: #f9faff;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+.ContactUs .getintouch .contact-form .form-box .form-control:focus {
+  box-shadow: 0 0 0 0.2px rgba(119, 163, 230, 0.25);
+}
+.ContactUs .mapWrapper {
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgba(255, 255, 255, 0.3568627451);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
 }
 
 .footer {
@@ -545,6 +636,65 @@ html {
 }
 
 /* ============ for Theme css  =============== */
+.form-send-btn .button {
+  padding: 5px 10px;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-send-btn .button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green-color);
+  border-radius: 10rem;
+  z-index: -2;
+}
+.form-send-btn .button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #1ab790;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.form-send-btn .button:hover {
+  color: #fff;
+}
+.form-send-btn .button:hover:before {
+  width: 100%;
+}
+.form-send-btn .button .svgIcon {
+  width: 15px;
+  height: 15px;
+  margin: 0px 10px 0px -4px;
+  display: flex !important;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(10px);
+}
+.form-send-btn .button .svgIcon svg {
+  rotate: 20deg;
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+
 .ServicesCards .serviceCard {
   position: relative;
   overflow: hidden;

@@ -43,13 +43,13 @@ const HomeScreen = () => {
             <div className={`homeSecHead ${inView ? 'inView' : ''}`} ref={ref}>
                 <WhatIDo />
             </div>
-            <div className={`homeSecHead ${inView ? 'inView' : ''}`}>
+            <div className={`homeSecHead`}>
                 <MySkills />
             </div>
-            <div className={`homeSecHead ${inView ? 'inView' : ''}`}>
+            <div className={`homeSecHead`}>
                 <MyProjects />
             </div>
-            <div className={`homeSecHead ${inView ? 'inView' : ''}`}>
+            <div className={`homeSecHead`}>
                 <ContactUs />
             </div>
         </>
