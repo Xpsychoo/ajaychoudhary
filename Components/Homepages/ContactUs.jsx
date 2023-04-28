@@ -67,7 +67,7 @@ export default function ContactUs() {
                                                     onChange={(e) => setContactValue({ ...contactValue, message: e.target.value })}
                                                     rows="3">
                                                 </textarea>
-                                                <label htmlFor="email" className={`form-label ${contactValue.message ? 'notEmpty' : ''}`}> Message  </label>
+                                                <label htmlFor="message" className={`form-label ${contactValue.message ? 'notEmpty' : ''}`}> Message  </label>
                                             </div>
                                         </div>
                                         <div className="col-xl-12 col-md-12 col-sm-12 col-12">
