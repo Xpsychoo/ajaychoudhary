@@ -792,4 +792,8 @@ html {
     margin: 10px 0px;
     padding: 13px;
   }
+  .SkillsSec .skillsCard {
+    width: 100% !important;
+    margin: 10px;
+  }
 }/*# sourceMappingURL=Styles.css.map */

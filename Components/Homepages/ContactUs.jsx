@@ -8,14 +8,14 @@ export default function ContactUs() {
 
     function submitHandler(e) {
         e.preventDefault();
-        toast.error('Send Message is currently out of service please try again laters...')
+        toast.error('Send Message is not available!')
     }
 
     return (
         <div className="container">
             <div className="main-head">
                 <h3 className="head text-center">
-                    <span className="text-green">- LET'S </span> CONNECT
+                    <span className="text-green"> - LET'S </span> CONNECT
                 </h3>
                 <h5 className="sub_head text-center"> Get
                     <span className="text-green text-cursive"> in touch</span>
