@@ -793,7 +793,12 @@ html {
     padding: 13px;
   }
   .SkillsSec .skillsCard {
-    width: 100% !important;
-    margin: 10px;
+    width: 96% !important;
+    margin: 10px auto;
+    box-shadow: rgba(149, 157, 165, 0) 0px 0px 0px !important;
+  }
+  .ContactUs .mapWrapper,
+  .ContactUs .getintouch {
+    padding: 10px;
   }
 }/*# sourceMappingURL=Styles.css.map */
