@@ -4,9 +4,11 @@ import axios from 'axios'
 import React from 'react'
 import Slider from 'react-slick';
 import Form from 'react-bootstrap/Form';
+import DotsShape from '../Svg/DotsShape';
 
 export default function MySkills() {
-    const [skillsdata, setSkillsdata] = useState([])
+    const [skillsdata, setSkillsdata] = useState([]);
+
     async function getSkillsdata() {
         try {
             const response = await axios.get(BaseUrl + '/api/skills')
@@ -25,30 +27,30 @@ export default function MySkills() {
         slidesToScroll: 1,
         responsive: [
             {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-              }
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
             },
             {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
-              }
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
             },
             {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
             }
-          ]
+        ]
     };
 
 
@@ -85,6 +87,9 @@ export default function MySkills() {
                             </div>
                             <div className="card-footer">
                                 <div className="addMoreBtn">View More</div>
+                                <div className="bgWalls">
+                                    <DotsShape />
+                                </div>
                             </div>
                         </div>
                     })}
