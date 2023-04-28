@@ -488,7 +488,7 @@ html {
         background-color: rgba(255, 255, 255, 0.3568627451);
         backdrop-filter: blur(20px);
         height: 100%;
-        
+
         .head {
             font-size: 15px;
             text-align: center;
@@ -815,7 +815,7 @@ html {
 
 .form-send-btn {
     .button {
-        padding: 5px 10px ;
+        padding: 5px 10px;
         border-radius: 10rem;
         color: #fff;
         text-transform: uppercase;
@@ -827,6 +827,7 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
+
         &:after {
             content: '';
             position: absolute;
@@ -859,6 +860,7 @@ html {
                 width: 100%;
             }
         }
+
         .svgIcon {
             width: 15px;
             height: 15px;
@@ -867,7 +869,7 @@ html {
             align-items: center;
             transition: all 0.5s ease-in-out;
             transform: translateX(10px);
-    
+
             svg {
                 rotate: 20deg;
                 width: 100%;
@@ -1018,8 +1020,16 @@ html {
             padding: 13px;
         }
     }
-    .SkillsSec .skillsCard{
-        width: 100% !important;
-        margin: 10px;
+
+    .SkillsSec .skillsCard {
+        width: 95% !important;
+        margin: 10px auto;
+    }
+
+    .ContactUs {
+        .mapWrapper,
+        .getintouch {
+            padding: 10px;
+        }
     }
 }
