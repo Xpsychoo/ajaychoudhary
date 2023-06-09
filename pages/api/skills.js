@@ -40,18 +40,77 @@ export default function handler(req, res) {
       },
       {
         head: 'NodeJs',
-        description: `It's impressive to hear that you have gained extensive experience 
-        working with Node over the past two years and have completed many successful projects using this powerful platform.
-        Node.js is a powerful, versatile, and widely-used platform for building scalable and efficient web applications.
-         Through your work with Node, you have likely become skilled at leveraging its many features and capabilities,
-          such as its asynchronous, event-driven architecture and its extensive library of modules and packages.
-        But more than just a technical skill set, your experience with Node has likely taught you valuable lessons in teamwork,
-         communication, and problem-solving. Working on large projects with multiple stakeholders requires strong collaboration 
-          and communication skills, as well as the ability to approach challenges with a creative and open mindset.
-        Through your work with Node, you have likely gained a deep understanding of server-side development, 
-        including concepts such as routing, middleware, and database integration. You may have also become proficient 
-        in using popular Node frameworks such as Express.js and Nest.js to build robust and efficient web applications.`,
-        percentage: '40%',
+        description: `With each passing day, my understanding of its fundamental concepts and intricate functionalities has grown, 
+        allowing me to unlock the true potential of this remarkable runtime environment.This newfound freedom has opened up a world 
+        of possibilities, enabling me to craft server-side applications, build robust APIs, and delve into the realm of real-time 
+        communication.But my exploration of Node.js would be incomplete without mentioning Express.js, the delightful web application
+         framework that has become an indispensable companion on my coding odyssey. To work with and explore Node.js would be an 
+         exhilarating adventure, a chance to unlock new realms of innovationand push the boundaries of what can be achieved. With each 
+         line of code, I would strive to craft elegant and efficient solutions, leveraging the power of this remarkable runtime
+          environment to create impactful applications that leave a lasting impression.
+         Node.js has become a true passion of mine, and the mere thought of venturing deeper into its vast ecosystem ignites a fire 
+         within me. I yearn to leverage its event-driven architecture, non-blocking I/O operations, and extensive library ecosystem
+          to create robust and scalable applications that stand the test of time.
+          Moreover, the opportunity to collaborate with fellow Node.js enthusiasts, exchanging ideas, and collectively pushing the 
+          boundaries of what can be accomplished, would be an absolute dream come true. The synergistic energy of a team united by 
+          a shared passion for Node.js would undoubtedly lead to unparalleled growth and innovation.`,
+        percentage: '30%',
+      },
+      {
+        head: 'MongoDB',
+        description: `From the very day I embarked on my Node.js learning journey, an insatiable curiosity led me to dive 
+        headfirst into the captivating world of MongoDB. As the sun rose and set, I delved deeper into its intricacies, 
+        uncovering the profound synergy between this remarkable NoSQL database and the Node.js ecosystem.
+
+        With each passing day, my knowledge expanded, as I eagerly absorbed the nuances of MongoDB's seamless integration
+         with Node.js. I discovered the art of establishing connections, gracefully intertwining the powers of Node.js and MongoDB,
+          enabling me to create dynamic and data-driven applications that transcend conventional boundaries.
+        
+        But it didn't stop there. I hungered for more. I ventured beyond the surface, exploring the enchanting realm of MongoDB 
+        collections, meticulously honing my skills in managing and manipulating data with finesse. From querying and indexing to 
+        aggregation pipelines and advanced querying techniques, I embraced each facet of MongoDB's arsenal with unbridled enthusiasm.
+        
+        Yet, my thirst for knowledge remains unquenched. I yearn to unravel the full potential of MongoDB, to witness its
+         capabilities unfold before my very eyes. Given the opportunity, I would embark on a journey of discovery, delving deeper
+          into MongoDB's vast repertoire of features, unlocking its hidden treasures, and harnessing its power to create 
+          transformative applications.`,
+        percentage: '30%',
+      },
+      {
+        head: 'Express.js',
+        description: `In my exhilarating journey through the realms of Node.js, I found a steadfast companion in Express.js,
+         a dynamic web application framework that propelled my Node.js proficiency to new heights. With its robust features 
+         and extensive module ecosystem, Express.js became an invaluable asset, empowering me to craft remarkable and
+          efficient Node applications.
+
+        Harnessing the power of Express.js, I embarked on a path of boundless creativity and innovation. Its intuitive design 
+        and elegant syntax provided me with the tools to seamlessly handle routing, middleware management, and HTTP request handling,
+         all while maintaining an exquisite balance between simplicity and flexibility.
+        
+        The synergy between Express.js and Node.js was nothing short of extraordinary. Express.js seamlessly integrated with Node.js,
+         allowing me to tap into the vast capabilities of both technologies, resulting in the creation of high-performance applications
+          that transcended conventional boundaries. Together, they formed a formidable duo, amplifying my productivity and fueling 
+          my passion for pushing the limits of what could be achieved.`,
+        percentage: '30%',
+      },
+      {
+        head: 'MUI',
+        description: `Embarking upon the mesmerizing realm of web development, my passionate journey has been illuminated by countless
+         experiences where I traversed the realms of innovation and creativity. Within this captivating odyssey, I found myself irresistibly
+          drawn to the enchanting world of MUI, an awe-inspiring framework that became an integral part of my professional odyssey.
+
+        In the vast expanse of React and Next.js, I had the privilege to unleash my prowess and shape a multitude of projects with the
+         captivating allure of MUI. Like a virtuoso conductor harmonizing symphonies of code, I orchestrated captivating user interfaces,
+          breathing life into digital landscapes with mesmerizing design elements and fluid interactions.
+        
+        With each project, the MUI framework unveiled its boundless potential, empowering me to craft immersive user experiences that 
+        transcended the ordinary. From gracefully responsive layouts that adapted seamlessly to various devices, to meticulously crafted
+         components that danced in unison, MUI became my trusted companion in the quest for pixel-perfect perfection.
+        
+        As I delved deeper into the intricacies of MUI, I witnessed the power of its comprehensive design system, a symphony of meticulously
+         crafted components, icons, and themes. It bestowed upon me the ability to effortlessly orchestrate cohesive aesthetics across projects,
+          effortlessly weaving a thread of visual harmony throughout every pixel and line of code.`,
+        percentage: '60%',
       },
       {
         head: 'HTML',
@@ -116,6 +175,6 @@ export default function handler(req, res) {
         into my work with Tailwind to create intuitive and engaging user interfaces.`,
         percentage: '60%',
       },
-      
+
     ])
 }
