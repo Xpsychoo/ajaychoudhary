@@ -60,7 +60,7 @@ export default function MySkills() {
 
 
     return (
-        <div className="container">
+        <div className="container" id='skills'>
             <div className="main-head">
                 <h3 className="head text-center">  <span className="text-green">Professional</span> Expertise</h3>
                 <h5 className="sub_head text-center"> My <span className="text-green text-cursive">Skills</span> </h5>

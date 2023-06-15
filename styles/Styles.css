@@ -8,6 +8,7 @@
   --grey-color: #a3a5a7;
   --pure-white: #fff;
   --blue-color: #00a6de;
+  --red-color: #ff0000af;
   --cursive-font: "Caveat", cursive;
   --default-font: "Outfit", sans-serif;
   --kanit-font: "Kanit", sans-serif;
@@ -73,7 +74,6 @@ html {
   position: relative;
   max-width: 100%;
   min-height: 100vh;
-  padding-bottom: 40px;
 }
 .main-wrapper .text-green {
   color: var(--green-color);
@@ -121,6 +121,16 @@ html {
   transform: translate(-50%, -50%);
   z-index: 999;
 }
+.navbar .navlinks {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+.navbar .navlinks .list-item {
+  margin: 0px 10px;
+  font-weight: 500;
+}
 .navbar a {
   text-decoration: none;
   color: #000;
@@ -132,7 +142,6 @@ html {
   max-width: 100%;
 }
 .navbar .theme-btns {
-  margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,6 +163,7 @@ html {
 .navbar .nav-toggler {
   cursor: pointer;
   position: relative;
+  display: none;
 }
 .navbar .nav-toggler svg {
   width: 25px;
@@ -448,12 +458,25 @@ html {
 .ContactUs .getintouch .contact-form .form-box .form-control:focus {
   box-shadow: 0 0 0 0.2px rgba(119, 163, 230, 0.25);
 }
+.ContactUs .getintouch .contact-form .form-box .errortext {
+  color: var(--red-color);
+  font-size: 12px;
+}
+.ContactUs .getintouch .contact-form .form-box.error .form-control {
+  position: relative;
+  border: 2px solid var(--red-color);
+}
+.ContactUs .getintouch .contact-form .form-box.error label {
+  color: var(--red-color);
+}
 .ContactUs .mapWrapper {
   padding: 20px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   background-color: rgba(255, 255, 255, 0.3568627451);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
+  height: 100%;
+  min-height: 50vh;
 }
 
 .footer {
@@ -635,6 +658,19 @@ html {
           backdrop-filter: blur(20px);
 }
 
+.sendMailModal .modal-body .image-sec {
+  width: 100%;
+  text-align: center;
+}
+.sendMailModal .modal-body .image-sec img {
+  border-radius: 50%;
+  width: 50%;
+  margin: auto;
+}
+.sendMailModal .modal-body .text-sec {
+  text-align: center;
+}
+
 /* ============ for Theme css  =============== */
 .form-send-btn .button {
   padding: 5px 10px;
@@ -732,6 +768,16 @@ html {
   color: var(--dark-color);
 }
 
+.foot-bottom {
+  margin: 40px 10px 0px;
+  padding: 25px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.455);
+  border-radius: 10px;
+}
+
 @media only screen and (max-width: 500px) {
   .main-wrapper {
     padding: 30px 0px;
@@ -777,6 +823,15 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .navbar .navlinks {
+    display: none;
+  }
+  .navbar .theme-btns {
+    margin-left: auto;
+  }
+  .navbar .nav-toggler {
+    display: block;
   }
   .homeSecHead {
     padding: 10px 10px 30px;

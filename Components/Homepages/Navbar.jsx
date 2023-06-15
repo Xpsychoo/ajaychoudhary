@@ -21,6 +21,13 @@ const Navbar = () => {
                         <img src="/images/main-icon.png" alt="" />
                     </div>
                 </Link>
+                <ul className="navlinks m-auto">
+                    <Link href='#home'> <li className="list-item"> Home </li></Link>
+                    <Link href='#whatido'> <li className="list-item">  What i do  </li></Link>
+                    <Link href='#skills'> <li className="list-item">  My Skills  </li></Link>
+                    <Link href='#projects'> <li className="list-item">  MY Projects  </li></Link>
+                    <Link href='#contactme'> <li className="list-item">  Contact Me  </li></Link>
+                </ul>
                 <div className="theme-btns">
                     {theme === 'light' || theme === 'gradient' ? <span
                         onClick={() => dispatch(nightMode())}
@@ -44,13 +51,18 @@ const Navbar = () => {
                 </div>
                 <div className="nav-toggler">
                     <span className="icon">
-                        
+
                         <DropdownButton variant="none" id="dropdown-basic-button" title={<MenuIcon />}>
-                           <div className="MainMenu">
+                            <div className="MainMenu">
                                 <ul className="listItem">
-                                   <Link href='/'> <li className="list-item">Home</li></Link>
+                                    <Link href='#home'> <li className="list-item">Home</li></Link>
+                                    <Link href='#whatido'> <li className="list-item">  What i do  </li></Link>
+                                    <Link href='#skills'> <li className="list-item">  My Skills  </li></Link>
+                                    <Link href='#projects'> <li className="list-item">  MY Projects  </li></Link>
+                                    <Link href='#contactme'> <li className="list-item">  Contact Me  </li></Link>
+
                                 </ul>
-                           </div>
+                            </div>
                         </DropdownButton>
                     </span>
                 </div>

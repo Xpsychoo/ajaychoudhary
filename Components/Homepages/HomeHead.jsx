@@ -1,10 +1,16 @@
 import React from 'react'
 import DotsShape from '../Svg/DotsShape'
+import { toast } from 'react-hot-toast'
 
 const HomeHead = () => {
+    function downLoadCv() {
+        toast('For networking opportunities, feel free to connect with me on LinkedIn. You can find the link at the bottom-left of the page!', {
+            icon: '😊',
+        });
+    }
     return (
         <>
-            <div className="container">
+            <div className="container" id='home'>
 
                 <span className="dots-shapes top">
                     <DotsShape />
@@ -27,18 +33,18 @@ const HomeHead = () => {
                         <div className="intro-text">
                             <p className="intro">
                                 Currently Living in <span className="text-green"> NOIDA</span>, India. <br />
-                                I have rich experience in <span className="text-green"> Web Design</span>  & Development...
+                                Experienced  <span className="text-green">  Web Developer </span> and <span className="text-green">Web Designer </span>
+                                adept at building
+                                scalable software systems for diverse user bases.
+                                Committed to solving problems and delivering optimal, cost-effective solutions for clients.
                             </p>
                         </div>
 
                         <div className="btn-sec">
                             <div className="cv-btn ">
-                                <button className="common-btn">Download CV</button>
+                                <button onClick={() => downLoadCv()} className="common-btn">Connect Now</button>
                             </div>
                         </div>
-
-
-
                     </div>
                     <div className="col-xl-6 col-md-6 col-sm-12 col-12">
                         <div className="img-sec">

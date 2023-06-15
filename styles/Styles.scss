@@ -9,6 +9,7 @@
     --grey-color: #a3a5a7;
     --pure-white: #fff;
     --blue-color: #00a6de;
+    --red-color: #ff0000af;
     --cursive-font: 'Caveat', cursive;
     --default-font: 'Outfit', sans-serif;
     --kanit-font: 'Kanit', sans-serif;
@@ -83,7 +84,6 @@ html {
     position: relative;
     max-width: 100%;
     min-height: 100vh;
-    padding-bottom: 40px;
 
     .text-green {
         color: var(--green-color);
@@ -133,6 +133,17 @@ html {
         transform: translate(-50%, -50%);
         z-index: 999;
     }
+    .navlinks{
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+
+        .list-item{
+            margin: 0px 10px;
+            font-weight: 500;
+        }
+    }
 
     a {
         text-decoration: none;
@@ -148,7 +159,6 @@ html {
     }
 
     .theme-btns {
-        margin-left: auto;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -175,7 +185,7 @@ html {
     .nav-toggler {
         cursor: pointer;
         position: relative;
-
+        display: none;
         svg {
             width: 25px;
             fill: var(--dark-color);
@@ -534,6 +544,21 @@ html {
                 .form-control:focus {
                     box-shadow: 0 0 0 0.2px rgba(119, 163, 230, 0.25);
                 }
+
+                .errortext{
+                    color: var(--red-color);
+                    font-size: 12px;
+                }
+
+                &.error{
+                    .form-control {
+                        position: relative;
+                        border: 2px solid var(--red-color);
+                    }
+                    label{
+                        color: var(--red-color);
+                    }
+                }
             }
 
         }
@@ -544,6 +569,8 @@ html {
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         background-color: rgba(255, 255, 255, 0.3568627451);
         backdrop-filter: blur(20px);
+        height: 100%;
+        min-height: 50vh;
     }
 }
 
@@ -811,6 +838,25 @@ html {
     }
 }
 
+.sendMailModal{
+    .modal-body{
+        .image-sec{
+            width: 100%;
+            text-align: center;
+
+            img{
+                border-radius: 50%;
+                width: 50%;
+                margin: auto;
+            }
+        }
+
+        .text-sec{
+            text-align: center;
+        }
+    }
+}
+
 /* ============ for Theme css  =============== */
 
 .form-send-btn {
@@ -922,6 +968,14 @@ html {
         }
     }
 }
+.foot-bottom{
+    margin: 40px 10px 0px;
+    padding: 25px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.455);
+    border-radius: 10px;
+}
 
 @media only screen and (max-width: 500px) {
     .main-wrapper {
@@ -998,6 +1052,18 @@ html {
         }
     }
 
+
+    .navbar{
+        .navlinks {
+            display: none;
+        }
+        .theme-btns{
+            margin-left: auto;
+        }
+        .nav-toggler{
+            display: block;
+        }
+    }
 
     .homeSecHead {
         padding: 10px 10px 30px;

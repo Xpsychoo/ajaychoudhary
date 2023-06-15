@@ -63,10 +63,6 @@ export default function handler(req, res) {
         In this symposium of self-made marvels, behold the culmination of my journey—a testament to my perseverance, 
         my unwavering dedication to the craft. This is my personal project, a testament to the boundless depths of my 
         learning and the infinite possibilities of creation.
-        
-        
-        
-        
         `
     },
     {

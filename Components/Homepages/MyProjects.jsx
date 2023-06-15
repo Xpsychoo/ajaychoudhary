@@ -61,7 +61,7 @@ export default function MyProjects() {
 
 
     return (
-        <div className="container">
+        <div className="container" id='projects'>
             <div className="main-head">
                 <h3 className="head text-center">  <span className="text-green">MY</span> Projects</h3>
                 <h5 className="sub_head text-center"> Projects <span className="text-green text-cursive">I&apos;ve Worked on</span> </h5>

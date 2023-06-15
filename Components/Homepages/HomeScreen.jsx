@@ -49,7 +49,7 @@ const HomeScreen = () => {
             <div className={`homeSecHead`}>
                 <MyProjects />
             </div>
-            <div className={`homeSecHead`}>
+            <div className={`homeSecHead`} style={{paddingBottom: '0px'}}>
                 <ContactUs />
             </div>
         </>
