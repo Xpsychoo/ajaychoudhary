@@ -1,7 +1,7 @@
 import React from 'react'
 import DotsShape from '../Svg/DotsShape'
 import { toast } from 'react-hot-toast'
-
+import Link from 'next/link'
 const HomeHead = () => {
     function downLoadCv() {
         toast('For networking opportunities, feel free to connect with me on LinkedIn. You can find the link at the bottom-left of the page!', {
@@ -42,7 +42,7 @@ const HomeHead = () => {
 
                         <div className="btn-sec">
                             <div className="cv-btn ">
-                                <button onClick={() => downLoadCv()} className="common-btn">Connect Now</button>
+                               <Link href='#contactme'><button className="common-btn">Connect Now</button></Link> 
                             </div>
                         </div>
                     </div>
