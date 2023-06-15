@@ -39,6 +39,18 @@ export default function handler(req, res) {
         percentage: '65%',
       },
       {
+        head: 'AngularJs',
+        description: `Embarking on a captivating journey with AngularJS, I have been captivated by its rich set of features and impeccable 
+        functionality. As I delve deeper into the realm of this remarkable framework, my fervor for leveraging its capabilities only grows 
+        stronger. From employing its service-oriented architecture for seamless API integration to harnessing its versatile pipes for streamlined 
+        data transformation, every facet of AngularJS has left an indelible mark on my professional repertoire.
+        AngularJS has become an integral part of my workflow, empowering me to deliver robust applications by skillfully utilizing its service module.
+        With a profound understanding of AngularJS services, pipes, and component reusability, I am primed to deliver exceptional results and 
+        contribute to innovative projects. Given the chance, I will ensure  every aspect of AngularJS is 
+        harnessed effectively, leaving no stone unturned in delivering excellence.`,
+        percentage: '35%',
+      },
+      {
         head: 'NodeJs',
         description: `With each passing day, my understanding of its fundamental concepts and intricate functionalities has grown, 
         allowing me to unlock the true potential of this remarkable runtime environment.This newfound freedom has opened up a world 

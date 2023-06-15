@@ -12,6 +12,18 @@ const WhatIDo = () => {
                     <div className="row">
                         <div className="col-xl-4 col-md-4 col-sm-12 col-12">
                             <div className="serviceCard">
+                                <div className="topHead">Web Development</div>
+                                <div className="secHead">Web & software Development</div>
+                                <div className="desc">
+                                    As a software developer with 1.6 years of experience, I have honed my skills in technologies such as ReactJS,
+                                    NextJS, and JavaScript. I am a detail-oriented and driven individual who is passionate about
+                                    creating high-quality software solutions.
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div className="col-xl-4 col-md-4 col-sm-12 col-12">
+                            <div className="serviceCard">
                                 <div className="topHead">Web Design</div>
                                 <div className="secHead">Web Designing</div>
                                 <div className="desc">
@@ -21,18 +33,6 @@ const WhatIDo = () => {
                                     Adobe photoshop, Adobe XD, and Figma, and am always
                                     up-to-date with the latest design trends and technologies
                                 </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-4 col-md-4 col-sm-12 col-12">
-                            <div className="serviceCard">
-                                <div className="topHead">Web Development</div>
-                                <div className="secHead">Web & software Development</div>
-                                <div className="desc">
-                                    As a software developer with 1.6 years of experience, I have honed my skills in technologies such as ReactJS,
-                                    NextJS, and JavaScript. I am a detail-oriented and driven individual who is passionate about
-                                    creating high-quality software solutions.
-                                </div>
-                               
                             </div>
                         </div>
                         <div className="col-xl-4 col-md-4 col-sm-12 col-12">
