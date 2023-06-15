@@ -43,6 +43,33 @@ export default function handler(req, res) {
              and I am incredibly proud of the result.`
     },
     {
+        name: 'Bucket of Apps',
+        link: 'https://appsbucket.netlify.app',
+        description: `Behold, dear reader, the fruit of my labor, my cherished personal endeavor! With an 
+        unwavering determination and a thirst for knowledge, I embarked upon the vast realm of Angular, 
+        weaving a tapestry of creativity and skill.
+
+        Within this ethereal creation of mine, a harmonious symphony of elements dances gracefully. 
+        It houses the sanctum of thoughts, the sacred sanctuary of written expression—blog posts brought to life,
+         their very essence imbued within the digital realm. Through this opus, I grant myself the power to edit, 
+         to mold, and even to obliterate, for such is the nature of creation.
+        
+        But the glory does not cease with mere words. Nay, it expands, encompassing a multitude of components,
+         each bearing the mark of my ingenuity. Like a celestial timekeeper, an analog clock component adorns this opulent tableau,
+          its rhythmic ticks echoing the passage of moments. And behold, a list of tasks, dutifully awaiting my command,
+           for within this realm, I am the architect of productivity. To further enthrall, a calculator,
+            an intellectual marvel, stands ready to unravel the mysteries of numbers, ensuring precision in every calculation.
+        
+        In this symposium of self-made marvels, behold the culmination of my journey—a testament to my perseverance, 
+        my unwavering dedication to the craft. This is my personal project, a testament to the boundless depths of my 
+        learning and the infinite possibilities of creation.
+        
+        
+        
+        
+        `
+    },
+    {
         name: 'E-Commerce App',
         link: 'https://xpsychoo.github.io/shopeyApp',
         description: `As I delved into the world of web application development on React,
