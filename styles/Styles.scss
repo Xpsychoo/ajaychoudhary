@@ -10,6 +10,11 @@
     --pure-white: #fff;
     --blue-color: #00a6de;
     --red-color: #ff0000af;
+    --gradient-color-1: 255, 255, 255;
+    --gradient-color-2: 13, 110, 253;
+    --accent-color: 255, 228, 132;
+    --violet-color: 112.520718, 44.062154, 249.437846;
+    --bd-pink-rgb: 214, 51, 132;
     --cursive-font: 'Caveat', cursive;
     --default-font: 'Outfit', sans-serif;
     --kanit-font: 'Kanit', sans-serif;
@@ -133,13 +138,14 @@ html {
         transform: translate(-50%, -50%);
         z-index: 999;
     }
-    .navlinks{
+
+    .navlinks {
         text-decoration: none;
         display: flex;
         align-items: center;
         list-style-type: none;
 
-        .list-item{
+        .list-item {
             margin: 0px 10px;
             font-weight: 500;
         }
@@ -164,16 +170,21 @@ html {
         justify-content: center;
 
         .icon {
-            margin: 0px 10px;
+            margin-left: 10px;
             width: 25px;
             height: 25px;
-        }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--green-color);
+            padding: 5px;
+            border-radius: 50%;
 
-        .icon.brush {
-            margin: 0px 10px;
-            width: 18px;
-        }
+            svg {
+                fill: var(--pure-white) !important;
+            }
 
+        }
 
         svg {
             cursor: pointer;
@@ -186,14 +197,24 @@ html {
         cursor: pointer;
         position: relative;
         display: none;
-        svg {
-            width: 25px;
-            fill: var(--dark-color);
-        }
 
-        .dropdown-toggle,
-        .btn {
+        .dropdown-toggle {
+            margin-left: 10px;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--green-color);
+            padding: 5px;
+            border-radius: 50%;
             border: 0px !important;
+
+            svg {
+                fill: var(--pure-white) !important;
+                width: 100%;
+                height: 20px;
+            }
 
             &:after {
                 display: none;
@@ -495,7 +516,7 @@ html {
     .getintouch {
         padding: 25px 20px 20px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        background-color: rgba(255, 255, 255, 0.3568627451);
+        background-color: #ffffffef;
         backdrop-filter: blur(20px);
         height: 100%;
 
@@ -545,17 +566,18 @@ html {
                     box-shadow: 0 0 0 0.2px rgba(119, 163, 230, 0.25);
                 }
 
-                .errortext{
+                .errortext {
                     color: var(--red-color);
                     font-size: 12px;
                 }
 
-                &.error{
+                &.error {
                     .form-control {
                         position: relative;
                         border: 2px solid var(--red-color);
                     }
-                    label{
+
+                    label {
                         color: var(--red-color);
                     }
                 }
@@ -567,7 +589,7 @@ html {
     .mapWrapper {
         padding: 20px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        background-color: rgba(255, 255, 255, 0.3568627451);
+        background-color: #ffffffef;
         backdrop-filter: blur(20px);
         height: 100%;
         min-height: 50vh;
@@ -749,11 +771,21 @@ html {
 }
 
 .main-wrapper.gradient {
-    background: url(../public/images/bg-img-blur.png);
+    background: var(--pure-white);
+    background-image: linear-gradient(180deg, rgba(var(--gradient-color-1), .01),
+            rgba(var(--gradient-color-1), 1) 85%), radial-gradient(ellipse at top left, rgba(var(--gradient-color-2), .5),
+            transparent 50%), radial-gradient(ellipse at top right, rgba(var(--accent-color), .5), transparent 50%),
+        radial-gradient(ellipse at center right, rgba(var(--violet-color), .5), transparent 50%),
+        radial-gradient(ellipse at center left, rgba(var(--bd-pink-rgb), .5), transparent 50%);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    max-width: 100vw;
+    /*  background: url(../public/images/bg-img-blur.png);
     background-size: cover;
     color: var(--dark-color);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 
     /*     &::before {
         content: '';
@@ -838,20 +870,20 @@ html {
     }
 }
 
-.sendMailModal{
-    .modal-body{
-        .image-sec{
+.sendMailModal {
+    .modal-body {
+        .image-sec {
             width: 100%;
             text-align: center;
 
-            img{
+            img {
                 border-radius: 50%;
                 width: 50%;
                 margin: auto;
             }
         }
 
-        .text-sec{
+        .text-sec {
             text-align: center;
         }
     }
@@ -968,7 +1000,8 @@ html {
         }
     }
 }
-.foot-bottom{
+
+.foot-bottom {
     margin: 40px 10px 0px;
     padding: 25px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -979,7 +1012,7 @@ html {
 
 @media only screen and (max-width: 500px) {
     .main-wrapper {
-        padding: 30px 0px;
+        padding: 30px 0px 0px;
 
         &.dark,
         &.light {
@@ -996,6 +1029,25 @@ html {
                 &.bottom {
                     right: auto;
                 }
+            }
+        }
+
+        .foot-bottom {
+            display: none;
+        }
+
+        .footer {
+            position: relative;
+            padding: 10px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.455);
+            border-radius: 10px;
+            width: 95%;
+            margin: 10px auto;
+
+            .social-links {
+                justify-content: center;
             }
         }
     }
@@ -1039,9 +1091,10 @@ html {
 
         .btn-sec {
             .cv-btn {
-                a{
+                a {
                     text-decoration: none;
                 }
+
                 .common-btn {
                     font-style: 12px;
                     line-height: 30px;
@@ -1056,20 +1109,22 @@ html {
     }
 
 
-    .navbar{
+    .navbar {
         .navlinks {
             display: none;
         }
-        .theme-btns{
+
+        .theme-btns {
             margin-left: auto;
         }
-        .nav-toggler{
+
+        .nav-toggler {
             display: block;
         }
     }
 
     .homeSecHead {
-        padding: 10px 10px 30px;
+        padding: 10px 0px 30px;
 
         .main-head {
             .head {
@@ -1097,9 +1152,11 @@ html {
     }
 
     .ContactUs {
+
         .mapWrapper,
         .getintouch {
             padding: 10px;
+            background-color: var(--pure-white);
         }
     }
 }

@@ -47,7 +47,8 @@ export default function MySkills() {
                 breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    arrows : false,
                 }
             }
         ]

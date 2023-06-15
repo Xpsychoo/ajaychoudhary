@@ -57,8 +57,7 @@ export default function ContactUs() {
                     </h5>
                 </div>
                 <div className="ContactUs">
-                    <div className="row">
-                        <div className="row">
+                <div className="row">
                             <div className="col-xl-6 col-md-6 col-sm-12 col-12">
                                 <div className="getintouch">
                                     <div className="head">
@@ -164,7 +163,6 @@ export default function ContactUs() {
                                 </div>
                             </div>
                         </div>
-                    </div>
 
                 </div>
 

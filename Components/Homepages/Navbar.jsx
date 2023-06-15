@@ -4,9 +4,10 @@ import Sun from '../Svg/Sun'
 import Moon from '../Svg/Moon'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useSelector, useDispatch } from 'react-redux'
-import { nightMode, lightMode, gradient } from '../../store/themeSlice'
+import { nightMode, lightMode, gradient, gimage } from '../../store/themeSlice'
 import MenuIcon from '../Svg/MenuIcon';
 import BrushIcon from '../Svg/BrushIcon';
+import ImageIcon from '../Svg/ImageIcon';
 
 const Navbar = () => {
 
@@ -29,14 +30,14 @@ const Navbar = () => {
                     <Link href='#contactme'> <li className="list-item">  Contact Me  </li></Link>
                 </ul>
                 <div className="theme-btns">
-                    {theme === 'light' || theme === 'gradient' ? <span
+                    {theme === 'light' || theme === 'gradient' || theme === 'gradient image' ? <span
                         onClick={() => dispatch(nightMode())}
                         title='Dark Mode'
                         className="icon">
                         <Moon />
                     </span> : null}
 
-                    {theme === 'dark' || theme === 'gradient' ? <span
+                    {theme === 'dark' || theme === 'gradient' || theme === 'gradient image' ? <span
                         className="icon"
                         title='Light Mode'
                         onClick={() => dispatch(lightMode())}>
@@ -47,6 +48,12 @@ const Navbar = () => {
                         title='Gradient Mode'
                         onClick={() => dispatch(gradient())}>
                         <BrushIcon />
+                    </span>}
+                    {theme === 'gradient image' ? null : <span
+                        className="icon brush"
+                        title='Gradient Mode'
+                        onClick={() => dispatch(gimage())}>
+                        <ImageIcon />
                     </span>}
                 </div>
                 <div className="nav-toggler">

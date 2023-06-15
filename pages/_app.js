@@ -20,15 +20,9 @@ export default function App({ Component, pageProps }) {
           toastOptions={{
             // Define default options
             className: '',
-            duration: 5000,
-            style: {
-              background: '#fff',
-              color: '#000',
-            },
-
-            // Default options for specific types
+            duration: 2000,
             success: {
-              duration: 3000,
+              duration: 1000,
               theme: {
                 primary: 'green',
                 secondary: 'black',

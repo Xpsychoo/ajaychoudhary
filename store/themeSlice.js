@@ -21,9 +21,13 @@ export const themeSlice = createSlice({
             state.value = 'gradient'
             toast.success('Gradient Mode Enabled')
         },
+        gimage: (state) => {
+            state.value = 'gradient image'
+            toast.success('Gradient image Mode Enabled')
+        },
     },
 })
 
-export const { nightMode, lightMode, gradient} = themeSlice.actions
+export const { nightMode, lightMode, gradient, gimage} = themeSlice.actions
 
 export default themeSlice.reducer
