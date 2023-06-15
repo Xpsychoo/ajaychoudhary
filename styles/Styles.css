@@ -815,6 +815,9 @@ html {
   .header_sec .intro-text .intro {
     font-size: 14px;
   }
+  .header_sec .btn-sec .cv-btn a {
+    text-decoration: none;
+  }
   .header_sec .btn-sec .cv-btn .common-btn {
     font-style: 12px;
     line-height: 30px;
