@@ -8,9 +8,11 @@ import { nightMode, lightMode, gradient, gimage } from '../../store/themeSlice'
 import MenuIcon from '../Svg/MenuIcon';
 import BrushIcon from '../Svg/BrushIcon';
 import ImageIcon from '../Svg/ImageIcon';
+import CrossIcon from '../Svg/CrossIcon';
 
 const Navbar = () => {
 
+    const [themeToggler, setThemeToggler] = useState(false)
     const theme = useSelector((state) => state.themeMode.value)
     const dispatch = useDispatch()
 
@@ -30,35 +32,43 @@ const Navbar = () => {
                     <Link href='#contactme'> <li className="list-item">  Contact Me  </li></Link>
                 </ul>
                 <div className="theme-btns">
-                    {theme === 'light' || theme === 'gradient' || theme === 'gradient image' ? <span
-                        onClick={() => dispatch(nightMode())}
-                        title='Dark Mode'
-                        className="icon">
-                        <Moon />
-                    </span> : null}
+                    {!themeToggler ?
+                        <span className="selecThemeBtn" onClick={() => setThemeToggler(!themeToggler)}>
+                            <img src="/images/brush.png" alt="select Theme" />
+                        </span> :
+                        <div className="btnsbox">
+                            <div className="closeThemeBtn" onClick={() => setThemeToggler(!themeToggler)}>
+                                <CrossIcon />
+                            </div>
+                            {theme === 'light' || theme === 'gradient' || theme === 'gradient image' ? <span
+                                onClick={() => dispatch(nightMode())}
+                                title='Dark Mode'
+                                className="icon">
+                                <Moon />
+                            </span> : null}
 
-                    {theme === 'dark' || theme === 'gradient' || theme === 'gradient image' ? <span
-                        className="icon"
-                        title='Light Mode'
-                        onClick={() => dispatch(lightMode())}>
-                        <Sun />
-                    </span> : null}
-                    {theme === 'gradient' ? null : <span
-                        className="icon brush"
-                        title='Gradient Mode'
-                        onClick={() => dispatch(gradient())}>
-                        <BrushIcon />
-                    </span>}
-                    {theme === 'gradient image' ? null : <span
-                        className="icon brush"
-                        title='Gradient Mode'
-                        onClick={() => dispatch(gimage())}>
-                        <ImageIcon />
-                    </span>}
+                            {theme === 'dark' || theme === 'gradient' || theme === 'gradient image' ? <span
+                                className="icon"
+                                title='Light Mode'
+                                onClick={() => dispatch(lightMode())}>
+                                <Sun />
+                            </span> : null}
+                            {theme === 'gradient' ? null : <span
+                                className="icon brush"
+                                title='Gradient Mode'
+                                onClick={() => dispatch(gradient())}>
+                                <BrushIcon />
+                            </span>}
+                            {theme === 'gradient image' ? null : <span
+                                className="icon brush"
+                                title='Gradient second'
+                                onClick={() => dispatch(gimage())}>
+                                <ImageIcon />
+                            </span>}
+                        </div>}
                 </div>
                 <div className="nav-toggler">
                     <span className="icon">
-
                         <DropdownButton variant="none" id="dropdown-basic-button" title={<MenuIcon />}>
                             <div className="MainMenu">
                                 <ul className="listItem">

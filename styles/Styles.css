@@ -151,6 +151,48 @@ html {
   align-items: center;
   justify-content: center;
 }
+.navbar .theme-btns .selecThemeBtn {
+  background-color: var(--pure-white);
+  color: var(--pure-white);
+  border-radius: 5px;
+  cursor: pointer;
+  width: 30px;
+  height: auto;
+}
+.navbar .theme-btns .selecThemeBtn img {
+  width: 100%;
+}
+.navbar .theme-btns .btnsbox {
+  border: 1px solid var(--green-color);
+  display: flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 5px;
+  position: relative;
+}
+.navbar .theme-btns .btnsbox .closeThemeBtn {
+  position: absolute;
+  right: 0px;
+  background-color: var(--pure-white);
+  border: 1px solid var(--green-color);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 50%;
+  left: 0px;
+  top: 0px;
+  transform: translate(-50%, -50%);
+}
+.navbar .theme-btns .btnsbox .closeThemeBtn svg {
+  width: 100%;
+  fill: var(--green-color) !important;
+}
+.navbar .theme-btns .btnsbox .icon:first-of-type {
+  margin-left: 0px;
+}
 .navbar .theme-btns .icon {
   margin-left: 10px;
   width: 25px;
@@ -201,10 +243,34 @@ html {
 .navbar .nav-toggler .dropdown-menu.show {
   right: 0px !important;
   left: auto !important;
+  top: 13px !important;
+  border: 1px solid #29a587;
+}
+.navbar .nav-toggler .dropdown-menu.show .MainMenu {
+  position: relative;
+}
+.navbar .nav-toggler .dropdown-menu.show .MainMenu::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  right: 5px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #29a587;
+}
+.navbar .nav-toggler .dropdown-menu.show .MainMenu::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  right: 5px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
 }
 .navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem {
   list-style-type: none;
   margin-bottom: 0px;
+  padding-left: 15px;
 }
 .navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem a {
   color: var(--dark-color);
@@ -817,6 +883,16 @@ html {
   .main-wrapper.dark .dots-shapes.bottom, .main-wrapper.light .dots-shapes.bottom {
     right: auto;
   }
+  .main-wrapper.gradient .header_sec .dots-shapes.top {
+    right: 0px;
+    top: 0px;
+    left: auto;
+    z-index: 0;
+    width: 140px;
+  }
+  .main-wrapper.gradient .header_sec .dots-shapes.top svg {
+    fill: rgba(26, 183, 144, 0.3294117647);
+  }
   .main-wrapper .foot-bottom {
     display: none;
   }
@@ -829,7 +905,7 @@ html {
     background-color: rgba(255, 255, 255, 0.455);
     border-radius: 10px;
     width: 95%;
-    margin: 10px auto;
+    margin: 24px auto 10px;
   }
   .main-wrapper .footer .social-links {
     justify-content: center;
@@ -894,6 +970,9 @@ html {
     width: 96% !important;
     margin: 10px auto;
     box-shadow: rgba(149, 157, 165, 0) 0px 0px 0px !important;
+  }
+  .ContactUs .mapWrapper {
+    margin-top: 15px;
   }
   .ContactUs .mapWrapper,
   .ContactUs .getintouch {
