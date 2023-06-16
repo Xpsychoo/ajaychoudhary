@@ -1,13 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import DotsShape from '../Svg/DotsShape'
-import { toast } from 'react-hot-toast'
 import Link from 'next/link'
 const HomeHead = () => {
-    function downLoadCv() {
-        toast('For networking opportunities, feel free to connect with me on LinkedIn. You can find the link at the bottom-left of the page!', {
-            icon: '😊',
-        });
-    }
+    
+    const words = ['Web Developer', 'Web Designer', 'Software Developer'];
+    const [part, setPart] = useState('');
+    const [i, setI] = useState(0);
+    const [offset, setOffset] = useState(0);
+    const [forwards, setForwards] = useState(true);
+    const speed = 130;
+    
+    useEffect(() => {
+      const interval = setInterval(() => {
+        if (forwards) {
+          if (offset >= words[i].length) {
+            setForwards(false);
+            setI((i + 1) % words.length);
+            setOffset(0);
+          }
+        } else {
+          if (offset === 0) {
+            setForwards(true);
+            setI((i + 1) % words.length);
+          }
+        }
+        const newPart = words[i].substr(0, offset);
+        setOffset((offset + (forwards ? 1 : -1)) % (words[i].length + 1));
+        setPart(newPart);
+      }, speed);
+    
+      return () => clearInterval(interval);
+    }, [forwards, i, offset, words]);
     return (
         <>
             <div className="container">
@@ -27,7 +50,7 @@ const HomeHead = () => {
                             </div>
 
                             <div className="info-text">
-                                <h4 className="info">i am <span className="big">Web <span className="text-green"> & </span> Software <span className="text-green"> DEVELOPER</span> </span></h4>
+                            <div className="word"> i am <span className="text-green">{part}</span> </div>
                             </div>
                         </div>
                         <div className="intro-text">
@@ -42,7 +65,7 @@ const HomeHead = () => {
 
                         <div className="btn-sec">
                             <div className="cv-btn ">
-                               <Link href='#contactme'><button className="common-btn">Connect Now</button></Link> 
+                                <Link href='#contactme'><button className="common-btn">Connect Now</button></Link>
                             </div>
                         </div>
                     </div>

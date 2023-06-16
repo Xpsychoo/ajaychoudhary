@@ -433,13 +433,28 @@ html {
             }
         }
 
-        .info-text {
+      /*   .info-text {
+
+
+
             .info {
                 font-size: 20px;
 
                 .big {
                     font-size: 30px;
                 }
+            }
+
+        } */
+    }
+
+    .info-text {
+        .word {
+            margin: auto;
+            font-size: 28px;
+            .text-green{
+                font-size: 35px;
+                font-weight: 500;
             }
         }
     }
@@ -973,13 +988,15 @@ html {
     align-items: center;
     justify-content: center;
 
-    .modal-header{
+    .modal-header {
         padding: 10px 25px 10px 15px;
-        .modal-title{
+
+        .modal-title {
             font-size: 16px;
             color: var(--green-color);
         }
-        .btn-close{
+
+        .btn-close {
             padding: 5px;
             font-size: 12px;
             border: 2px solid var(--green-color);
@@ -988,14 +1005,15 @@ html {
         }
     }
 
-    .modal-footer{
+    .modal-footer {
         border-color: #38cda8;
-        .btn-primary{
+
+        .btn-primary {
             padding: 5px 15px;
             background-color: var(--green-color);
             border: 0px;
 
-            &:hover{
+            &:hover {
                 background-color: #38cda8;
             }
         }
@@ -1284,9 +1302,11 @@ html {
             .info-text {
                 font-size: 15px;
 
-                .info {
-                    .big {
-                        font-size: 18px;
+                .word {
+                    font-size: 25px;
+                    .text-green {
+                        font-weight: 500;
+                        font-size: 30px;
                     }
                 }
             }

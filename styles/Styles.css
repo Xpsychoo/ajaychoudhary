@@ -353,6 +353,19 @@ html {
 }
 .header_sec .name-box {
   height: 100%;
+  /*   .info-text {
+
+
+
+        .info {
+            font-size: 20px;
+
+            .big {
+                font-size: 30px;
+            }
+        }
+
+    } */
 }
 .header_sec .name-box .hello-text .hello {
   font-size: 25px;
@@ -362,11 +375,13 @@ html {
   font-size: 80px;
   font-weight: 600;
 }
-.header_sec .name-box .info-text .info {
-  font-size: 20px;
+.header_sec .info-text .word {
+  margin: auto;
+  font-size: 28px;
 }
-.header_sec .name-box .info-text .info .big {
-  font-size: 30px;
+.header_sec .info-text .word .text-green {
+  font-size: 35px;
+  font-weight: 500;
 }
 .header_sec .intro-text .intro {
   font-size: 18px;
@@ -1008,8 +1023,12 @@ html {
   .header_sec .name-box .info-text {
     font-size: 15px;
   }
-  .header_sec .name-box .info-text .info .big {
-    font-size: 18px;
+  .header_sec .name-box .info-text .word {
+    font-size: 25px;
+  }
+  .header_sec .name-box .info-text .word .text-green {
+    font-weight: 500;
+    font-size: 30px;
   }
   .header_sec .intro-text .intro {
     font-size: 14px;
