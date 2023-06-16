@@ -74,9 +74,9 @@ export default function MySkills() {
                                 <div className="name">
                                     {head}
                                 </div>
-                                <div className="perCentage">
+                                {/* <div className="perCentage">
                                     {percentage}
-                                </div>
+                                </div> */}
                             </div>
                             <div className="percentRange">
                                 <div className="percentageBar"></div>
@@ -87,7 +87,7 @@ export default function MySkills() {
                                 {description.substring(0, 360) + '...'}
                             </div>
                             <div className="card-footer">
-                                <div className="addMoreBtn">View More</div>
+                                {/* <div className="addMoreBtn">View More</div> */}
                                 <div className="bgWalls">
                                     <DotsShape />
                                 </div>

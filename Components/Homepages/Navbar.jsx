@@ -28,7 +28,7 @@ const Navbar = () => {
                     <Link href='#home'> <li className="list-item"> Home </li></Link>
                     <Link href='#whatido'> <li className="list-item">  What i do  </li></Link>
                     <Link href='#skills'> <li className="list-item">  My Skills  </li></Link>
-                    <Link href='#projects'> <li className="list-item">  MY Projects  </li></Link>
+                    <Link href='#projects'> <li className="list-item">  My Projects  </li></Link>
                     <Link href='#contactme'> <li className="list-item">  Contact Me  </li></Link>
                 </ul>
                 <div className="theme-btns">
