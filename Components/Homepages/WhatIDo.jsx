@@ -3,7 +3,7 @@ import React from 'react'
 const WhatIDo = () => {
     return (
         <>
-            <div className="container" id='whatido'>
+            <div className="container">
                 <div className="main-head">
                     <h3 className="head text-center">  <span className="text-green">What</span> I do</h3>
                     <h5 className="sub_head text-center"> My <span className="text-green text-cursive">Services</span> </h5>

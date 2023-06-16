@@ -10,7 +10,7 @@ const HomeHead = () => {
     }
     return (
         <>
-            <div className="container" id='home'>
+            <div className="container">
 
                 <span className="dots-shapes top">
                     <DotsShape />

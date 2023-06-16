@@ -47,7 +47,7 @@ export default function ContactUs() {
 
     return (
         <>
-            <div className="container" id='contactme'>
+            <div className="container">
                 <div className="main-head">
                     <h3 className="head text-center">
                         <span className="text-green"> - LET'S </span> CONNECT

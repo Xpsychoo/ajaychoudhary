@@ -37,19 +37,19 @@ const HomeScreen = () => {
     return (
         <>
             <Navbar />
-            <div className="header_sec">
+            <div className="header_sec" id='home'>
                 <HomeHead />
             </div>
-            <div className={`homeSecHead ${inView ? 'inView' : ''}`} ref={ref}>
+            <div className={`homeSecHead ${inView ? 'inView' : ''}`} ref={ref} id='whatido'>
                 <WhatIDo />
             </div>
-            <div className={`homeSecHead`}>
+            <div className={`homeSecHead`} id='skills'>
                 <MySkills />
             </div>
-            <div className={`homeSecHead`}>
+            <div className={`homeSecHead`} id='projects'>
                 <MyProjects />
             </div>
-            <div className={`homeSecHead`} style={{paddingBottom: '0px'}}>
+            <div className={`homeSecHead`} style={{paddingBottom: '0px'}} id='contactme'>
                 <ContactUs />
             </div>
         </>
