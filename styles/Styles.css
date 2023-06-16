@@ -154,7 +154,7 @@ html {
 .navbar .theme-btns .selecThemeBtn {
   background-color: var(--pure-white);
   color: var(--pure-white);
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
   width: 30px;
   height: auto;
@@ -245,6 +245,7 @@ html {
   left: auto !important;
   top: 13px !important;
   border: 1px solid #29a587;
+  padding: 0px;
 }
 .navbar .nav-toggler .dropdown-menu.show .MainMenu {
   position: relative;
@@ -252,7 +253,7 @@ html {
 .navbar .nav-toggler .dropdown-menu.show .MainMenu::before {
   content: "";
   position: absolute;
-  top: -18px;
+  top: -10px;
   right: 5px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
@@ -261,7 +262,7 @@ html {
 .navbar .nav-toggler .dropdown-menu.show .MainMenu::after {
   content: "";
   position: absolute;
-  top: -16px;
+  top: -8.7px;
   right: 5px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
@@ -270,13 +271,25 @@ html {
 .navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem {
   list-style-type: none;
   margin-bottom: 0px;
-  padding-left: 15px;
+  padding-left: 0px;
+}
+.navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem .list-item {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(41, 165, 135, 0.3294117647);
+}
+.navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem .list-item:hover {
+  background-color: #29a587;
+  color: var(--pure-white);
 }
 .navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem a {
   color: var(--dark-color);
 }
 .navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem a:hover {
   color: var(--green-color);
+}
+.navbar .nav-toggler .dropdown-menu.show .MainMenu .listItem a:last-child .list-item {
+  border-bottom: 0px solid transparent;
 }
 .navbar .collapse-bar {
   position: relative;
@@ -871,17 +884,51 @@ html {
   .main-wrapper {
     padding: 30px 0px 0px;
   }
-  .main-wrapper.dark .dots-shapes, .main-wrapper.light .dots-shapes {
+  .main-wrapper.dark .dots-shapes {
     opacity: 0.09;
     width: 150px;
   }
-  .main-wrapper.dark .dots-shapes.top, .main-wrapper.light .dots-shapes.top {
+  .main-wrapper.dark .dots-shapes.top {
     left: auto;
     right: 0px;
     top: 0px;
   }
-  .main-wrapper.dark .dots-shapes.bottom, .main-wrapper.light .dots-shapes.bottom {
+  .main-wrapper.dark .dots-shapes.bottom {
     right: auto;
+  }
+  .main-wrapper.dark .footer {
+    background-color: var(--pure-white);
+  }
+  .main-wrapper.light .navbar .container {
+    background-color: rgba(255, 255, 255, 0.4549019608);
+  }
+  .main-wrapper.light .navbar .nav-toggler .dropdown-menu.show {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+    background-color: #ffffff;
+  }
+  .main-wrapper.light .dots-shapes {
+    opacity: 0.09;
+    width: 150px;
+  }
+  .main-wrapper.light .dots-shapes.top {
+    left: auto;
+    right: 0px;
+    top: 0px;
+  }
+  .main-wrapper.light .dots-shapes.bottom {
+    right: auto;
+  }
+  .main-wrapper.light .SkillsSec .skillsCard {
+    background-color: rgba(255, 255, 255, 0.4549019608);
+  }
+  .main-wrapper.light .ServicesCards .serviceCard {
+    background-color: rgba(255, 255, 255, 0.4549019608);
+  }
+  .main-wrapper.light .ContactUs .getintouch,
+  .main-wrapper.light .ContactUs .mapWrapper {
+    background-color: rgba(255, 255, 255, 0.4549019608);
   }
   .main-wrapper.gradient .header_sec .dots-shapes.top {
     right: 0px;
@@ -892,6 +939,10 @@ html {
   }
   .main-wrapper.gradient .header_sec .dots-shapes.top svg {
     fill: rgba(26, 183, 144, 0.3294117647);
+  }
+  .main-wrapper.gradient .ContactUs .getintouch,
+  .main-wrapper.gradient .ContactUs .mapWrapper {
+    background-color: rgba(255, 255, 255, 0.4549019608) !important;
   }
   .main-wrapper .foot-bottom {
     display: none;
@@ -942,6 +993,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .navbar .container {
+    width: 95%;
   }
   .navbar .navlinks {
     display: none;
