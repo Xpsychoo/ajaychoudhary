@@ -136,12 +136,16 @@ html {
   margin: 0px 10px;
   font-weight: 500;
 }
+.navbar .navlinks .list-item.active {
+  border-bottom: 1px solid var(--green-color);
+}
 .navbar a {
   text-decoration: none;
   color: #000;
 }
 .navbar .main-icon {
   width: 50px;
+  padding: 6px;
 }
 .navbar .main-icon img {
   max-width: 100%;
@@ -357,15 +361,15 @@ html {
 
 
 
-        .info {
-            font-size: 20px;
+      .info {
+          font-size: 20px;
 
-            .big {
-                font-size: 30px;
-            }
-        }
+          .big {
+              font-size: 30px;
+          }
+      }
 
-    } */
+  } */
 }
 .header_sec .name-box .hello-text .hello {
   font-size: 25px;
@@ -1075,6 +1079,18 @@ html {
     width: 96% !important;
     margin: 10px auto;
     box-shadow: rgba(149, 157, 165, 0) 0px 0px 0px !important;
+  }
+  .ContactUs .contact-form .form-box .notEmpty {
+    background-color: rgba(249, 250, 255, 0) !important;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+  }
+  .ContactUs .contact-form .form-box .notEmpty::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-top: 0px;
   }
   .ContactUs .mapWrapper {
     margin-top: 15px;

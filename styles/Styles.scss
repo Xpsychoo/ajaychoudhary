@@ -148,6 +148,10 @@ html {
         .list-item {
             margin: 0px 10px;
             font-weight: 500;
+
+            &.active {
+                border-bottom: 1px solid var(--green-color);
+            }
         }
     }
 
@@ -158,6 +162,7 @@ html {
 
     .main-icon {
         width: 50px;
+        padding: 6px;
 
         img {
             max-width: 100%;
@@ -433,7 +438,7 @@ html {
             }
         }
 
-      /*   .info-text {
+        /*   .info-text {
 
 
 
@@ -452,7 +457,8 @@ html {
         .word {
             margin: auto;
             font-size: 28px;
-            .text-green{
+
+            .text-green {
                 font-size: 35px;
                 font-weight: 500;
             }
@@ -1304,6 +1310,7 @@ html {
 
                 .word {
                     font-size: 25px;
+
                     .text-green {
                         font-weight: 500;
                         font-size: 30px;
@@ -1385,6 +1392,25 @@ html {
     }
 
     .ContactUs {
+
+        .contact-form {
+            .form-box {
+                .notEmpty {
+                    background-color: #f9faff00 !important;
+                    backdrop-filter: blur(0px);
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        border-top: 0px;
+
+                    }
+                }
+            }
+        }
+
         .mapWrapper {
             margin-top: 15px;
         }
