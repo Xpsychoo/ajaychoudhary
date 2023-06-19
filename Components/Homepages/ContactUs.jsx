@@ -90,7 +90,8 @@ export default function ContactUs() {
     };
 
     const handleChange = (e, field) => {
-        setContactValue({ ...contactValue, [field]: e.target.value });
+        const value = e.target.value;
+        setContactValue({ ...contactValue, [field]: value });
         setErrordata({ ...errordata, [field]: '' });
     };
 
@@ -122,45 +123,52 @@ export default function ContactUs() {
                                         <div className="col-xl-12 col-md-12 col-sm-12 col-12">
                                             {Object.entries(requiredFields).map(([key]) => (
                                                 <div className={`form-box ${errordata[key] ? 'error' : ''}`} key={key}>
-                                                    <input
-                                                        type="text"
-                                                        name={key}
-                                                        value={contactValue[key] || ''}
-                                                        id={key}
-                                                        className="form-control"
-                                                        onChange={(e) => handleChange(e, key)} />
+                                                    {key === 'message' ? (
+                                                        <textarea
+                                                            name={key}
+                                                            value={contactValue[key] || ''}
+                                                            id={key}
+                                                            className="form-control"
+                                                            onChange={(e) => handleChange(e, key)}
+                                                        />
+                                                    ) : (
+                                                        <input
+                                                            type="text"
+                                                            name={key}
+                                                            value={contactValue[key] || ''}
+                                                            id={key}
+                                                            className="form-control"
+                                                            onChange={(e) => handleChange(e, key)}
+                                                        />
+                                                    )}
                                                     <label htmlFor={key} className={`form-label ${contactValue[key] ? 'notEmpty' : ''}`}>
                                                         {key.charAt(0).toUpperCase() + key.slice(1)}
                                                     </label>
                                                     <span className="errortext">{errordata[key] || ''}</span>
                                                 </div>
                                             ))}
-                                            <div className="col-xl-12 col-md-12 col-sm-12 col-12">
-                                                <div className="row">
-                                                    <div className="col-xl-4 col-md-4 col-sm-6 col-6">
-                                                        <div className="CaptchaBox">
-                                                            {`${captcha.number} ${captcha.alphabets}`}
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-xl-8 col-md-8 col-sm-6 col-6">
-                                                        <div className={`form-box ${errordata.captcha ? "error" : ""}`}>
-                                                            <input
-                                                                type="text"
-                                                                name="captcha"
-                                                                value={captchaValue}
-                                                                id="captcha"
-                                                                className="form-control"
-                                                                onChange={(e) => setCaptchaValue(e.target.value)}
-                                                            />
-                                                            <label htmlFor="captcha" className={`form-label ${captchaValue ? 'notEmpty' : ''}`}>
-                                                                Enter Captcha
-                                                            </label>
-                                                            <span className="errortext">{errordata.captcha || ""}</span>
-                                                        </div>
+                                            <div className="row">
+                                                <div className="col-xl-4 col-md-4 col-sm-6 col-6">
+                                                    <div className="CaptchaBox">
+                                                        {`${captcha.number} ${captcha.alphabets}`}
                                                     </div>
                                                 </div>
-
-
+                                                <div className="col-xl-8 col-md-8 col-sm-6 col-6">
+                                                    <div className={`form-box ${errordata.captcha ? "error" : ""}`}>
+                                                        <input
+                                                            type="text"
+                                                            name="captcha"
+                                                            value={captchaValue}
+                                                            id="captcha"
+                                                            className="form-control"
+                                                            onChange={(e) => setCaptchaValue(e.target.value)}
+                                                        />
+                                                        <label htmlFor="captcha" className={`form-label ${captchaValue ? 'notEmpty' : ''}`}>
+                                                            Enter Captcha
+                                                        </label>
+                                                        <span className="errortext">{errordata.captcha || ""}</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="col-xl-12 col-md-12 col-sm-12 col-12">
