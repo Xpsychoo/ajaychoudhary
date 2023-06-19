@@ -65,7 +65,7 @@ const HomeHead = () => {
 
                         <div className="btn-sec">
                             <div className="cv-btn ">
-                                <Link href='#contactme'><button className="common-btn">Connect Now</button></Link>
+                                <Link href='#contact'><button className="common-btn">Connect Now</button></Link>
                             </div>
                         </div>
                     </div>
