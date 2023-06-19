@@ -23,7 +23,7 @@ const HomeScreen = () => {
             <div className="homeSecHead jumpMenu" id='projects'>
                 <MyProjects />
             </div>
-            <div className="homeSecHead jumpMenu" id='contact'>
+            <div className="homeSecHead jumpMenu pb-0" id='contact'>
                 <ContactUs />
             </div>
         </>

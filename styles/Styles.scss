@@ -701,6 +701,19 @@ html {
                 }
             }
 
+            .CaptchaBox{
+                width: 100%;
+                text-align: center;
+                display: flex;
+                background: #efefef;
+                font-size: 30px;
+                justify-content: center;
+                align-items: center;
+                height: 62%;
+                user-select: none;
+                font-family: var(--cursive-font);
+            }
+
         }
     }
 

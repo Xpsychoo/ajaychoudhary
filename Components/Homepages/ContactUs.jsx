@@ -1,49 +1,102 @@
-import React, { useRef, useState } from 'react'
-import SendIcon from '../Svg/SendIcon'
-import { toast } from 'react-hot-toast'
+import React, { useEffect, useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import SendIcon from '../Svg/SendIcon';
+
+const requiredFields = {
+    subject: 'Please Enter Message Subject',
+    name: 'Please Enter Your Name',
+    email: 'Please Enter Your email',
+    message: 'Please Enter Your Message',
+};
 
 export default function ContactUs() {
-
     const form = useRef();
-    const [contactValue, setContactValue] = useState({})
+    const [contactValue, setContactValue] = useState({});
     const [show, setShow] = useState(false);
-    const [errordata, setErrordata] = useState({})
+    const [errordata, setErrordata] = useState({});
+    const [captcha, setCaptcha] = useState('');
+    const [captchaValue, setCaptchaValue] = useState("");
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    function submitHandler(e) {
+    const submitHandler = async (e) => {
         e.preventDefault();
         const errors = {};
-        const requiredFields = {
-            subject: 'Please Enter Message Subject',
-            name: 'Please Enter Your Name',
-            email: 'Please Enter Your email',
-            message: 'Please Enter Your Message'
-        };
-        Object.entries(requiredFields).forEach(([key, value]) => {
+
+        for (const [key, value] of Object.entries(requiredFields)) {
             if (!contactValue[key]) {
                 errors[key] = value;
             }
-        });
-        setErrordata({ ...errors });
-        if (Object.keys(errors).length === 0) {
-            emailjs.sendForm('service_bz1sjhs', 'template_5opo4b5', form.current, 'SzW6c8-46F6f0Buff')
-                .then((result) => {
-                    if (result.status === 200) {
-                        toast.success('Mail sent Successfully');
-                        handleShow();
-                        setContactValue({});
-                    }
-                    console.log(result);
-                }, (error) => {
-                    console.log(error.text);
-                });
         }
 
-    }
+        if (contactValue.subject && contactValue.subject.length < 5) {
+            errors.subject = 'Subject must contain at least 5 characters';
+        }
+
+        if (contactValue.name && contactValue.name.length < 5) {
+            errors.name = 'Name must contain at least 5 characters';
+        }
+
+        if (contactValue.message && contactValue.message.length < 10) {
+            errors.message = 'Message must contain at least 10 characters';
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (contactValue.email && !emailRegex.test(contactValue.email)) {
+            errors.email = 'Please Enter a Valid Email';
+        }
+
+        if (contactValue.message && contactValue.message.length < 10) {
+            errors.message = 'Message must contain at least 10 characters';
+        }
+
+        if (captchaValue !== `${captcha.number} ${captcha.alphabets}`) {
+            errors.captcha = "Please enter the correct captcha value";
+        }
+
+        setErrordata(errors);
+
+        if (Object.keys(errors).length === 0) {
+            try {
+                const result = await emailjs.sendForm(
+                    'service_bz1sjhs',
+                    'template_5opo4b5',
+                    form.current,
+                    'SzW6c8-46F6f0Buff'
+                );
+
+                if (result.status === 200) {
+                    toast.success('Mail sent Successfully');
+                    handleShow();
+                    setContactValue({});
+                }
+                console.log(result);
+            } catch (error) {
+                console.log(error.text);
+            }
+        }
+    };
+
+    const generateCaptcha = () => {
+        const number = Math.floor(Math.random() * 10);
+        const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const randomAlphabets = Array.from({ length: 4 }, () =>
+            alphabets.charAt(Math.floor(Math.random() * alphabets.length))
+        ).join("");
+        return { number, alphabets: randomAlphabets };
+    };
+
+    const handleChange = (e, field) => {
+        setContactValue({ ...contactValue, [field]: e.target.value });
+        setErrordata({ ...errordata, [field]: '' });
+    };
+
+    useEffect(() => {
+        setCaptcha(generateCaptcha());
+    }, []);
 
     return (
         <>
@@ -52,121 +105,95 @@ export default function ContactUs() {
                     <h3 className="head text-center">
                         <span className="text-green"> - LET'S </span> CONNECT
                     </h3>
-                    <h5 className="sub_head text-center"> Get
-                        <span className="text-green text-cursive"> in touch</span>
+                    <h5 className="sub_head text-center">
+                        Get<span className="text-green text-cursive"> in touch</span>
                     </h5>
                 </div>
                 <div className="ContactUs">
-                <div className="row">
-                            <div className="col-xl-6 col-md-6 col-sm-12 col-12">
-                                <div className="getintouch">
-                                    <div className="head">
-                                        I'm currently avaliable to take on new projects, so feel free to send me a message about
-                                        anything that you want to run past me. You can contact anytime at 24/7
-                                    </div>
-                                    <form className="contact-form" ref={form} onSubmit={(e) => submitHandler(e)}>
-                                        <div className="row">
-                                            <div className="col-xl-12 col-md-12 col-sm-12 col-12">
-                                                <div className={`form-box ${errordata.subject ? 'error' : ''}`}>
+                    <div className="row">
+                        <div className="col-xl-6 col-md-6 col-sm-12 col-12">
+                            <div className="getintouch">
+                                <div className="head">
+                                    I'm currently available to take on new projects, so feel free to send me a message about anything that
+                                    you want to run past me. You can contact anytime at 24/7
+                                </div>
+                                <form className="contact-form" ref={form} onSubmit={submitHandler}>
+                                    <div className="row">
+                                        <div className="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            {Object.entries(requiredFields).map(([key]) => (
+                                                <div className={`form-box ${errordata[key] ? 'error' : ''}`} key={key}>
                                                     <input
                                                         type="text"
-                                                        name="subject"
-                                                        value={contactValue.subject ? contactValue.subject : ''}
-                                                        id="name" className="form-control"
-                                                        onChange={(e) => {
-                                                            setContactValue({ ...contactValue, subject: e.target.value })
-                                                            setErrordata({ ...errordata, subject: '' })
-                                                        }}
-                                                    />
-                                                    <label htmlFor="name" className={`form-label ${contactValue.subject ? 'notEmpty' : ''}`}>
-                                                        subject
+                                                        name={key}
+                                                        value={contactValue[key] || ''}
+                                                        id={key}
+                                                        className="form-control"
+                                                        onChange={(e) => handleChange(e, key)} />
+                                                    <label htmlFor={key} className={`form-label ${contactValue[key] ? 'notEmpty' : ''}`}>
+                                                        {key.charAt(0).toUpperCase() + key.slice(1)}
                                                     </label>
-                                                    <span className="errortext"> {errordata.subject ? errordata.subject : ''} </span>
+                                                    <span className="errortext">{errordata[key] || ''}</span>
                                                 </div>
-                                            </div>
-                                            <div className="col-xl-6 col-md-6 col-sm-12 col-12">
-                                                <div className={`form-box ${errordata.name ? 'error' : ''}`}>
-                                                    <input
-                                                        type="text"
-                                                        name="name"
-                                                        value={contactValue.name ? contactValue.name : ''}
-                                                        id="name" className="form-control"
-                                                        onChange={(e) =>{
-                                                             setContactValue({ ...contactValue, name: e.target.value })
-                                                             setErrordata({ ...errordata, name: '' })
-                                                            }}
-                                                    />
-                                                    <label htmlFor="name" className={`form-label ${contactValue.name ? 'notEmpty' : ''}`}>
-                                                        Name
-                                                    </label>
-                                                    <span className="errortext"> {errordata.name ? errordata.name : ''} </span>
-                                                </div>
-                                            </div>
-                                            <div className="col-xl-6 col-md-6 col-sm-12 col-12">
-                                                <div className={`form-box ${errordata.email ? 'error' : ''}`}>
-                                                    <input
-                                                        type="email"
-                                                        name="email"
-                                                        value={contactValue.email ? contactValue.email : ''}
-                                                        id="email" className="form-control"
-                                                        onChange={(e) =>{ 
-                                                            setContactValue({ ...contactValue, email: e.target.value })
-                                                            setErrordata({ ...errordata, email: '' })
-                                                        }}
-                                                    />
-                                                    <label htmlFor="email" className={`form-label ${contactValue.email ? 'notEmpty' : ''}`}> Email  </label>
-                                                    <span className="errortext"> {errordata.email ? errordata.email : ''} </span>
-
-                                                </div>
-                                            </div>
+                                            ))}
                                             <div className="col-xl-12 col-md-12 col-sm-12 col-12">
-                                                <div className={`form-box ${errordata.message ? 'error' : ''}`}>
-                                                    <textarea
-                                                        className='form-control'
-                                                        name="message" id="message"
-                                                        value={contactValue.message ? contactValue.message : ''}
-                                                        onChange={(e) => {
-                                                            setContactValue({ ...contactValue, message: e.target.value })
-                                                            setErrordata({ ...errordata, message: '' })
-                                                        }}
-                                                        rows="3">
-                                                    </textarea>
-                                                    <label htmlFor="message" className={`form-label ${contactValue.message ? 'notEmpty' : ''}`}> Message  </label>
-                                                    <span className="errortext"> {errordata.message ? errordata.message : ''} </span>
-
-                                                </div>
-                                            </div>
-                                            <div className="col-xl-12 col-md-12 col-sm-12 col-12">
-                                                <div className="form-send-btn">
-                                                    <button type='submit' className=" btn button">
-                                                        Send
-                                                        <div className="svgIcon">
-                                                            <SendIcon />
+                                                <div className="row">
+                                                    <div className="col-xl-4 col-md-4 col-sm-6 col-6">
+                                                        <div className="CaptchaBox">
+                                                            {`${captcha.number} ${captcha.alphabets}`}
                                                         </div>
-                                                    </button>
+                                                    </div>
+                                                    <div className="col-xl-8 col-md-8 col-sm-6 col-6">
+                                                        <div className={`form-box ${errordata.captcha ? "error" : ""}`}>
+                                                            <input
+                                                                type="text"
+                                                                name="captcha"
+                                                                value={captchaValue}
+                                                                id="captcha"
+                                                                className="form-control"
+                                                                onChange={(e) => setCaptchaValue(e.target.value)}
+                                                            />
+                                                            <label htmlFor="captcha" className={`form-label ${captchaValue ? 'notEmpty' : ''}`}>
+                                                                enter Captcha
+                                                            </label>
+                                                            <span className="errortext">{errordata.captcha || ""}</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
+
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div className="col-xl-6 col-md-6 col-sm-12 col-12">
-                                <div className="mapWrapper">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224357.50123665962!2d77.23701437997667!3d28.522102351088325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1682659568283!5m2!1sen!2sin"
-                                        width='100%'
-                                        height='100%'
-                                        style={{ border: 0 }}
-                                        allowFullScreen=""
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
-                                    />
-                                </div>
+                                        <div className="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <div className="form-send-btn">
+                                                <button type="submit" className="btn button">
+                                                    Send
+                                                    <div className="svgIcon">
+                                                        <SendIcon />
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-
+                        <div className="col-xl-6 col-md-6 col-sm-12 col-12">
+                            <div className="mapWrapper">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224357.50123665962!2d77.23701437997667!3d28.522102351088325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1682659568283!5m2!1sen!2sin"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <Modal show={show} className='sendMailModal' onHide={handleClose}>
+                <Modal show={show} className="sendMailModal" onHide={handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Mail Sent Successfully</Modal.Title>
                     </Modal.Header>
@@ -186,9 +213,7 @@ export default function ContactUs() {
                 </Modal>
             </div>
 
-            <div className="foot-bottom">
-
-            </div>
+            <div className="foot-bottom"></div>
         </>
-    )
+    );
 }

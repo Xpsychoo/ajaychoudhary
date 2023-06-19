@@ -585,6 +585,20 @@ html {
 .ContactUs .getintouch .contact-form .form-box.error label {
   color: var(--red-color);
 }
+.ContactUs .getintouch .contact-form .CaptchaBox {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  background: #efefef;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 62%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-family: var(--cursive-font);
+}
 .ContactUs .mapWrapper {
   padding: 20px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
