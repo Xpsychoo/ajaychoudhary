@@ -593,7 +593,10 @@ html {
   font-size: 25px;
   justify-content: center;
   align-items: center;
+  letter-spacing: 5px;
+  font-weight: 600;
   height: 62%;
+  color: grey;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
