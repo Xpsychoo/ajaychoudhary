@@ -153,7 +153,7 @@ export default function ContactUs() {
                                                                 onChange={(e) => setCaptchaValue(e.target.value)}
                                                             />
                                                             <label htmlFor="captcha" className={`form-label ${captchaValue ? 'notEmpty' : ''}`}>
-                                                                enter Captcha
+                                                                Enter Captcha
                                                             </label>
                                                             <span className="errortext">{errordata.captcha || ""}</span>
                                                         </div>
