@@ -391,6 +391,11 @@ html {
   font-size: 18px;
   margin-bottom: 0px;
 }
+.header_sec .intro-text .intro .headTag {
+  display: inline-block;
+  font-size: 22px;
+  margin: 0px 5px;
+}
 .header_sec .btn-sec {
   padding: 30px 0px;
   height: 10vh;
@@ -1070,6 +1075,9 @@ html {
   }
   .header_sec .intro-text .intro {
     font-size: 14px;
+  }
+  .header_sec .intro-text .intro .headTag {
+    font-size: 15px;
   }
   .header_sec .btn-sec .cv-btn a {
     text-decoration: none;

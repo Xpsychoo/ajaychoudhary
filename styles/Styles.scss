@@ -469,6 +469,13 @@ html {
         .intro {
             font-size: 18px;
             margin-bottom: 0px;
+
+            .headTag{
+                display: inline-block;
+                font-size: 22px;
+                margin: 0px 5px;
+
+            }
         }
     }
 
@@ -1365,6 +1372,10 @@ html {
         .intro-text {
             .intro {
                 font-size: 14px;
+
+                .headTag{
+                    font-size: 15px;
+                }
             }
         }
 

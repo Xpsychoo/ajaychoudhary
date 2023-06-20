@@ -47,7 +47,7 @@ const HomeHead = () => {
                                 <h5 className="hello">Hello My Name is</h5>
                             </div>
                             <div className="big-text">
-                                <h1 className="name"><span className="text-green">Ajay Kumar</span> </h1>
+                                <h1 className="name text-green">Ajay Kumar </h1>
                             </div>
 
                             <div className="info-text">
@@ -57,8 +57,10 @@ const HomeHead = () => {
                         <div className="intro-text">
                             <p className="intro">
                                 Currently Living in <span className="text-green"> NOIDA</span>, India. <br />
-                                Experienced  <span className="text-green">  Web Developer </span> and <span className="text-green">Web Designer </span>
-                                adept at building
+                                Experienced  
+                                <h2 className="text-green headTag ">  Web Developer </h2> 
+                                 and <h3 className="text-green headTag">Web Designer </h3>
+                                 adept at building
                                 scalable software systems for diverse user bases.
                                 Committed to solving problems and delivering optimal, cost-effective solutions for clients.
                             </p>

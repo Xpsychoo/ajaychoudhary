@@ -15,6 +15,7 @@ export default function Home() {
         <meta name="keywords" content="Ajay Choudhary, portfolio, React.js, Next.js, JavaScript,Developer, Software Developer, Web Developer, web designer" />
         <meta name="author" content="Ajay Choudhary" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://ajaychoudhary.netlify.app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`${theme} main-wrapper`} >
