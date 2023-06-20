@@ -785,7 +785,7 @@ html {
 }
 
 .main-wrapper.gradient.image {
-  background: url(../public/images/bg-img-blur.png);
+  background-image: url("/images/bg-img-blur.png");
   background-size: cover;
   color: var(--dark-color);
   background-repeat: no-repeat;

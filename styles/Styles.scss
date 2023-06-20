@@ -916,7 +916,7 @@ html {
     background-attachment: fixed;
     position: relative;
     max-width: 100vw;
-   
+
 
     .text-green {
         color: var(--green-color);
@@ -991,8 +991,8 @@ html {
     }
 }
 
-.main-wrapper.gradient.image{
-      background: url(../public/images/bg-img-blur.png);
+.main-wrapper.gradient.image {
+    background-image: url('/images/bg-img-blur.png');
     background-size: cover;
     color: var(--dark-color);
     background-repeat: no-repeat;
@@ -1289,7 +1289,7 @@ html {
         .header_sec {
             .img-sec {
                 .img-wrapper {
-                    img{
+                    img {
                         height: auto;
                     }
                 }

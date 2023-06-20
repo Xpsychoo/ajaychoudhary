@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './NavbarScreen/Navbar'
-import HomeHead from './HomeHead'
+import HomeHead from './HomeHeads/HomeHead'
 import WhatIDo from './WhatIDo'
 import MySkills from './MySkills'
 import MyProjects from './MyProjects'

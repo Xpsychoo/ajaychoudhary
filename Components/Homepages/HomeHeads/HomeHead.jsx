@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import DotsShape from '../Svg/DotsShape'
+import DotsShape from '../../Svg/DotsShape'
 import Link from 'next/link'
 import Image from 'next/image';
 const HomeHead = () => {
