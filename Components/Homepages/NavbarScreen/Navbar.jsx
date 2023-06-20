@@ -49,7 +49,9 @@ const Navbar = () => {
                 <ul className="navlinks m-auto">
                     {["#home", "#whatido", "#skills", "#projects", "#contact"].map((link, index) => (
                         <Link key={index} href={link}>
-                            <li className="list-item text-capitalize">{link.replace("#", "")}</li>
+                            <li className="list-item text-capitalize">
+                                {link === "#whatido" ? "what i do" : link === "#contact" ? "Contact Me" : link.replace("#", "")}
+                            </li>
                         </Link>
                     ))}
                 </ul>
@@ -103,7 +105,9 @@ const Navbar = () => {
                                 <ul className="listItem">
                                     {["#home", "#whatido", "#skills", "#projects", "#contact"].map((link, index) => (
                                         <Link key={index} href={link}>
-                                            <li className="list-item text-capitalize">{link.replace("#", "")}</li>
+                                            <li className="list-item text-capitalize">
+                                                {link === "#whatido" ? "what i do" : link === "#contact" ? "Contact Me" : link.replace("#", "")}
+                                            </li>
                                         </Link>
                                     ))}
                                 </ul>

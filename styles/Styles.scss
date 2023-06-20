@@ -1120,6 +1120,10 @@ html {
                 fill: #fff;
             }
         }
+
+        &:disabled{
+            color: var(--pure-white);
+        }
     }
 }
 
@@ -1175,7 +1179,25 @@ html {
     border-radius: 10px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 900px) {
+   body .container{
+        max-width: 90vw;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .main-wrapper.gradient .ServicesCards .serviceCard{
+        margin-bottom: 10px;
+    }
+    .ContactUs .mapWrapper{
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    body .container{
+        max-width: 100vw;
+    }
     .main-wrapper {
         padding: 30px 0px 0px;
 
