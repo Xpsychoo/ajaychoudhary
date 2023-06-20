@@ -790,15 +790,6 @@ html {
   color: var(--dark-color);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /*     &::before {
-      content: '';
-      position: absolute;
-      left: 0px;
-      backdrop-filter: blur(3px);
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-  } */
 }
 
 .sendMailModal {

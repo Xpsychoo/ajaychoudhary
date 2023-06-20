@@ -128,7 +128,7 @@ export default function ContactUs() {
                                                             name={key}
                                                             value={contactValue[key] || ''}
                                                             id={key}
-                                                            className="form-control"
+                                                            className={`form-control ${errordata[key] ? 'is-invalid' : ''}`}
                                                             onChange={(e) => handleChange(e, key)}
                                                         />
                                                     ) : (
@@ -137,7 +137,7 @@ export default function ContactUs() {
                                                             name={key}
                                                             value={contactValue[key] || ''}
                                                             id={key}
-                                                            className="form-control"
+                                                            className={`form-control ${errordata[key] ? 'is-invalid' : ''}`}
                                                             onChange={(e) => handleChange(e, key)}
                                                         />
                                                     )}
@@ -160,8 +160,11 @@ export default function ContactUs() {
                                                             name="captcha"
                                                             value={captchaValue}
                                                             id="captcha"
-                                                            className="form-control"
-                                                            onChange={(e) => setCaptchaValue(e.target.value)}
+                                                            className={`form-control ${errordata.captcha ? 'is-invalid' : ''}`}
+                                                            onChange={(e) =>{ 
+                                                                setCaptchaValue(e.target.value)
+                                                                setErrordata({ ...errordata, captcha: '' });
+                                                            }}
                                                         />
                                                         <label htmlFor="captcha" className={`form-label ${captchaValue ? 'notEmpty' : ''}`}>
                                                             Enter Captcha
