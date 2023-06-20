@@ -72,7 +72,7 @@ const HomeHead = () => {
                     <div className="col-xl-6 col-md-6 col-sm-12 col-12">
                         <div className="img-sec">
                             <div className="img-wrapper">
-                                <img src="/images/profile.jpg" alt="Logo img" />
+                                <img src="/images/profile.webp" alt="Logo img" />
                             </div>
                         </div>
                     </div>

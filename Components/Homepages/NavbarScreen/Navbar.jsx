@@ -36,7 +36,7 @@ const Navbar = () => {
             <div className="container ">
                 <Link href="/">
                     <div className="main-icon">
-                        <img src="/images/main-icon.png" alt="" />
+                        <img src="/images/main-icon.webp" alt="" />
                     </div>
                 </Link>
                 <ul className="navlinks m-auto">
