@@ -1,35 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import DotsShape from '../Svg/DotsShape'
 import Link from 'next/link'
+import Image from 'next/image';
 const HomeHead = () => {
-    
+
     const words = ['Web Developer', 'Web Designer', 'Software Developer'];
     const [part, setPart] = useState('');
     const [i, setI] = useState(0);
     const [offset, setOffset] = useState(0);
     const [forwards, setForwards] = useState(true);
     const speed = 130;
-    
+
     useEffect(() => {
-      const interval = setInterval(() => {
-        if (forwards) {
-          if (offset >= words[i].length) {
-            setForwards(false);
-            setI((i + 1) % words.length);
-            setOffset(0);
-          }
-        } else {
-          if (offset === 0) {
-            setForwards(true);
-            setI((i + 1) % words.length);
-          }
-        }
-        const newPart = words[i].substr(0, offset);
-        setOffset((offset + (forwards ? 1 : -1)) % (words[i].length + 1));
-        setPart(newPart);
-      }, speed);
-    
-      return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            if (forwards) {
+                if (offset >= words[i].length) {
+                    setForwards(false);
+                    setI((i + 1) % words.length);
+                    setOffset(0);
+                }
+            } else {
+                if (offset === 0) {
+                    setForwards(true);
+                    setI((i + 1) % words.length);
+                }
+            }
+            const newPart = words[i].substr(0, offset);
+            setOffset((offset + (forwards ? 1 : -1)) % (words[i].length + 1));
+            setPart(newPart);
+        }, speed);
+
+        return () => clearInterval(interval);
     }, [forwards, i, offset, words]);
     return (
         <>
@@ -50,7 +51,7 @@ const HomeHead = () => {
                             </div>
 
                             <div className="info-text">
-                            <div className="word"> i am <span className="text-green">{part}</span> </div>
+                                <div className="word"> i am <span className="text-green">{part}</span> </div>
                             </div>
                         </div>
                         <div className="intro-text">
@@ -72,7 +73,7 @@ const HomeHead = () => {
                     <div className="col-xl-6 col-md-6 col-sm-12 col-12">
                         <div className="img-sec">
                             <div className="img-wrapper">
-                                <img src="/images/profile.webp" alt="Logo img" />
+                                <Image src="/images/profile.webp" alt="Ajay Choudhary" title="Ajay Choudhary" width={600} height={400} />
                             </div>
                         </div>
                     </div>

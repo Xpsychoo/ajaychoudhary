@@ -423,6 +423,7 @@ html {
 }
 .header_sec .img-sec .img-wrapper img {
   width: 70%;
+  height: auto;
   z-index: 1;
   border-radius: 50%;
 }
@@ -1011,6 +1012,9 @@ html {
   .main-wrapper.gradient .ContactUs .getintouch,
   .main-wrapper.gradient .ContactUs .mapWrapper {
     background-color: rgba(255, 255, 255, 0.4549019608) !important;
+  }
+  .main-wrapper .header_sec .img-sec .img-wrapper img {
+    height: auto;
   }
   .main-wrapper .foot-bottom {
     display: none;

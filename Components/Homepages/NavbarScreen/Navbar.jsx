@@ -5,6 +5,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import { SunIcon, MoonIcon, BrushIcon, ImageIcon, CrossIcon } from '@/Components/Svg/AllIcons';
 import { nightMode, lightMode, gradient, gimage, } from '../../../store/themeSlice';
 import MenuIcon from '@/Components/Svg/MenuIcon';
+import Image from 'next/image';
 
 const Navbar = () => {
     const [themeToggler, setThemeToggler] = useState(false);
@@ -36,7 +37,13 @@ const Navbar = () => {
             <div className="container ">
                 <Link href="/">
                     <div className="main-icon">
-                        <img src="/images/main-icon.webp" alt="" />
+                        <Image
+                            src="/images/main-icon.webp"
+                            width={30}
+                            height={30}
+                            title='Ajay Choudhary'
+                            alt="Ajay Choudhary"
+                        />
                     </div>
                 </Link>
                 <ul className="navlinks m-auto">
@@ -49,7 +56,13 @@ const Navbar = () => {
                 <div className="theme-btns">
                     {!themeToggler ? (
                         <span className="selecThemeBtn" onClick={toggleTheme}>
-                            <img src="/images/brush.png" alt="select Theme" />
+                            <Image
+                                src="/images/brush.png"
+                                width={30}
+                                height={30}
+                                title='select Theme'
+                                alt="select Theme"
+                            />
                         </span>
                     ) : (
                         <div className="btnsbox">

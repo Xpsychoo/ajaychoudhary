@@ -508,6 +508,7 @@ html {
 
             img {
                 width: 70%;
+                height: auto;
                 z-index: 1;
                 border-radius: 50%;
             }
@@ -701,7 +702,7 @@ html {
                 }
             }
 
-            .CaptchaBox{
+            .CaptchaBox {
                 width: 100%;
                 text-align: center;
                 display: flex;
@@ -1277,6 +1278,16 @@ html {
                 .getintouch,
                 .mapWrapper {
                     background-color: #ffffff74 !important;
+                }
+            }
+        }
+
+        .header_sec {
+            .img-sec {
+                .img-wrapper {
+                    img{
+                        height: auto;
+                    }
                 }
             }
         }
