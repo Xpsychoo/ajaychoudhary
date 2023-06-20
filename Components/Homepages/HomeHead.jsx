@@ -51,7 +51,7 @@ const HomeHead = () => {
                             </div>
 
                             <div className="info-text">
-                                <div className="word"> i am <span className="text-green">{part}</span> </div>
+                                <div className="word"> i am <span className="text-green">{part}_</span></div>
                             </div>
                         </div>
                         <div className="intro-text">
