@@ -55,7 +55,7 @@ const HomeHead = () => {
                             </div>
                         </div>
                         <div className="intro-text">
-                            <p className="intro">
+                            <div className="intro">
                                 Currently Living in <span className="text-green"> NOIDA</span>, India. <br />
                                 Experienced  
                                 <h2 className="text-green headTag ">  Web Developer </h2> 
@@ -63,7 +63,7 @@ const HomeHead = () => {
                                  adept at building
                                 scalable software systems for diverse user bases.
                                 Committed to solving problems and delivering optimal, cost-effective solutions for clients.
-                            </p>
+                            </div>
                         </div>
 
                         <div className="btn-sec">

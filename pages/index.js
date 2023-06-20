@@ -12,7 +12,7 @@ export default function Home() {
       <Head>
         <title>Ajay Choudhary</title>
         <meta name="description" content="Welcome to Ajay Choudhary's portfolio showcasing his work and skills." />
-        <meta name="keywords" content="Ajay Choudhary, portfolio, React.js, Next.js, JavaScript,Developer, Software Developer, Web Developer, web designer" />
+        <meta name="keywords" content="Ajay Choudhary, portfolio, React.js, Next.js, JavaScript developer, javascript, developer, Software Developer, Web Developer, web designer" />
         <meta name="author" content="Ajay Choudhary" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://ajaychoudhary.netlify.app" />
