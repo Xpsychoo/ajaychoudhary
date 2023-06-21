@@ -104,7 +104,7 @@ export default function ContactUs() {
             <div className="container">
                 <div className="main-head">
                     <h3 className="head text-center">
-                        <span className="text-green"> - LET'S </span> CONNECT
+                        <span className="text-green"> - LET&apos;S </span> CONNECT
                     </h3>
                     <h5 className="sub_head text-center">
                         Get<span className="text-green text-cursive"> in touch</span>
@@ -115,7 +115,7 @@ export default function ContactUs() {
                         <div className="col-xl-6 col-md-6 col-sm-12 col-12">
                             <div className="getintouch">
                                 <div className="head">
-                                    I'm currently available to take on new projects, so feel free to send me a message about anything that
+                                    I&apos;m currently available to take on new projects, so feel free to send me a message about anything that
                                     you want to run past me. You can contact anytime at 24/7
                                 </div>
                                 <form className="contact-form" ref={form} onSubmit={submitHandler}>
