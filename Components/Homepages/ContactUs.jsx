@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import SendIcon from '../Svg/SendIcon';
+import Image from 'next/image';
 
 const requiredFields = {
     subject: 'Please Enter Message Subject',
@@ -210,7 +211,7 @@ export default function ContactUs() {
                     </Modal.Header>
                     <Modal.Body>
                         <div className="image-sec">
-                            <img src="/images/sent-mail.gif" alt="sendicon" />
+                        <Image src="/images/sent-mail.gif" alt="sendicon" width={500} height={500} priority />
                         </div>
                         <div className="text-sec">
                             Thank you for reaching out. Your email has been successfully sent. <br /> We will get back to you shortly.

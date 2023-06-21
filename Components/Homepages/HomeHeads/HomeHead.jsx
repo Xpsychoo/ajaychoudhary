@@ -31,7 +31,7 @@ const HomeHead = () => {
         }, speed);
 
         return () => clearInterval(interval);
-    }, [forwards, i, offset, words]);
+    }, [forwards, i, offset]);
     return (
         <>
             <div className="container">
