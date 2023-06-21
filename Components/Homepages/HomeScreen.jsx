@@ -5,6 +5,7 @@ import WhatIDo from './WhatIDo'
 import MySkills from './MySkills'
 import MyProjects from './MyProjects'
 import ContactUs from './ContactUs'
+import ScrolltoTop from './ScrolltoTop'
 
 const HomeScreen = () => {
 
@@ -26,6 +27,7 @@ const HomeScreen = () => {
             <div className="homeSecHead jumpMenu pb-0" id='contact'>
                 <ContactUs />
             </div>
+           <ScrolltoTop />
         </>
     )
 }

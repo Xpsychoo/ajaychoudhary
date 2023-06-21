@@ -663,6 +663,50 @@ html {
   scale: 1.2;
 }
 
+.scrolltotopbtn {
+  background-color: var(--green-color);
+  text-decoration: none;
+  cursor: pointer;
+  width: 56px;
+  height: 56px;
+  z-index: 999;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 100%;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.4);
+  padding: 7px;
+}
+.scrolltotopbtn .iconsHolder {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  rotate: 90deg;
+  position: relative;
+}
+.scrolltotopbtn .iconsHolder .icon {
+  width: 100%;
+}
+.scrolltotopbtn .iconsHolder svg {
+  width: 100%;
+  fill: var(--pure-white);
+}
+.scrolltotopbtn .iconsHolder .firstIcon {
+  width: 70%;
+}
+.scrolltotopbtn .iconsHolder .secondIcon {
+  position: absolute;
+  top: 5.5px;
+  left: 20px;
+  width: 43%;
+  height: 43%;
+}
+
 /* ============ for Theme css  =============== */
 .main-wrapper.light {
   background-color: var(--light-color);
