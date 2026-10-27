@@ -53,7 +53,7 @@ export const projects = [
     {
         name: 'YouTube Clone',
         category: 'Personal Project',
-        link: 'https://xpsychoo.github.io/youtube',
+        link: 'https://youtubexaj.netlify.app/',
         tech: ['React.js', 'REST API', 'MUI'],
         description:
             'A YouTube-style video app powered by a public REST API: browse a video feed, play videos, ' +
