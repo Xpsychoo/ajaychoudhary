@@ -333,8 +333,10 @@
             height: 18px;
         }
 
-        &:hover {
-            transform: translateY(-2px);
+        @media (hover: hover) {
+            &:hover {
+                transform: translateY(-2px);
+            }
         }
     }
 }
@@ -559,6 +561,722 @@
             color: var(--pure-white);
             background: #f0b400;
             box-shadow: 0 6px 14px rgba(240, 180, 0, 0.45);
+        }
+    }
+}
+
+.codeSnake {
+    .snakeBoard {
+        width: 100%;
+        max-width: 360px;
+        aspect-ratio: 1;
+        padding: 6px;
+        display: grid;
+        gap: 2px;
+        border-radius: 14px;
+        background: rgba(41, 165, 135, 0.08);
+        touch-action: none; // swipes steer the snake instead of scrolling the page
+
+        &.idle,
+        &.over {
+            opacity: 0.6;
+        }
+
+        &.paused {
+            opacity: 0.8;
+        }
+    }
+
+    .snakeCell {
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.body {
+            background: var(--green-color);
+        }
+
+        &.head {
+            background: #1d7a64;
+            border-radius: 6px;
+            box-shadow: 0 0 0 2px rgba(41, 165, 135, 0.35);
+        }
+
+        .food {
+            width: 90%;
+            height: 90%;
+            color: #e0a100;
+            animation: foodPulse 1s ease-in-out infinite;
+        }
+    }
+
+    .dPad {
+        display: grid;
+        grid-template-columns: repeat(3, 48px);
+        grid-template-rows: repeat(3, 48px);
+        gap: 4px;
+
+        // keyboards steer fine, so the pad is only shown on touch screens
+        @media (hover: hover) and (pointer: fine) {
+            display: none;
+        }
+
+        button {
+            border: 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-color);
+            background: rgba(41, 165, 135, 0.12);
+
+            &:active {
+                background: rgba(41, 165, 135, 0.3);
+            }
+
+            &:disabled {
+                opacity: 0.5;
+            }
+        }
+
+        .up {
+            grid-area: 1 / 2;
+        }
+
+        .left {
+            grid-area: 2 / 1;
+        }
+
+        .right {
+            grid-area: 2 / 3;
+        }
+
+        .down {
+            grid-area: 3 / 2;
+        }
+    }
+}
+
+@keyframes foodPulse {
+    50% {
+        transform: scale(0.8);
+    }
+}
+
+.speedTyper,
+.wordUnscramble,
+.devQuiz {
+    .timeBar {
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        overflow: hidden;
+        background: rgba(35, 41, 50, 0.08);
+
+        span {
+            display: block;
+            height: 100%;
+            background: var(--green-color);
+            transition: width 0.2s linear;
+        }
+    }
+
+    .wordBox {
+        width: 100%;
+        padding: 22px 12px;
+        border-radius: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        background: rgba(41, 165, 135, 0.08);
+
+        &.over {
+            opacity: 0.6;
+        }
+
+        .current {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: clamp(28px, 9vw, 38px);
+            font-weight: 600;
+            color: #9aa1a9;
+
+            .ok {
+                color: var(--green-color);
+            }
+
+            .bad {
+                color: #e5484d;
+                text-decoration: underline;
+            }
+
+            .caret {
+                color: var(--dark-color);
+                border-bottom: 3px solid var(--green-color);
+            }
+        }
+
+        .upcoming {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 14px;
+            color: #9aa1a9;
+            text-align: center;
+        }
+    }
+
+    .typeInput {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid rgba(41, 165, 135, 0.35);
+        border-radius: 12px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 18px;
+        text-align: center;
+        color: var(--dark-color);
+        background: var(--pure-white);
+        outline: none;
+        transition: border-color 0.15s ease;
+
+        &:focus {
+            border-color: var(--green-color);
+        }
+
+        &.wrong {
+            border-color: #e5484d;
+        }
+    }
+
+    .resultRow {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 18px;
+        font-weight: 600;
+
+        span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+            color: var(--green-color);
+        }
+    }
+}
+
+.patternRecall {
+    // sits under the label like the <strong> values in the other score boxes
+    .soundBtn {
+        height: 33px;
+        margin: 0 auto;
+        padding: 0 2px;
+        border: 0;
+        display: flex;
+        align-items: center;
+        color: var(--green-color);
+        background: none;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .pads {
+        width: 100%;
+        max-width: 320px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .pad {
+        --pad: var(--green-color);
+        aspect-ratio: 1;
+        border: 0;
+        border-radius: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--pure-white);
+        background: var(--pad);
+        opacity: 0.45;
+        transition: opacity 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+
+        svg {
+            width: 40%;
+            height: 40%;
+        }
+
+        &.bug {
+            --pad: #e5484d;
+        }
+
+        &.coffee {
+            --pad: #e0a100;
+        }
+
+        &.rocket {
+            --pad: var(--blue-color);
+        }
+
+        &:disabled {
+            cursor: default;
+        }
+
+        &.lit {
+            opacity: 1;
+            transform: scale(1.04);
+            box-shadow: 0 0 28px var(--pad);
+        }
+
+        &.wrong {
+            opacity: 1;
+            animation: padShake 0.3s ease;
+        }
+    }
+
+    .pads.input .pad:not(.lit):not(.wrong) {
+        opacity: 0.75;
+    }
+}
+
+@keyframes padShake {
+    25% {
+        transform: translateX(-6px);
+    }
+
+    75% {
+        transform: translateX(6px);
+    }
+}
+
+.reactionTime {
+    .reactionPad {
+        width: 100%;
+        min-height: 260px;
+        padding: 24px;
+        border: 0;
+        border-radius: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: var(--pure-white);
+        background: var(--blue-color);
+        transition: background 0.1s ease;
+
+        svg {
+            width: 44px;
+            height: 44px;
+        }
+
+        strong {
+            font-size: 32px;
+        }
+
+        span {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        &.waiting {
+            background: #e5484d;
+        }
+
+        &.ready {
+            background: var(--green-color);
+        }
+
+        &.early {
+            background: #e0a100;
+        }
+    }
+
+    .recentTimes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+
+        span {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            background: rgba(35, 41, 50, 0.06);
+
+            &::after {
+                content: 'ms';
+                font-size: 11px;
+                margin-left: 1px;
+            }
+
+            &.best {
+                color: var(--pure-white);
+                background: var(--green-color);
+            }
+        }
+    }
+}
+
+.numberSlide .slideBoard {
+    position: relative;
+    touch-action: none; // swipes slide tiles instead of scrolling the page
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    background: rgba(41, 165, 135, 0.08);
+
+    // each tile is a quarter of the board and is moved into its cell with a transform, so slides animate
+    .slideTile {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 25%;
+        height: 25%;
+        padding: 4px;
+        border: 0;
+        background: none;
+        transition: transform 0.15s ease;
+
+        span {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(22px, 7vw, 30px);
+            font-weight: 600;
+            color: var(--green-color);
+            background: var(--pure-white);
+            border: 2px solid rgba(41, 165, 135, 0.35);
+        }
+
+        &.home span {
+            color: var(--pure-white);
+            background: var(--green-color);
+            border-color: var(--green-color);
+        }
+
+        &:disabled {
+            cursor: default;
+        }
+    }
+
+    &.won .slideTile span {
+        animation: foodPulse 0.5s ease;
+    }
+}
+
+.devQuiz {
+    .status.question {
+        font-size: 19px;
+        font-weight: 600;
+    }
+
+    .quizOptions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .quizOption {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid rgba(41, 165, 135, 0.3);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        color: var(--dark-color);
+        background: var(--pure-white);
+        transition: border-color 0.15s ease, background 0.15s ease;
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                border-color: var(--green-color);
+                background: rgba(41, 165, 135, 0.06);
+            }
+        }
+
+        &:disabled {
+            cursor: default;
+        }
+
+        svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+        }
+
+        &.right {
+            color: var(--pure-white);
+            background: var(--green-color);
+            border-color: var(--green-color);
+        }
+
+        &.wrong {
+            color: var(--pure-white);
+            background: #e5484d;
+            border-color: #e5484d;
+        }
+    }
+}
+
+.wordUnscramble {
+    .letterTiles {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+
+        &.over {
+            opacity: 0.6;
+        }
+
+        span {
+            width: 40px;
+            height: 46px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--pure-white);
+            background: var(--green-color);
+            box-shadow: 0 4px 0 #1d7a64;
+            animation: critterPop 0.25s ease-out both;
+        }
+    }
+
+    .hintLine {
+        font-size: 14px;
+        color: #5b6470;
+
+        strong {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            color: var(--green-color);
+            letter-spacing: 2px;
+        }
+    }
+
+    .btnRow {
+        display: flex;
+        gap: 10px;
+    }
+
+    .gameBtn.ghost {
+        color: var(--green-color);
+        background: rgba(41, 165, 135, 0.12);
+
+        &:disabled {
+            opacity: 0.5;
+            transform: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    // tiles shrink so a 10-letter word ("javascript") stays on one line even on a 320px-wide phone
+    .wordUnscramble .letterTiles {
+        max-width: 100%;
+        flex-wrap: nowrap;
+        gap: 4px;
+
+        span {
+            flex: 0 1 26px;
+            min-width: 0;
+            width: auto;
+            height: 36px;
+            font-size: 18px;
+            box-shadow: 0 3px 0 #1d7a64;
+        }
+    }
+}
+
+.techMerge {
+    // one colour per tier, shared by the board tiles and the merge chain
+    .lvl-1 { --tier: #8f9bab; }
+    .lvl-2 { --tier: var(--blue-color); }
+    .lvl-3 { --tier: var(--green-color); }
+    .lvl-4 { --tier: #6aa531; }
+    .lvl-5 { --tier: #e0a100; }
+    .lvl-6 { --tier: #f07b2c; }
+    .lvl-7 { --tier: #e5484d; }
+    .lvl-8 { --tier: #a855f7; }
+    .lvl-9 { --tier: #232932; }
+
+    .scoreBoard .score strong {
+        font-size: 18px;
+        line-height: 33px; // the tier name is wordier than a number, so keep the row height the same
+    }
+
+    .tierChain {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+
+        li {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #9aa1a9;
+            background: rgba(35, 41, 50, 0.06);
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            &.unlocked {
+                color: var(--pure-white);
+                background: var(--tier);
+            }
+        }
+    }
+
+    .mergeBoard {
+        width: 100%;
+        max-width: 380px;
+        padding: 6px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+        border-radius: 16px;
+        background: rgba(41, 165, 135, 0.08);
+
+        &.over {
+            opacity: 0.6;
+        }
+    }
+
+    .mergeCell {
+        aspect-ratio: 1;
+        padding: 0;
+        border: 0;
+        border-radius: 10px;
+        display: flex;
+        background: rgba(35, 41, 50, 0.05);
+        transition: box-shadow 0.15s ease, background 0.15s ease;
+
+        &:disabled {
+            cursor: default;
+        }
+
+        &.selected .mergeTile {
+            transform: scale(1.08);
+            box-shadow: 0 0 0 3px var(--pure-white), 0 0 0 6px var(--tier);
+        }
+
+        &.moveTarget {
+            background: rgba(41, 165, 135, 0.16);
+            box-shadow: inset 0 0 0 2px rgba(41, 165, 135, 0.45);
+        }
+
+        &.mergeTarget .mergeTile {
+            animation: foodPulse 0.8s ease-in-out infinite;
+        }
+    }
+
+    .mergeTile {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        color: var(--pure-white);
+        background: var(--tier);
+        box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.15);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        animation: critterPop 0.2s ease-out;
+
+        svg {
+            width: 42%;
+            height: 42%;
+        }
+
+        small {
+            font-size: 9px;
+            font-weight: 600;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        &.merged {
+            animation: mergePop 0.3s ease-out;
+        }
+
+        &.lvl-9 {
+            color: #ffd54a;
+        }
+    }
+}
+
+@keyframes mergePop {
+    0% {
+        transform: scale(0.6);
+    }
+
+    60% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .techMerge {
+        .mergeBoard,
+        .mergeCell,
+        .mergeTile {
+            gap: 4px;
+        }
+
+        .mergeTile small {
+            display: none; // too cramped on phones; the icon and colour carry the tier
+        }
+
+        // beats the generic phone score size further down, which is too big for "Component"
+        &.gameCard .scoreBoard .score strong {
+            font-size: 15px;
+        }
+
+        .tierChain {
+            gap: 4px;
+
+            li {
+                width: 26px;
+                height: 26px;
+            }
         }
     }
 }
