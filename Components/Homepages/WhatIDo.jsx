@@ -1,24 +1,10 @@
-import { BaseUrl } from '@/utils/constants';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { getServices } from '@/data/services';
+import { careerYears } from '@/data/experience';
+import { useNow } from '@/utils/experience';
 
 const WhatIDo = () => {
-
-    const [servicesList, setServicesList] = useState([])
-
-    async function getServicesList() {
-        try {
-            const response = await axios.get(BaseUrl + '/api/services')
-            setServicesList(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        getServicesList();
-    }, [])
-
+    const services = useNow((now) => getServices(careerYears(now)));
 
     return (
         <div className="container">
@@ -32,8 +18,8 @@ const WhatIDo = () => {
             </div>
             <div className="ServicesCards">
                 <div className="row">
-                    {servicesList?.map((service, index) => (
-                        <div key={index} className="col-xl-4 col-md-4 col-sm-12 col-12">
+                    {services.map((service) => (
+                        <div key={service.topHead} className="col-xl-4 col-md-4 col-sm-12 col-12">
                             <div className="serviceCard">
                                 <div className="topHead">{service.topHead}</div>
                                 <div className="secHead">{service.secHead}</div>

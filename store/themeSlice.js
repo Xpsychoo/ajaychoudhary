@@ -1,29 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { toast } from 'react-hot-toast'
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-    value: 'gradient',
-}
+/** Values double as CSS class names on `.main-wrapper`. */
+export const THEMES = {
+    light: 'light',
+    dark: 'dark',
+    gradient: 'gradient',
+    gradientImage: 'gradient image',
+};
 
 export const themeSlice = createSlice({
-    name: 'counter',
-    initialState,
+    name: 'themeMode',
+    initialState: { value: THEMES.gradient },
     reducers: {
         nightMode: (state) => {
-            state.value = 'dark'
+            state.value = THEMES.dark;
         },
         lightMode: (state) => {
-            state.value = 'light'
+            state.value = THEMES.light;
         },
         gradient: (state) => {
-            state.value = 'gradient'
+            state.value = THEMES.gradient;
         },
         gimage: (state) => {
-            state.value = 'gradient image'
+            state.value = THEMES.gradientImage;
         },
     },
-})
+});
 
-export const { nightMode, lightMode, gradient, gimage} = themeSlice.actions
+export const { nightMode, lightMode, gradient, gimage } = themeSlice.actions;
 
-export default themeSlice.reducer
+export default themeSlice.reducer;

@@ -1,37 +1,16 @@
-import '@/styles/Styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { store } from '../store/store'
-import { Provider } from 'react-redux'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import '@/styles/Styles.scss';
+import { Provider } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
-import { SSRProvider } from 'react-bootstrap';
+import { store } from '@/store/store';
 
 export default function App({ Component, pageProps }) {
-  return <>
+  return (
     <Provider store={store}>
-      <SSRProvider>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-          gutter={8}
-          containerClassName=""
-          containerStyle={{}}
-          toastOptions={{
-            // Define default options
-            className: '',
-            duration: 2000,
-            success: {
-              duration: 1000,
-              theme: {
-                primary: 'green',
-                secondary: 'black',
-              },
-            },
-          }}
-        />
-        <Component {...pageProps} />
-      </SSRProvider>
+      <Toaster position="top-center" toastOptions={{ duration: 2000 }} />
+      <Component {...pageProps} />
     </Provider>
-  </>
+  );
 }

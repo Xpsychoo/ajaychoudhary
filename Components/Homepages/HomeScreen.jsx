@@ -1,35 +1,36 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from './NavbarScreen/Navbar'
-import HomeHead from './HomeHeads/HomeHead'
-import WhatIDo from './WhatIDo'
-import MySkills from './MySkills'
-import MyProjects from './MyProjects'
-import ContactUs from './ContactUs'
-/* import ScrolltoTop from './ScrolltoTop'
- */
-const HomeScreen = () => {
+import React from 'react';
+import Navbar from './NavbarScreen/Navbar';
+import HomeHead from './HomeHeads/HomeHead';
+import WhatIDo from './WhatIDo';
+import Experience from './Experience';
+import MySkills from './MySkills';
+import MyProjects from './MyProjects';
+import ContactUs from './ContactUs';
 
-    return (
-        <>
-            <Navbar />
-            <div className="header_sec jumpMenu" id='home'>
+const HomeScreen = () => (
+    <>
+        <Navbar />
+        <main>
+            <section className="header_sec jumpMenu" id="home">
                 <HomeHead />
-            </div>
-            <div className="homeSecHead jumpMenu" id='whatido'>
+            </section>
+            <section className="homeSecHead jumpMenu" id="whatido">
                 <WhatIDo />
-            </div>
-            <div className="homeSecHead jumpMenu" id='skills'>
+            </section>
+            <section className="homeSecHead jumpMenu" id="experience">
+                <Experience />
+            </section>
+            <section className="homeSecHead jumpMenu" id="skills">
                 <MySkills />
-            </div>
-            <div className="homeSecHead jumpMenu" id='projects'>
+            </section>
+            <section className="homeSecHead jumpMenu" id="projects">
                 <MyProjects />
-            </div>
-            <div className="homeSecHead jumpMenu pb-0" id='contact'>
+            </section>
+            <section className="homeSecHead jumpMenu pb-0" id="contact">
                 <ContactUs />
-            </div>
-           {/* <ScrolltoTop /> */}
-        </>
-    )
-}
+            </section>
+        </main>
+    </>
+);
 
-export default HomeScreen
+export default HomeScreen;

@@ -1,124 +1,85 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Link from 'next/link';
+import Image from 'next/image';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { SunIcon, MoonIcon, BrushIcon, ImageIcon, CrossIcon } from '@/Components/Svg/AllIcons';
-import { nightMode, lightMode, gradient, gimage, } from '../../../store/themeSlice';
 import MenuIcon from '@/Components/Svg/MenuIcon';
-import Image from 'next/image';
+import { nightMode, lightMode, gradient, gimage, THEMES } from '@/store/themeSlice';
+import { navLinks } from '@/data/site';
+
+const themeOptions = [
+    { theme: THEMES.dark, action: nightMode, title: 'Dark Mode', Icon: MoonIcon },
+    { theme: THEMES.light, action: lightMode, title: 'Light Mode', Icon: SunIcon },
+    { theme: THEMES.gradient, action: gradient, title: 'Gradient Mode', Icon: BrushIcon, className: 'brush' },
+    { theme: THEMES.gradientImage, action: gimage, title: 'Gradient Image Mode', Icon: ImageIcon, className: 'brush' },
+];
+
+const NavLinks = ({ className }) => (
+    <ul className={className}>
+        {navLinks.map(({ href, label }) => (
+            <li key={href} className="list-item text-capitalize">
+                <Link href={href}>{label}</Link>
+            </li>
+        ))}
+    </ul>
+);
 
 const Navbar = () => {
-    const [themeToggler, setThemeToggler] = useState(false);
+    const [showThemes, setShowThemes] = useState(false);
     const theme = useSelector((state) => state.themeMode.value);
     const dispatch = useDispatch();
 
-    const toggleTheme = () => {
-        setThemeToggler(!themeToggler);
-    };
-
-    const toggleLightMode = () => {
-        dispatch(lightMode());
-    };
-
-    const toggleDarkMode = () => {
-        dispatch(nightMode());
-    };
-
-    const toggleGradientMode = () => {
-        dispatch(gradient());
-    };
-
-    const toggleGradientImageMode = () => {
-        dispatch(gimage());
-    };
-
     return (
         <nav className="navbar">
-            <div className="container ">
-                <Link href="/">
+            <div className="container">
+                <Link href="/" aria-label="Home">
                     <div className="main-icon">
-                        <Image
-                            src="/images/main-icon.webp"
-                            width={30}
-                            height={30}
-                            title='Ajay Choudhary'
-                            alt="Ajay Choudhary"
-                        />
+                        <Image src="/images/main-icon.webp" width={30} height={30} title="Ajay Choudhary" alt="Ajay Choudhary" />
                     </div>
                 </Link>
-                <ul className="navlinks m-auto">
-                    {["#home", "#whatido", "#skills", "#projects", "#contact"].map((link, index) => (
-                        <Link key={index} href={link}>
-                            <li className="list-item text-capitalize">
-                                {link === "#whatido" ? "what i do" : link === "#contact" ? "Contact Me" : link.replace("#", "")}
-                            </li>
-                        </Link>
-                    ))}
-                </ul>
+
+                <NavLinks className="navlinks m-auto" />
+
                 <div className="theme-btns">
-                    {!themeToggler ? (
-                        <span className="selecThemeBtn" onClick={toggleTheme}>
-                            <Image
-                                src="/images/brush.png"
-                                width={30}
-                                height={30}
-                                title='select Theme'
-                                alt="select Theme"
-                            />
-                        </span>
+                    {!showThemes ? (
+                        <button type="button" className="selecThemeBtn" onClick={() => setShowThemes(true)} aria-label="Select theme">
+                            <Image src="/images/brush.png" width={30} height={30} title="Select Theme" alt="" />
+                        </button>
                     ) : (
                         <div className="btnsbox">
-                            <div className="closeThemeBtn" onClick={toggleTheme}>
+                            <button type="button" className="closeThemeBtn" onClick={() => setShowThemes(false)} aria-label="Close theme picker">
                                 <CrossIcon />
-                            </div>
-                            {(theme === "light" ||
-                                theme === "gradient" ||
-                                theme === "gradient image") && (
-                                    <span className="icon" onClick={toggleDarkMode} title="Dark Mode">
-                                        <MoonIcon />
-                                    </span>
-                                )}
-                            {(theme === "dark" ||
-                                theme === "gradient" ||
-                                theme === "gradient image") && (
-                                    <span className="icon" onClick={toggleLightMode} title="Light Mode">
-                                        <SunIcon />
-                                    </span>
-                                )}
-                            {theme !== "gradient" && (
-                                <span className="icon brush" onClick={toggleGradientMode} title="Gradient Mode">
-                                    <BrushIcon />
-                                </span>
-                            )}
-                            {theme !== "gradient image" && (
-                                <span className="icon brush" onClick={toggleGradientImageMode} title="Gradient Second">
-                                    <ImageIcon />
-                                </span>
-                            )}
+                            </button>
+                            {themeOptions
+                                .filter((option) => option.theme !== theme)
+                                .map(({ theme: key, action, title, Icon, className = '' }) => (
+                                    <button
+                                        type="button"
+                                        key={key}
+                                        className={`icon ${className}`}
+                                        onClick={() => dispatch(action())}
+                                        title={title}
+                                        aria-label={title}
+                                    >
+                                        <Icon />
+                                    </button>
+                                ))}
                         </div>
                     )}
                 </div>
+
                 <div className="nav-toggler">
                     <span className="icon">
                         <DropdownButton variant="none" id="dropdown-basic-button" title={<MenuIcon />}>
                             <div className="MainMenu">
-                                <ul className="listItem">
-                                    {["#home", "#whatido", "#skills", "#projects", "#contact"].map((link, index) => (
-                                        <Link key={index} href={link}>
-                                            <li className="list-item text-capitalize">
-                                                {link === "#whatido" ? "what i do" : link === "#contact" ? "Contact Me" : link.replace("#", "")}
-                                            </li>
-                                        </Link>
-                                    ))}
-                                </ul>
+                                <NavLinks className="listItem" />
                             </div>
                         </DropdownButton>
                     </span>
                 </div>
-                <div className="collapse-bar"></div>
             </div>
         </nav>
-
     );
 };
 
