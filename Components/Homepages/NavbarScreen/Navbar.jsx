@@ -3,15 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import { SunIcon, MoonIcon, BrushIcon, ImageIcon, CrossIcon } from '@/Components/Svg/AllIcons';
-import MenuIcon from '@/Components/Svg/MenuIcon';
+import { Sun, Moon, Paintbrush, Image as ImageIcon, X, Menu, Palette } from 'lucide-react';
 import { nightMode, lightMode, gradient, gimage, THEMES } from '@/store/themeSlice';
 import { navLinks } from '@/data/site';
 
 const themeOptions = [
-    { theme: THEMES.dark, action: nightMode, title: 'Dark Mode', Icon: MoonIcon },
-    { theme: THEMES.light, action: lightMode, title: 'Light Mode', Icon: SunIcon },
-    { theme: THEMES.gradient, action: gradient, title: 'Gradient Mode', Icon: BrushIcon, className: 'brush' },
+    { theme: THEMES.dark, action: nightMode, title: 'Dark Mode', Icon: Moon },
+    { theme: THEMES.light, action: lightMode, title: 'Light Mode', Icon: Sun },
+    { theme: THEMES.gradient, action: gradient, title: 'Gradient Mode', Icon: Paintbrush, className: 'brush' },
     { theme: THEMES.gradientImage, action: gimage, title: 'Gradient Image Mode', Icon: ImageIcon, className: 'brush' },
 ];
 
@@ -43,13 +42,13 @@ const Navbar = () => {
 
                 <div className="theme-btns">
                     {!showThemes ? (
-                        <button type="button" className="selecThemeBtn" onClick={() => setShowThemes(true)} aria-label="Select theme">
-                            <Image src="/images/brush.png" width={30} height={30} title="Select Theme" alt="" />
+                        <button type="button" className="selecThemeBtn" onClick={() => setShowThemes(true)} aria-label="Select theme" title="Select Theme">
+                            <Palette aria-hidden="true" />
                         </button>
                     ) : (
                         <div className="btnsbox">
                             <button type="button" className="closeThemeBtn" onClick={() => setShowThemes(false)} aria-label="Close theme picker">
-                                <CrossIcon />
+                                <X />
                             </button>
                             {themeOptions
                                 .filter((option) => option.theme !== theme)
@@ -71,7 +70,7 @@ const Navbar = () => {
 
                 <div className="nav-toggler">
                     <span className="icon">
-                        <DropdownButton variant="none" id="dropdown-basic-button" title={<MenuIcon />}>
+                        <DropdownButton variant="none" id="dropdown-basic-button" title={<Menu />}>
                             <div className="MainMenu">
                                 <NavLinks className="listItem" />
                             </div>

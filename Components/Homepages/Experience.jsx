@@ -1,4 +1,5 @@
 import React from 'react';
+import { CalendarDays, MapPin } from 'lucide-react';
 import { experience, careerMonths } from '@/data/experience';
 import { formatDuration, formatMonth, monthsBetween, useNow } from '@/utils/experience';
 
@@ -32,11 +33,17 @@ const Experience = () => {
                                     </div>
                                 </div>
                                 <div className="period">
-                                    <div>{formatMonth(job.start)} – {formatMonth(job.end)}</div>
-                                    <div className="duration">{formatDuration(durations.roles[i])}</div>
+                                    <span className="dates">
+                                        <CalendarDays aria-hidden="true" />
+                                        {formatMonth(job.start)} – {formatMonth(job.end)}
+                                    </span>
+                                    <span className="duration">{formatDuration(durations.roles[i])}</span>
                                 </div>
                             </header>
-                            <div className="location">{job.location}</div>
+                            <div className="location">
+                                <MapPin aria-hidden="true" />
+                                {job.location}
+                            </div>
                             <ul className="highlights">
                                 {job.highlights.map((point) => (
                                     <li key={point}>{point}</li>

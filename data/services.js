@@ -1,7 +1,10 @@
+import { CodeXml, PenTool, Smartphone } from 'lucide-react';
+
 /** `years` is the whole number of years since the career started. */
 export const getServices = (years) => [
     {
         topHead: 'Web Development',
+        Icon: CodeXml,
         secHead: 'Web & Software Development',
         desc:
             `Frontend developer with ${years}+ years of professional experience building production apps with ` +
@@ -10,6 +13,7 @@ export const getServices = (years) => [
     },
     {
         topHead: 'Web Design',
+        Icon: PenTool,
         secHead: 'Responsive UI Design',
         desc:
             'I turn Figma and Adobe XD designs into pixel-perfect, responsive and accessible interfaces that work ' +
@@ -17,6 +21,7 @@ export const getServices = (years) => [
     },
     {
         topHead: 'App Development',
+        Icon: Smartphone,
         secHead: 'Web & Mobile Apps',
         desc:
             'As an App Developer I build feature-rich, data-driven applications — dashboards, forms, reporting and ' +

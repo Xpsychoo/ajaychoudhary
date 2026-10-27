@@ -17,10 +17,11 @@ const WhatIDo = () => {
                 </h5>
             </div>
             <div className="ServicesCards">
-                <div className="row">
-                    {services.map((service) => (
+                <div className="row g-4">
+                    {services.map(({ Icon, ...service }) => (
                         <div key={service.topHead} className="col-xl-4 col-md-4 col-sm-12 col-12">
                             <div className="serviceCard">
+                                <span className="cardIcon"><Icon aria-hidden="true" /></span>
                                 <div className="topHead">{service.topHead}</div>
                                 <div className="secHead">{service.secHead}</div>
                                 <div className="desc">{service.desc}</div>

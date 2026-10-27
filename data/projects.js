@@ -3,7 +3,7 @@ export const projects = [
     {
         name: 'CureKind',
         category: 'Healthcare · Professional',
-        link: 'https://uat.cybermatrixsolutions.com',
+        link: '',
         tech: ['React.js', 'Redux', 'REST API', 'Bootstrap'],
         description:
             'A healthcare operations platform for managing patients, clients, doctors and audit staff. ' +
@@ -13,7 +13,7 @@ export const projects = [
     {
         name: 'Leadshyne',
         category: 'CRM / SaaS · Professional',
-        link: 'https://leadshyne.com',
+        link: '',
         tech: ['React.js', 'JavaScript', 'REST API', 'Charts'],
         description:
             'A CRM suite where admins add users, assign leads and tasks, and manage attendance and leave. ' +
@@ -23,7 +23,7 @@ export const projects = [
     {
         name: 'Hillberg',
         category: 'B2B E-Commerce · Professional',
-        link: 'http://catalogue.cybermatrixsolutions.com',
+        link: '',
         tech: ['React.js', 'Redux', 'REST API'],
         description:
             'A B2B ordering catalogue where admins manage products, product types, retailers and sales staff. ' +
@@ -33,7 +33,7 @@ export const projects = [
     {
         name: 'Neosim',
         category: 'Medical Products · Website',
-        link: 'https://neosim.ch',
+        link: '',
         tech: ['HTML', 'CSS', 'JavaScript', 'Responsive'],
         description:
             'A medical-supplies website presenting a product range with detailed specifications so that ' +
@@ -43,7 +43,7 @@ export const projects = [
     {
         name: 'Maverick Solution',
         category: 'Business Website',
-        link: 'https://www.mavericsolution.com',
+        link: '',
         tech: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
         description:
             'A company website showcasing medical supplies, software products and printing services. ' +

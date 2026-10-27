@@ -26,7 +26,7 @@ export default function Home({ years }) {
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={SITE_URL} />
-        <meta property="og:image" content={`${SITE_URL}/images/profile.jpg`} />
+        <meta property="og:image" content={`${SITE_URL}/images/og-portrait.jpg`} />
         <meta name="twitter:card" content="summary" />
         <link rel="canonical" href={SITE_URL} />
         <link rel="icon" href="/favicon.ico" />

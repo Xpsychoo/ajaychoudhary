@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Image from 'next/image';
+import { MailCheck } from 'lucide-react';
 import SendIcon from '../Svg/SendIcon';
 import { emailJsConfig } from '@/data/site';
 
@@ -172,7 +172,7 @@ export default function ContactUs() {
                     </Modal.Header>
                     <Modal.Body>
                         <div className="image-sec">
-                            <Image src="/images/sent-mail.gif" alt="Mail sent" width={500} height={500} />
+                            <MailCheck aria-hidden="true" />
                         </div>
                         <div className="text-sec">
                             Thank you for reaching out. Your email has been sent successfully. <br /> I&apos;ll get back to you shortly.

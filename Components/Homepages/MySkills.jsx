@@ -1,6 +1,5 @@
 import React from 'react';
 import Slider from 'react-slick';
-import DotsShape from '../Svg/DotsShape';
 import { skills } from '@/data/skills';
 
 const sliderSettings = {
@@ -26,21 +25,13 @@ export default function MySkills() {
             </div>
             <div className="SkillsSec">
                 <Slider {...sliderSettings}>
-                    {skills.map(({ head, description }) => (
+                    {skills.map(({ head, Icon, description }) => (
                         <div key={head} className="skillsCard">
+                            <span className="cardIcon"><Icon aria-hidden="true" /></span>
                             <div className="header">
                                 <div className="name">{head}</div>
                             </div>
-                            <div className="percentRange">
-                                <div className="percentageBar" />
-                                <span className="activeDot" />
-                            </div>
                             <div className="description">{description}</div>
-                            <div className="card-footer">
-                                <div className="bgWalls">
-                                    <DotsShape />
-                                </div>
-                            </div>
                         </div>
                     ))}
                 </Slider>

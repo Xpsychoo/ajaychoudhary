@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Node 16 is no longer a supported functions runtime, so Netlify fell back to
+  # Node 24, where the legacy Next runtime's handlers fail. Pin a supported LTS.
+  NODE_VERSION = "22"

@@ -1,3 +1,9 @@
+import GitHubIcon from '@/Components/Svg/GitHubIcon';
+import LinkedIn from '@/Components/Svg/LinkedIn';
+import TwitterIcon from '@/Components/Svg/TwitterIcon';
+import FacebookIcon from '@/Components/Svg/FacebookIcon';
+import InstaGramIcon from '@/Components/Svg/InstaGramIcon';
+
 export const SITE_URL = 'https://ajaychoudhary.netlify.app';
 
 export const navLinks = [
@@ -10,11 +16,11 @@ export const navLinks = [
 ];
 
 export const socialLinks = [
-    { name: 'GitHub', href: 'https://github.com/Xpsychoo', icon: '/images/github.webp' },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/theajaychoudhary', icon: '/images/linkedin.webp' },
-    { name: 'Twitter', href: 'https://twitter.com/x3ajaychoudhary', icon: '/images/twitter.webp' },
-    { name: 'Facebook', href: 'https://www.facebook.com/theajaychoudhary7', icon: '/images/facebook.webp' },
-    { name: 'Instagram', href: 'https://www.instagram.com/_ajxy_27', icon: '/images/instagram.webp' },
+    { name: 'GitHub', href: 'https://github.com/Xpsychoo', Icon: GitHubIcon },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/theajaychoudhary', Icon: LinkedIn },
+    { name: 'Twitter', href: 'https://twitter.com/x3ajaychoudhary', Icon: TwitterIcon },
+    { name: 'Facebook', href: 'https://www.facebook.com/theajaychoudhary7', Icon: FacebookIcon },
+    { name: 'Instagram', href: 'https://www.instagram.com/_ajxy_27', Icon: InstaGramIcon },
 ];
 
 /** EmailJS public credentials. Override via NEXT_PUBLIC_* env vars if you rotate them. */
