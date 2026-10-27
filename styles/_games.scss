@@ -1,0 +1,629 @@
+/* ============ Games (floating button, /games hub, game boards) =============== */
+// Imported at the end of Styles.scss so the card/cardIcon/eyebrow mixins are available.
+
+.gamesFab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+
+    .fabBtn {
+        width: 56px;
+        height: 56px;
+        border: 0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--pure-white);
+        background: var(--green-color);
+        box-shadow: 0 10px 25px rgba(41, 165, 135, 0.4);
+        transition: transform 0.3s ease;
+        animation: fabPulse 2.4s ease-in-out infinite;
+
+        svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        &:hover {
+            transform: scale(1.08) rotate(-8deg);
+        }
+
+        &.active {
+            animation: none;
+        }
+    }
+
+    .gamesFabPopup {
+        @include card;
+        width: 260px;
+        padding: 20px;
+        animation: popupIn 0.25s ease-out;
+
+        &:hover {
+            transform: none;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #5b6470;
+            margin-bottom: 14px;
+        }
+
+        .closeBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 26px;
+            height: 26px;
+            padding: 4px;
+            border: 0;
+            border-radius: 50%;
+            display: flex;
+            color: #6c757d;
+            background: rgba(35, 41, 50, 0.06);
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .playBtn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--pure-white);
+            background: var(--green-color);
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}
+
+@keyframes fabPulse {
+    0%,
+    100% {
+        box-shadow: 0 10px 25px rgba(41, 165, 135, 0.4), 0 0 0 0 rgba(41, 165, 135, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 10px 25px rgba(41, 165, 135, 0.4), 0 0 0 12px rgba(41, 165, 135, 0);
+    }
+}
+
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.gamesMain {
+    padding-top: 90px;
+    padding-bottom: 100px;
+
+    .backLink {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--green-color);
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+.gameTile {
+    @include card;
+    height: 100%;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+
+    .cardIcon {
+        @include cardIcon;
+    }
+
+    .tagline {
+        @include eyebrow;
+        margin-bottom: 6px;
+    }
+
+    .name {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--dark-color);
+    }
+
+    .desc {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #5b6470;
+        margin-bottom: 18px;
+    }
+
+    .play {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 600;
+        color: var(--green-color);
+
+        svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    &:hover .play svg {
+        transform: translateX(4px);
+    }
+
+    &.comingSoon {
+        border-style: dashed;
+        border-color: rgba(41, 165, 135, 0.4);
+        cursor: default;
+
+        &:hover {
+            transform: none;
+            box-shadow: 0 10px 30px rgba(35, 41, 50, 0.07);
+        }
+
+        .play {
+            color: #6c757d;
+        }
+    }
+}
+
+.main-wrapper.gradient .gameTile,
+.main-wrapper.gradient .gameCard {
+    background-color: rgba(255, 255, 255, 0.55);
+    border-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+}
+
+.gameCard {
+    @include card;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    &:hover {
+        transform: none;
+    }
+
+    // snappy taps on phones: no double-tap zoom delay, no grey tap flash, no accidental text selection
+    button {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+    }
+
+    .modeSwitch {
+        display: flex;
+        padding: 4px;
+        border-radius: 30px;
+        background: rgba(41, 165, 135, 0.1);
+
+        button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border: 0;
+            border-radius: 30px;
+            font-weight: 500;
+            color: var(--dark-color);
+            background: transparent;
+            transition: all 0.2s ease;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            &.active {
+                color: var(--pure-white);
+                background: var(--green-color);
+            }
+        }
+    }
+
+    .scoreBoard {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+
+        .score {
+            padding: 10px 6px;
+            border-radius: 12px;
+            text-align: center;
+            background: rgba(35, 41, 50, 0.04);
+
+            span {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                font-size: 12px;
+                color: #6c757d;
+
+                svg {
+                    width: 13px;
+                    height: 13px;
+                }
+            }
+
+            strong {
+                display: block;
+                font-size: 22px;
+            }
+
+            &.x strong {
+                color: var(--green-color);
+            }
+
+            &.o strong {
+                color: var(--blue-color);
+            }
+        }
+    }
+
+    .status {
+        font-size: 17px;
+        font-weight: 500;
+        text-align: center;
+
+        &.done {
+            color: var(--green-color);
+            font-weight: 600;
+        }
+    }
+
+    .gameBtn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 24px;
+        border: 0;
+        border-radius: 30px;
+        font-weight: 600;
+        color: var(--pure-white);
+        background: var(--green-color);
+        transition: transform 0.2s ease;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+}
+
+.ticTacToe .board {
+    width: 100%;
+    max-width: 330px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    .cell {
+        aspect-ratio: 1;
+        border: 0;
+        border-radius: 14px;
+        font-size: clamp(36px, 12vw, 48px);
+        font-weight: 700;
+        line-height: 1;
+        background: rgba(41, 165, 135, 0.08);
+        transition: background 0.2s ease, transform 0.2s ease;
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                background: rgba(41, 165, 135, 0.18);
+                transform: scale(1.03);
+            }
+        }
+
+        &:not(:disabled):active {
+            transform: scale(0.95);
+        }
+
+        &:disabled {
+            cursor: default;
+        }
+
+        &.x {
+            color: var(--green-color);
+        }
+
+        &.o {
+            color: var(--blue-color);
+        }
+
+        &.win {
+            color: var(--pure-white);
+            background: var(--green-color);
+        }
+    }
+}
+
+.memoryMatch .memoryGrid {
+    width: 100%;
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    .memoryCard {
+        aspect-ratio: 1;
+        padding: 0;
+        border: 0;
+        background: none;
+        perspective: 600px;
+
+        &:disabled {
+            cursor: default;
+        }
+
+        .inner {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        .face {
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: hidden;
+        }
+
+        .back {
+            background: linear-gradient(135deg, var(--green-color), #1d7a64);
+            box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.25);
+        }
+
+        .front {
+            transform: rotateY(180deg);
+            color: var(--green-color);
+            background: var(--pure-white);
+            border: 2px solid rgba(41, 165, 135, 0.35);
+
+            svg {
+                width: 45%;
+                height: 45%;
+            }
+        }
+
+        &.flipped .inner {
+            transform: rotateY(180deg);
+        }
+
+        &.matched .front {
+            color: var(--pure-white);
+            background: var(--green-color);
+            border-color: var(--green-color);
+        }
+    }
+}
+
+.bugSmash {
+    .legend {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 18px;
+        font-size: 13px;
+        color: #5b6470;
+
+        span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+            color: var(--green-color);
+        }
+
+        .feature svg {
+            color: #e0a100;
+        }
+    }
+
+    .lives {
+        display: flex !important;
+        justify-content: center;
+        gap: 2px;
+        padding-top: 4px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            color: #c9ced4;
+
+            &.full {
+                color: #e5484d;
+                fill: #e5484d !important;
+            }
+        }
+    }
+
+    .holes {
+        width: 100%;
+        max-width: 340px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+
+        &.idle,
+        &.over {
+            opacity: 0.6;
+        }
+    }
+
+    .hole {
+        aspect-ratio: 1;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: radial-gradient(circle at 50% 60%, rgba(35, 41, 50, 0.22), rgba(41, 165, 135, 0.1) 70%);
+        box-shadow: inset 0 6px 12px rgba(35, 41, 50, 0.18);
+        transition: background 0.15s ease;
+
+        &:disabled {
+            cursor: default;
+        }
+
+        &.hit {
+            background: rgba(41, 165, 135, 0.45);
+        }
+
+        &.oops {
+            background: rgba(229, 72, 77, 0.45);
+        }
+    }
+
+    .critter {
+        width: 72%;
+        height: 72%;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: critterPop 0.18s ease-out;
+
+        svg {
+            width: 60%;
+            height: 60%;
+        }
+
+        &.bug {
+            color: var(--pure-white);
+            background: var(--green-color);
+            box-shadow: 0 6px 14px rgba(41, 165, 135, 0.45);
+        }
+
+        &.feature {
+            color: var(--pure-white);
+            background: #f0b400;
+            box-shadow: 0 6px 14px rgba(240, 180, 0, 0.45);
+        }
+    }
+}
+
+@keyframes critterPop {
+    from {
+        transform: translateY(60%) scale(0.6);
+        opacity: 0;
+    }
+
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .gameCard {
+        gap: 14px;
+
+        .modeSwitch button {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+
+        .scoreBoard .score {
+            padding: 8px 4px;
+
+            span {
+                font-size: 11px;
+            }
+
+            strong {
+                font-size: 19px;
+            }
+        }
+
+        .status {
+            font-size: 15px;
+        }
+    }
+
+    .memoryMatch .memoryGrid,
+    .ticTacToe .board {
+        gap: 8px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .gamesFab {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .gamesMain .homeSecHead .main-head {
+        .head {
+            font-size: 40px;
+        }
+
+        .sub_head {
+            font-size: 26px;
+        }
+    }
+
+    .gameCard {
+        padding: 18px 14px;
+    }
+}

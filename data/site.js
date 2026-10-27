@@ -7,12 +7,12 @@ import InstaGramIcon from '@/Components/Svg/InstaGramIcon';
 export const SITE_URL = 'https://ajaychoudhary.netlify.app';
 
 export const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#whatido', label: 'What I Do' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact Me' },
+    { href: '/#home', label: 'Home' },
+    { href: '/#whatido', label: 'What I Do' },
+    { href: '/#experience', label: 'Experience' },
+    { href: '/#skills', label: 'Skills' },
+    { href: '/#projects', label: 'Projects' },
+    { href: '/#contact', label: 'Contact Me' },
 ];
 
 export const socialLinks = [
