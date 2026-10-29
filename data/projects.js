@@ -93,15 +93,6 @@ export const projects = [
             'open channel pages and search across videos and channels, with a responsive layout.',
     },
     {
-        name: 'Shopey E-Commerce',
-        category: 'Personal Project',
-        link: 'https://xpsychoo.github.io/shopeyApp',
-        tech: ['React.js', 'Redux', 'Form Validation'],
-        description:
-            'A shopping app with a product listing, cart and favourites, quantity and total-price ' +
-            'calculation, checkout, and a login/logout flow with client-side form validation.',
-    },
-    {
         name: 'Bucket of Apps',
         category: 'Personal Project',
         link: 'https://appsbucket.netlify.app',
