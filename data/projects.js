@@ -51,6 +51,17 @@ export const projects = [
             'SEO-friendly layout.',
     },
     {
+        name: 'PriceDekho',
+        category: 'Price Comparison · Personal Project',
+        link: 'https://pricedekho-drab.vercel.app/',
+        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Turborepo'],
+        description:
+            'A price comparison platform for Indian online stores that compares the exact same product variant ' +
+            'across stores, with price history and clear source and freshness labels on every price. ' +
+            'Built as a TypeScript monorepo with a pluggable price-provider layer, SEO and social share cards. ' +
+            'The live demo runs on clearly labelled dummy data — no real store prices yet.',
+    },
+    {
         name: 'YouTube Clone',
         category: 'Personal Project',
         link: 'https://youtubexaj.netlify.app/',
