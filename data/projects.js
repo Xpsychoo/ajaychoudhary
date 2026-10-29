@@ -51,6 +51,17 @@ export const projects = [
             'SEO-friendly layout.',
     },
     {
+        name: 'ImageCraft',
+        category: 'Image Toolkit · Personal Project',
+        link: 'https://image-toolkit-pi.vercel.app/',
+        tech: ['Next.js', 'TypeScript', 'Web Workers', 'Canvas API', 'PWA'],
+        description:
+            'A private, in-browser image toolkit: batch compress, resize, crop, convert (WebP, AVIF, JPEG, PNG), ' +
+            'edit, watermark and annotate images, plus a favicon generator, colour palette picker, EXIF viewer ' +
+            'and remover, and Base64 converter. Images never leave the device — processing runs in Web Workers ' +
+            'with OffscreenCanvas, and it installs as an offline-ready app with light and dark themes.',
+    },
+    {
         name: 'ResumeCraft',
         category: 'Resume Builder · Personal Project',
         link: 'https://resume-builder-beta-tawny.vercel.app/',
