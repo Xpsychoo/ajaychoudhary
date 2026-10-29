@@ -51,6 +51,17 @@ export const projects = [
             'SEO-friendly layout.',
     },
     {
+        name: 'ResumeCraft',
+        category: 'Resume Builder · Personal Project',
+        link: 'https://resume-builder-beta-tawny.vercel.app/',
+        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vitest'],
+        description:
+            'A free, privacy-first resume builder with a live A4 preview and seven templates, including ' +
+            'Oxford and Harvard styles. Reorder sections by drag and drop, download an ATS-friendly PDF and ' +
+            'share a read-only link that carries the resume inside the URL itself — no backend, database ' +
+            'or sign-up, with autosave in the browser.',
+    },
+    {
         name: 'PriceDekho',
         category: 'Price Comparison · Personal Project',
         link: 'https://pricedekho-drab.vercel.app/',
