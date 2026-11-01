@@ -84,6 +84,17 @@ export const projects = [
             'The live demo runs on clearly labelled dummy data — no real store prices yet.',
     },
     {
+        name: 'Shopora',
+        category: 'E-Commerce Store · Personal Project',
+        link: 'https://fakestore-2s8h.vercel.app/',
+        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'REST API', 'Vitest'],
+        description:
+            'An online store built on the Fake Store API. Filter by category and price, search, sort and ' +
+            'share any filtered view through its URL. Includes product pages with related items, a wishlist, ' +
+            'a cart with a free-shipping meter, validated checkout and a demo sign-in that fills in the ' +
+            'saved address. Every product page is pre-rendered, and it supports light and dark mode.',
+    },
+    {
         name: 'YouTube Clone',
         category: 'Video Streaming · Personal Project',
         link: 'https://youtubexaj.netlify.app/',
