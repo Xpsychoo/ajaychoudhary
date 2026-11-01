@@ -85,20 +85,43 @@ export const projects = [
     },
     {
         name: 'YouTube Clone',
-        category: 'Personal Project',
+        category: 'Video Streaming · Personal Project',
         link: 'https://youtubexaj.netlify.app/',
-        tech: ['React.js', 'REST API', 'MUI'],
+        tech: ['React.js', 'Redux', 'React Router', 'Netlify Functions', 'YouTube Data API'],
         description:
-            'A YouTube-style video app powered by a public REST API: browse a video feed, play videos, ' +
-            'open channel pages and search across videos and channels, with a responsive layout.',
+            'A YouTube-style video app with a home feed, search, watch page with comments and related videos, ' +
+            'channel pages and playlists. API calls go through a Netlify serverless function, so the ' +
+            'YouTube API key never reaches the browser.',
     },
     {
-        name: 'Bucket of Apps',
-        category: 'Personal Project',
+        name: 'AppBucket',
+        category: 'Mini Apps Suite · Personal Project',
         link: 'https://appsbucket.netlify.app',
-        tech: ['Angular', 'TypeScript', 'RxJS'],
+        tech: ['Angular 22', 'TypeScript', 'Signals', 'Vitest'],
         description:
-            'An Angular playground app with a blog (create, edit and delete posts), an analog clock, ' +
-            'a to-do list and a calculator — built to learn Angular components, services, pipes and routing.',
+            'Thirteen handy mini apps in one themeable Angular app: weather, tasks, a Pomodoro timer, ' +
+            'calculator, world clocks, password generator, a mood journal, a live 3D globe with the ISS ' +
+            'and small games. Adds a Ctrl+K command palette, 23 unlockable achievements and an animated ' +
+            'backdrop that matches the live weather. Built with standalone components, signals and lazy routes.',
+    },
+    {
+        name: 'Contact QR',
+        category: 'QR Card Maker · Personal Project',
+        link: 'https://appsbucket.netlify.app/contact-qr',
+        tech: ['Angular', 'TypeScript', 'Canvas API', 'QR Codes'],
+        description:
+            'Design printable "scan to contact owner" QR cards for a front door, vehicle, lost item or ' +
+            'business. A scan can call, open WhatsApp, send an email, open a link or save a contact card. ' +
+            'Pick a template, colour and QR style, see a live preview and export a print-ready PDF or PNG.',
+    },
+    {
+        name: 'Browser Games',
+        category: 'Games · Personal Project',
+        link: '/games',
+        tech: ['React.js', 'Next.js', 'Canvas', 'Touch Controls'],
+        description:
+            'Eleven small games built right into this portfolio: Tic Tac Toe, Memory Match, Bug Smash, ' +
+            'Code Snake, Speed Typer, Pattern Recall, Reaction Time, Number Slide, Dev Quiz, Word Unscramble ' +
+            'and Tech Merge. Each one works with a keyboard, mouse or touch screen.',
     },
 ];
