@@ -1,0 +1,273 @@
+/* ============ Navbar: glass pill, sliding link highlight, mobile overlay =============== */
+// Loaded after the base .navbar rules in Styles.scss and builds on them.
+
+$nav-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+$nav-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+// lets the gradient border's angle animate
+@property --nav-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.navbar {
+    .container {
+        transition:
+            transform 0.5s $nav-ease,
+            max-width 0.5s $nav-ease,
+            border-radius 0.5s $nav-ease,
+            box-shadow 0.4s ease,
+            background-color 0.4s ease;
+        // no fill-mode: once it ends, the hide/show transform transitions take over
+        animation: navDrop 0.9s $nav-ease;
+
+        // spinning gradient border, faint at the top of the page, brighter once scrolled
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 1.5px;
+            border-radius: inherit;
+            pointer-events: none;
+            background: conic-gradient(from var(--nav-angle), var(--green-color), var(--blue-color), rgb(var(--violet-color)), transparent 70%, var(--green-color));
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.35;
+            transition: opacity 0.4s ease;
+            animation: navBorderSpin 6s linear infinite;
+        }
+    }
+
+    &.scrolled .container {
+        border-radius: 999px;
+        background-color: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 12px 36px rgba(35, 41, 50, 0.16), 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    // slides away while scrolling down, back as soon as you scroll up
+    &.navHidden .container {
+        transform: translate(-50%, -200%);
+    }
+
+    // logo does a little spin
+    .main-icon {
+        transition: transform 0.6s $nav-spring;
+
+        &:hover {
+            transform: rotate(360deg) scale(1.12);
+        }
+    }
+
+    .navlinksWrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .navlinks {
+        margin: 0;
+
+        .list-item {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            border-radius: 999px;
+            color: var(--dark-color);
+            transition: color 0.3s ease;
+
+            a {
+                padding: 6px 14px;
+                border-radius: inherit;
+            }
+
+            &.active {
+                border-bottom: 0;
+                color: var(--pure-white);
+            }
+        }
+    }
+
+    // the highlight that glides between links
+    .navPill {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 34px;
+        margin-top: -17px;
+        width: 0;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--green-color), var(--blue-color));
+        box-shadow: 0 6px 18px rgba(41, 165, 135, 0.45);
+        opacity: 0;
+        transition:
+            transform 0.5s $nav-spring,
+            width 0.5s $nav-spring,
+            opacity 0.3s ease;
+
+        &.show {
+            opacity: 1;
+        }
+    }
+
+    // hamburger that morphs into an X
+    .menuToggle {
+        position: relative;
+        width: 34px;
+        height: 34px;
+        margin-left: 10px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--green-color), var(--blue-color));
+        box-shadow: 0 6px 16px rgba(41, 165, 135, 0.4);
+
+        span {
+            position: absolute;
+            left: 9px;
+            width: 16px;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--pure-white);
+            transition: transform 0.4s $nav-ease, opacity 0.3s ease, top 0.4s $nav-ease;
+
+            &:nth-child(1) { top: 11px; }
+            &:nth-child(2) { top: 16px; }
+            &:nth-child(3) { top: 21px; }
+        }
+
+        &.open span {
+            &:nth-child(1) { top: 16px; transform: rotate(45deg); }
+            &:nth-child(2) { opacity: 0; transform: scaleX(0); }
+            &:nth-child(3) { top: 16px; transform: rotate(-45deg); }
+        }
+    }
+}
+
+// full-screen menu that grows out of the hamburger corner
+.mobileMenu {
+    position: fixed;
+    inset: 0;
+    z-index: 998; // just under the bar, so the X stays clickable
+    display: flex;
+    align-items: center;
+    padding: 90px 32px 40px;
+    color: var(--light-color);
+    background:
+        radial-gradient(circle at 85% 10%, rgba(41, 165, 135, 0.35), transparent 50%),
+        radial-gradient(circle at 10% 90%, rgba(var(--violet-color), 0.3), transparent 50%),
+        rgba(35, 41, 50, 0.94);
+    backdrop-filter: blur(16px);
+    clip-path: circle(0px at calc(100% - 44px) 33px);
+    visibility: hidden;
+    transition: clip-path 0.7s $nav-ease, visibility 0s linear 0.7s;
+
+    &.open {
+        clip-path: circle(150% at calc(100% - 44px) 33px);
+        visibility: visible;
+        transition: clip-path 0.7s $nav-ease, visibility 0s;
+    }
+
+    .mobileLinks {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+        li {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.4s ease, transform 0.5s $nav-ease;
+        }
+
+        a {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            padding: 10px 0;
+            font-size: 36px;
+            font-weight: 600;
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: color 0.3s ease, padding-left 0.3s ease;
+
+            &:hover,
+            &:focus-visible {
+                color: var(--green-color);
+                padding-left: 8px;
+            }
+        }
+
+        .num {
+            font-family: var(--cursive-font);
+            font-size: 20px;
+            color: var(--green-color);
+        }
+
+        .active a {
+            color: var(--green-color);
+        }
+    }
+
+    &.open .mobileLinks li {
+        opacity: 1;
+        transform: none;
+        transition-delay: calc(0.18s + var(--i) * 0.06s);
+    }
+}
+
+// switch to the overlay menu below tablet width (the pill links get tight there)
+@media only screen and (max-width: 991px) {
+    .navbar .navlinks .list-item a {
+        padding: 6px 9px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar {
+        .navlinksWrap {
+            display: none;
+        }
+
+        .theme-btns {
+            margin-left: auto;
+        }
+
+        .nav-toggler {
+            display: block;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar .container,
+    .navbar .container::before {
+        animation: none;
+    }
+
+    .navbar .navPill,
+    .mobileMenu,
+    .mobileMenu .mobileLinks li {
+        transition-duration: 0.01s !important;
+    }
+}
+
+@keyframes navDrop {
+    from {
+        transform: translate(-50%, -220%);
+        opacity: 0;
+    }
+}
+
+@keyframes navBorderSpin {
+    to {
+        --nav-angle: 360deg;
+    }
+}

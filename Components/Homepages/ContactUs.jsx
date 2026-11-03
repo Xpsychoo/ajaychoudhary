@@ -80,7 +80,7 @@ export default function ContactUs() {
     return (
         <>
             <div className="container">
-                <div className="main-head">
+                <div className="main-head" data-reveal="up">
                     <h3 className="head text-center">
                         <span className="text-green"> - LET&apos;S </span> CONNECT
                     </h3>
@@ -90,7 +90,7 @@ export default function ContactUs() {
                 </div>
                 <div className="ContactUs">
                     <div className="row">
-                        <div className="col-xl-6 col-md-6 col-sm-12 col-12">
+                        <div className="col-xl-6 col-md-6 col-sm-12 col-12" data-reveal="left">
                             <div className="getintouch">
                                 <div className="head">
                                     I&apos;m open to new opportunities and freelance projects. Send me a message about
@@ -149,7 +149,7 @@ export default function ContactUs() {
                                 </form>
                             </div>
                         </div>
-                        <div className="col-xl-6 col-md-6 col-sm-12 col-12">
+                        <div className="col-xl-6 col-md-6 col-sm-12 col-12" data-reveal="right" style={{ '--reveal-delay': '150ms' }}>
                             <div className="mapWrapper">
                                 <iframe
                                     title="Noida, Uttar Pradesh on Google Maps"

@@ -1,0 +1,371 @@
+/* ============ Theme picker + the "Night" (dark) theme sky =============== */
+
+$picker-ease: cubic-bezier(0.16, 1, 0.3, 1);
+$picker-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// Prefixed with .theme-btns so it outranks the older .theme-btns button / svg rules in Styles.scss.
+.navbar .theme-btns .themePicker {
+    position: relative;
+
+    .themeTrigger {
+        position: relative;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        // flex-center: an inline svg sits on the text baseline and ends up off-centre
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: var(--pure-white);
+        background: linear-gradient(135deg, var(--green-color), var(--blue-color));
+        box-shadow: 0 6px 16px rgba(41, 165, 135, 0.4);
+        transition: transform 0.4s $picker-spring, box-shadow 0.3s ease;
+
+        // soft rotating halo
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--green-color), var(--blue-color), rgb(var(--violet-color)), var(--green-color));
+            filter: blur(6px);
+            opacity: 0.55;
+            z-index: -1;
+            animation: pickerHalo 4s linear infinite;
+        }
+
+        svg {
+            display: block;
+            flex: none;
+            width: 20px;
+            height: 20px;
+            color: var(--pure-white);
+            animation: pickerIconIn 0.6s $picker-spring;
+        }
+
+        &:hover {
+            transform: scale(1.1) rotate(-8deg);
+        }
+
+        &.open {
+            transform: scale(0.94);
+        }
+    }
+
+    .themePanel {
+        position: absolute;
+        top: calc(100% + 16px);
+        right: -12px;
+        width: min(290px, calc(100vw - 32px));
+        padding: 14px;
+        border-radius: 20px;
+        color: var(--dark-color);
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(20px) saturate(1.4);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 24px 60px rgba(35, 41, 50, 0.25);
+        transform-origin: calc(100% - 30px) -10px;
+        transform: scale(0.85) translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.45s $picker-spring, opacity 0.25s ease, visibility 0s linear 0.45s;
+
+        &.open {
+            transform: none;
+            opacity: 1;
+            visibility: visible;
+            transition: transform 0.45s $picker-spring, opacity 0.25s ease, visibility 0s;
+        }
+    }
+
+    .panelHead {
+        margin: 2px 4px 12px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--green-color);
+    }
+
+    .themeGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .themeTile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        padding: 8px;
+        border-radius: 14px;
+        text-align: left;
+        color: inherit;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1.5px solid transparent;
+        transition: transform 0.3s $picker-spring, border-color 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(10px);
+
+        &:hover,
+        &:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(35, 41, 50, 0.12);
+        }
+
+        &.active {
+            border-color: var(--green-color);
+            box-shadow: 0 0 0 3px rgba(41, 165, 135, 0.18);
+        }
+    }
+
+    .themePanel.open .themeTile {
+        opacity: 1;
+        transform: none;
+        transition:
+            transform 0.45s $picker-spring calc(var(--i) * 0.05s),
+            opacity 0.3s ease calc(var(--i) * 0.05s),
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+
+        &:hover,
+        &:focus-visible {
+            transform: translateY(-3px);
+            transition-delay: 0s;
+        }
+    }
+
+    // mini preview of each theme
+    .swatch {
+        position: relative;
+        width: 100%;
+        height: 58px;
+        margin-bottom: 6px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        > svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        &.light {
+            color: #e39a2d;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(255, 210, 120, 0.85), transparent 55%),
+                linear-gradient(135deg, #fff, var(--light-color));
+            box-shadow: inset 0 0 0 1px rgba(35, 41, 50, 0.08);
+        }
+
+        &.dark {
+            color: #fdf6e3;
+            background:
+                radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+                radial-gradient(1px 1px at 70% 20%, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 85% 65%, #fff, transparent),
+                radial-gradient(1px 1px at 40% 75%, #cde, transparent),
+                radial-gradient(1px 1px at 55% 45%, #fff, transparent),
+                radial-gradient(1px 1px at 12% 80%, #fff, transparent),
+                linear-gradient(160deg, #1b2440, #0b1020);
+        }
+
+        &.gradient {
+            color: var(--dark-color);
+            background:
+                radial-gradient(circle at 0% 0%, rgba(var(--gradient-color-2), 0.55), transparent 60%),
+                radial-gradient(circle at 100% 0%, rgba(var(--accent-color), 0.8), transparent 60%),
+                radial-gradient(circle at 100% 100%, rgba(var(--violet-color), 0.55), transparent 60%),
+                radial-gradient(circle at 0% 100%, rgba(var(--bd-pink-rgb), 0.5), transparent 60%),
+                #fff;
+        }
+
+        &.image {
+            color: var(--dark-color);
+            background: url('/images/bg-img-blur.png') center / cover;
+        }
+
+        .check {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 18px;
+            height: 18px;
+            padding: 3px;
+            border-radius: 50%;
+            display: flex;
+            background: var(--green-color);
+            animation: pickerIconIn 0.4s $picker-spring;
+
+            svg {
+                width: 100%;
+                height: 100%;
+                color: var(--pure-white);
+            }
+        }
+    }
+
+    .tileTitle {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .tileHint {
+        font-size: 11px;
+        color: #6c757d;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    // the hamburger sits to the right of the trigger here
+    .navbar .theme-btns .themePicker .themePanel {
+        right: -56px;
+    }
+}
+
+// theme switch: the new theme grows as a circle (animated from ThemePicker.jsx)
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+/* ---------- Night theme ---------- */
+
+.main-wrapper.dark {
+    background:
+        radial-gradient(ellipse at 85% -10%, rgba(41, 165, 135, 0.16), transparent 50%),
+        radial-gradient(ellipse at 0% 100%, rgba(var(--violet-color), 0.18), transparent 55%),
+        linear-gradient(180deg, #0a0f1f 0%, #121a30 55%, #0c1222 100%);
+    background-attachment: fixed;
+
+    .ServicesCards .serviceCard,
+    .SkillsSec .skillsCard,
+    .ExperienceTimeline .experienceCard {
+        color: var(--light-color);
+        background-color: rgba(18, 26, 48, 0.55);
+        border-color: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+        .desc,
+        .description,
+        .highlights,
+        .dates,
+        .muted,
+        .location {
+            color: #a9b4c6;
+        }
+    }
+
+    .ExperienceTimeline .timelineDot {
+        background: #0a0f1f;
+    }
+
+    // navbar + theme panel turn into dark glass at night
+    .navbar {
+        .container,
+        &.scrolled .container {
+            background-color: rgba(14, 20, 38, 0.72);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+        }
+
+        .navlinks .list-item {
+            color: var(--light-color);
+        }
+
+        .theme-btns .themePicker {
+            .themePanel {
+                color: var(--light-color);
+                background: rgba(14, 20, 38, 0.92);
+                border-color: rgba(255, 255, 255, 0.08);
+                box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+            }
+
+            .themeTile {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .tileHint {
+                color: #8f9bb0;
+            }
+        }
+    }
+}
+
+.starryNight {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    animation: skyFadeIn 1.2s ease;
+
+    canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    // the moon, with a soft halo
+    &::before {
+        content: '';
+        position: absolute;
+        top: 110px;
+        right: 8%;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background:
+            radial-gradient(circle at 35% 40%, rgba(0, 0, 0, 0.08) 0 6px, transparent 7px),
+            radial-gradient(circle at 62% 65%, rgba(0, 0, 0, 0.07) 0 9px, transparent 10px),
+            radial-gradient(circle at 65% 30%, rgba(0, 0, 0, 0.06) 0 4px, transparent 5px),
+            radial-gradient(circle at 40% 40%, #fffdf3, #f3e7c4 70%);
+        box-shadow: 0 0 40px 10px rgba(255, 246, 214, 0.25), 0 0 120px 40px rgba(255, 246, 214, 0.08);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .starryNight::before {
+        top: 80px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@keyframes pickerHalo {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pickerIconIn {
+    from {
+        transform: rotate(-120deg) scale(0.3);
+        opacity: 0;
+    }
+}
+
+@keyframes skyFadeIn {
+    from {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar .theme-btns .themePicker {
+        .themeTrigger::before,
+        .themeTrigger svg,
+        .check {
+            animation: none;
+        }
+    }
+
+    .starryNight {
+        animation: none;
+    }
+}

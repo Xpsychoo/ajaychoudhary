@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from '@/Components/Homepages/NavbarScreen/Navbar';
 import Footer from '@/Components/Homepages/Footer';
+import ThemeBackdrop from '@/Components/Homepages/ThemeBackdrop';
 
 /** Shared shell for /games pages: same navbar, theme and footer as the portfolio. */
 const GameLayout = ({ title, description, back = { href: '/', label: 'Back to portfolio' }, children }) => {
@@ -19,6 +20,7 @@ const GameLayout = ({ title, description, back = { href: '/', label: 'Back to po
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={`${theme} main-wrapper`}>
+                <ThemeBackdrop theme={theme} />
                 <Navbar />
                 <main className="container gamesMain">
                     <Link href={back.href} className="backLink">

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import Footer from '@/Components/Homepages/Footer';
 import HomeScreen from '@/Components/Homepages/HomeScreen';
 import GamesFab from '@/Components/Games/GamesFab';
+import ThemeBackdrop from '@/Components/Homepages/ThemeBackdrop';
 import { SITE_URL } from '@/data/site';
 import { careerYears } from '@/data/experience';
 
@@ -33,6 +34,7 @@ export default function Home({ years }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`${theme} main-wrapper`}>
+        <ThemeBackdrop theme={theme} />
         <HomeScreen />
         <Footer />
         <GamesFab />

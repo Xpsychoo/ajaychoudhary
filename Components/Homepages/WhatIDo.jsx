@@ -8,7 +8,7 @@ const WhatIDo = () => {
 
     return (
         <div className="container">
-            <div className="main-head">
+            <div className="main-head" data-reveal="up">
                 <h3 className="head text-center">
                     <span className="text-green">What</span> I do
                 </h3>
@@ -18,8 +18,8 @@ const WhatIDo = () => {
             </div>
             <div className="ServicesCards">
                 <div className="row g-4">
-                    {services.map(({ Icon, ...service }) => (
-                        <div key={service.topHead} className="col-xl-4 col-md-4 col-sm-12 col-12">
+                    {services.map(({ Icon, ...service }, i) => (
+                        <div key={service.topHead} className="col-xl-4 col-md-4 col-sm-12 col-12" data-reveal="flip" style={{ '--reveal-delay': `${i * 140}ms` }}>
                             <div className="serviceCard">
                                 <span className="cardIcon"><Icon aria-hidden="true" /></span>
                                 <div className="topHead">{service.topHead}</div>

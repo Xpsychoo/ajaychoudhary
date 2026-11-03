@@ -19,11 +19,11 @@ const sliderSettings = {
 export default function MySkills() {
     return (
         <div className="container">
-            <div className="main-head">
+            <div className="main-head" data-reveal="up">
                 <h3 className="head text-center"><span className="text-green">Professional</span> Expertise</h3>
                 <h5 className="sub_head text-center">My <span className="text-green text-cursive">Skills</span></h5>
             </div>
-            <div className="SkillsSec">
+            <div className="SkillsSec" data-reveal="zoom">
                 <Slider {...sliderSettings}>
                     {skills.map(({ head, Icon, description }) => (
                         <div key={head} className="skillsCard">

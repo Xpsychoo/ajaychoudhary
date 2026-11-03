@@ -1,0 +1,311 @@
+/* ============ Animated theme backgrounds (Components/Homepages/ThemeBackdrop.jsx) =============== */
+
+// Every theme's scene sits at z-index: -1. `isolation` makes that land above the
+// wrapper's own background but under all of the page content.
+.main-wrapper {
+    isolation: isolate;
+}
+
+// see _document.js / store/ThemePersistence.jsx; the animation is a safety net
+// that shows the page anyway if JS never gets to remove the class
+.theme-pending .main-wrapper {
+    opacity: 0;
+    animation: themePendingFallback 0s linear 1.5s forwards;
+}
+
+@keyframes themePendingFallback {
+    to {
+        opacity: 1;
+    }
+}
+
+.themeScene {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    animation: sceneFadeIn 1.2s ease;
+
+    > * {
+        position: absolute;
+    }
+}
+
+/* ---------- Light: Daylight ---------- */
+
+.main-wrapper.light {
+    background: linear-gradient(180deg, #fbf8f2 0%, var(--light-color) 60%, #efe7da 100%);
+    background-attachment: fixed;
+
+    .ServicesCards .serviceCard,
+    .SkillsSec .skillsCard,
+    .ExperienceTimeline .experienceCard {
+        background-color: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 12px 34px rgba(170, 120, 60, 0.12);
+    }
+}
+
+.daylight {
+    .dotGrid {
+        inset: -40px 0;
+        background-image: radial-gradient(rgba(35, 41, 50, 0.13) 1px, transparent 1.6px);
+        background-size: 26px 26px;
+        -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 15%, transparent 75%);
+        mask-image: radial-gradient(ellipse at 50% 30%, #000 15%, transparent 75%);
+        transform: translateY(calc(var(--scroll-y, 0) * -0.04px));
+    }
+
+    .sun {
+        top: -22vmax;
+        right: -16vmax;
+        width: 60vmax;
+        height: 60vmax;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 214, 120, 0.6) 0%, rgba(255, 176, 90, 0.25) 32%, transparent 64%);
+        animation: sunBreathe 9s ease-in-out infinite;
+
+        .rays {
+            position: absolute;
+            inset: -20%;
+            border-radius: 50%;
+            background: repeating-conic-gradient(from 0deg, rgba(255, 210, 130, 0.22) 0deg 5deg, transparent 5deg 16deg);
+            -webkit-mask-image: radial-gradient(circle, #000 18%, transparent 62%);
+            mask-image: radial-gradient(circle, #000 18%, transparent 62%);
+            animation: spin 90s linear infinite;
+        }
+    }
+
+    .mote {
+        bottom: -20px;
+        left: var(--x);
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 190, 90, 0.9), rgba(255, 190, 90, 0));
+        animation: floatUp var(--dur) linear var(--delay) infinite;
+
+        &:nth-child(3n) {
+            background: radial-gradient(circle, rgba(41, 165, 135, 0.7), rgba(41, 165, 135, 0));
+        }
+    }
+}
+
+/* ---------- Gradient: living mesh ---------- */
+
+.main-wrapper.gradient:not(.image) {
+    background: #f7f8ff;
+}
+
+.mesh {
+    .blob {
+        width: 46vmax;
+        height: 46vmax;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.55;
+        will-change: transform;
+    }
+
+    .b1 {
+        top: -12vmax;
+        left: -10vmax;
+        background: rgb(var(--gradient-color-2));
+        animation: meshA 26s ease-in-out infinite alternate;
+    }
+
+    .b2 {
+        top: -14vmax;
+        right: -12vmax;
+        background: rgb(var(--accent-color));
+        animation: meshB 30s ease-in-out infinite alternate;
+    }
+
+    .b3 {
+        top: 30vh;
+        right: -14vmax;
+        background: rgb(var(--violet-color));
+        opacity: 0.45;
+        animation: meshC 24s ease-in-out infinite alternate;
+    }
+
+    .b4 {
+        top: 35vh;
+        left: -14vmax;
+        background: rgb(var(--bd-pink-rgb));
+        opacity: 0.4;
+        animation: meshB 28s ease-in-out infinite alternate-reverse;
+    }
+
+    .b5 {
+        bottom: -20vmax;
+        left: 30vw;
+        background: var(--green-color);
+        opacity: 0.35;
+        animation: meshA 32s ease-in-out infinite alternate-reverse;
+    }
+
+    // trails the cursor (--px/--py set in ThemeBackdrop.jsx); parks in the middle on touch screens
+    .follow {
+        top: 0;
+        left: 0;
+        width: 30vmax;
+        height: 30vmax;
+        opacity: 0.35;
+        background: radial-gradient(circle, var(--blue-color), rgb(var(--violet-color)));
+        transform: translate(calc(var(--px, 50vw) - 50%), calc(var(--py, 50vh) - 50%));
+        transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .grain {
+        inset: 0;
+        opacity: 0.12;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+}
+
+/* ---------- Gradient image: Ocean ---------- */
+
+.ocean {
+    .liquid {
+        width: 34vmax;
+        height: 34vmax;
+        opacity: 0.4;
+        filter: blur(18px);
+        background: linear-gradient(135deg, #6f8dff, #9fe6ff);
+        animation:
+            liquidMorph 14s ease-in-out infinite,
+            liquidDrift 22s ease-in-out infinite alternate;
+    }
+
+    .l1 {
+        top: 8vh;
+        left: -8vmax;
+    }
+
+    .l2 {
+        top: 30vh;
+        right: -10vmax;
+        background: linear-gradient(135deg, #a58bff, #7fd4ff);
+        animation-delay: -6s, -10s;
+        animation-direction: normal, alternate-reverse;
+    }
+
+    .bubble {
+        bottom: -60px;
+        left: var(--x);
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        background: radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.95) 0 7%, rgba(255, 255, 255, 0.2) 28%, rgba(120, 150, 255, 0.14) 70%);
+        box-shadow:
+            inset -4px -6px 12px rgba(110, 140, 255, 0.25),
+            0 4px 14px rgba(110, 140, 255, 0.15);
+        animation: floatUp var(--dur) ease-in var(--delay) infinite;
+    }
+}
+
+/* ---------- keyframes ---------- */
+
+@keyframes sceneFadeIn {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sunBreathe {
+    50% {
+        transform: scale(1.08);
+        opacity: 0.85;
+    }
+}
+
+// shared by motes and bubbles: rise the full screen height, swaying sideways (--sway)
+@keyframes floatUp {
+    0% {
+        transform: translate(0, 0) scale(0.6);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    35% {
+        transform: translate(calc(var(--sway) * 0.6), -38vh) scale(0.9);
+    }
+
+    70% {
+        transform: translate(calc(var(--sway) * -0.4), -76vh) scale(1);
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(var(--sway), -115vh) scale(1.05);
+        opacity: 0;
+    }
+}
+
+@keyframes meshA {
+    to {
+        transform: translate(28vw, 22vh) scale(1.2);
+    }
+}
+
+@keyframes meshB {
+    to {
+        transform: translate(-24vw, 30vh) scale(0.85);
+    }
+}
+
+@keyframes meshC {
+    to {
+        transform: translate(-30vw, -18vh) scale(1.15);
+    }
+}
+
+@keyframes liquidMorph {
+    0%,
+    100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+
+    33% {
+        border-radius: 70% 30% 46% 54% / 30% 39% 61% 70%;
+    }
+
+    66% {
+        border-radius: 28% 72% 38% 62% / 62% 30% 70% 38%;
+    }
+}
+
+@keyframes liquidDrift {
+    to {
+        transform: translate(6vw, 10vh) rotate(25deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .themeScene,
+    .themeScene * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    // they'd just sit at the bottom edge without motion
+    .themeScene .mote,
+    .themeScene .bubble {
+        display: none;
+    }
+}

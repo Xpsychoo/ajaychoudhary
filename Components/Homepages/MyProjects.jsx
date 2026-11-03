@@ -20,7 +20,7 @@ const sliderSettings = {
 
 const MyProjects = () => (
     <div className="container">
-        <div className="main-head">
+        <div className="main-head" data-reveal="up">
             <h3 className="head text-center">
                 <span className="text-green">MY</span> Projects
             </h3>
@@ -28,7 +28,7 @@ const MyProjects = () => (
                 Projects <span className="text-green text-cursive">I&apos;ve Worked on</span>
             </h5>
         </div>
-        <div className="SkillsSec">
+        <div className="SkillsSec" data-reveal="zoom">
             <Slider {...sliderSettings}>
                 {projects.map(({ name, category, description, link, tech }) => (
                     <div key={name} className="skillsCard projectCard">

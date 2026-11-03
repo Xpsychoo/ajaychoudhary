@@ -30,14 +30,32 @@ $color: #0cf;
     border: 1px solid rgba(41, 165, 135, 0.12);
     border-radius: 18px;
     box-shadow: 0 10px 30px rgba(35, 41, 50, 0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    // --rx/--ry are set from the cursor position by tiltCards() in utils/scrollEffects.js
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+    transition: transform 0.25s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+
+    // spotlight glow that follows the cursor (--mx/--my)
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        opacity: 0;
+        background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(41, 165, 135, 0.16), transparent 45%);
+        transition: opacity 0.3s ease;
+    }
 
     // hover only on real pointers, so cards don't stay "lifted" after a tap on phones
     @media (hover: hover) {
         &:hover {
-            transform: translateY(-4px);
+            --lift: -6px;
             border-color: rgba(41, 165, 135, 0.45);
             box-shadow: 0 18px 40px rgba(41, 165, 135, 0.15);
+
+            &::after {
+                opacity: 1;
+            }
         }
     }
 }
@@ -1848,3 +1866,7 @@ svg.lucide {
 }
 
 @import 'games';
+@import 'scroll-effects';
+@import 'navbar';
+@import 'theme-night';
+@import 'theme-scenes';

@@ -11,7 +11,7 @@ const Experience = () => {
 
     return (
         <div className="container">
-            <div className="main-head">
+            <div className="main-head" data-reveal="up">
                 <h3 className="head text-center">
                     <span className="text-green">Work</span> Experience
                 </h3>
@@ -22,7 +22,7 @@ const Experience = () => {
 
             <ol className="ExperienceTimeline">
                 {experience.map((job, i) => (
-                    <li key={`${job.company}-${job.start}`} className="experienceItem">
+                    <li key={`${job.company}-${job.start}`} className="experienceItem" data-reveal="right">
                         <span className={`timelineDot ${job.end ? '' : 'current'}`} aria-hidden="true" />
                         <article className="experienceCard">
                             <header className="cardHeader">
