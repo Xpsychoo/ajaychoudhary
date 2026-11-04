@@ -1503,13 +1503,21 @@ html {
     border-bottom: 0;
 }
 
-.foot-bottom {
-    margin: 40px 10px 0px;
-    padding: 25px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    backdrop-filter: blur(20px);
-    background-color: rgba(255, 255, 255, 0.455);
-    border-radius: 10px;
+// room under the contact form so the fixed social icons never sit on top of it
+#contact {
+    padding-bottom: 88px;
+}
+
+// fixed social icons stay above the content sections (which have z-index: 3)
+.footer {
+    z-index: 997;
+}
+
+@media only screen and (max-width: 600px) {
+    // on phones the social icons are an inline card below the page instead
+    #contact {
+        padding-bottom: 16px;
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -1870,3 +1878,4 @@ svg.lucide {
 @import 'navbar';
 @import 'theme-night';
 @import 'theme-scenes';
+@import 'contact';

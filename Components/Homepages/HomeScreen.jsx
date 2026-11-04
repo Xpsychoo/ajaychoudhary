@@ -31,7 +31,7 @@ const HomeScreen = () => {
                 <section className="homeSecHead jumpMenu" id="projects">
                     <MyProjects />
                 </section>
-                <section className="homeSecHead jumpMenu pb-0" id="contact">
+                <section className="homeSecHead jumpMenu" id="contact">
                     <ContactUs />
                 </section>
             </main>

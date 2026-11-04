@@ -1,0 +1,512 @@
+/* ============ Contact section (Components/Homepages/ContactUs.jsx) =============== */
+
+$contact-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 32px;
+    align-items: stretch;
+}
+
+/* ---------- left: pitch + map ---------- */
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .availability {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 14px 6px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--green-color);
+        background: rgba(41, 165, 135, 0.12);
+        border: 1px solid rgba(41, 165, 135, 0.3);
+
+        .pulse {
+            position: relative;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--green-color);
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 50%;
+                background: var(--green-color);
+                animation: contactPulse 1.8s ease-out infinite;
+            }
+        }
+    }
+
+    .pitch {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.25;
+    }
+
+    .blurb {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.7;
+        opacity: 0.8;
+    }
+
+    .mapCard {
+        position: relative;
+        flex: 1;
+        min-height: 260px;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 16px 40px rgba(35, 41, 50, 0.15);
+
+        iframe {
+            position: absolute;
+            inset: 0;
+            border: 0;
+            transition: filter 0.5s ease;
+        }
+
+        .mapBadge {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dark-color);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 18px rgba(35, 41, 50, 0.18);
+            pointer-events: none;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                color: var(--green-color);
+            }
+        }
+    }
+}
+
+/* ---------- right: the form card ---------- */
+
+.contactCard {
+    position: relative;
+    padding: 32px;
+    border-radius: 26px;
+    color: var(--dark-color);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(18px) saturate(1.3);
+    box-shadow: 0 24px 60px rgba(35, 41, 50, 0.14);
+
+    // spinning gradient border, same as the navbar
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 1.5px;
+        border-radius: inherit;
+        pointer-events: none;
+        background: conic-gradient(from var(--nav-angle), var(--green-color), var(--blue-color), rgb(var(--violet-color)), transparent 70%, var(--green-color));
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0.6;
+        animation: navBorderSpin 8s linear infinite;
+    }
+
+    .cardTitle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 22px;
+        font-size: 20px;
+        font-weight: 600;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            color: var(--green-color);
+        }
+    }
+}
+
+.contactForm {
+    .fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 16px;
+
+        .field:not(.half) {
+            grid-column: 1 / -1;
+        }
+    }
+
+    .field {
+        position: relative;
+
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            padding: 24px 16px 8px 46px;
+            font-size: 15px;
+            color: inherit;
+            border-radius: 14px;
+            border: 1.5px solid rgba(41, 165, 135, 0.22);
+            background: rgba(255, 255, 255, 0.65);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+            &:focus {
+                border-color: var(--green-color);
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 0 0 4px rgba(41, 165, 135, 0.15);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .fieldIcon {
+            position: absolute;
+            left: 16px;
+            top: 17px;
+            width: 18px;
+            height: 18px;
+            color: #8a94a3;
+            transition: color 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        // floating label: sits in the field, rises when focused or filled
+        label {
+            position: absolute;
+            left: 46px;
+            top: 16px;
+            margin: 0;
+            font-size: 15px;
+            line-height: 20px;
+            color: #7a8494;
+            pointer-events: none;
+            transform-origin: left top;
+            transition: transform 0.3s $contact-ease, color 0.3s ease;
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label,
+        textarea:focus + label,
+        textarea:not(:placeholder-shown) + label {
+            transform: translateY(-10px) scale(0.75);
+            color: var(--green-color);
+            font-weight: 600;
+        }
+
+        &:focus-within .fieldIcon {
+            color: var(--green-color);
+            transform: scale(1.1);
+        }
+
+        .errortext {
+            display: block;
+            min-height: 0;
+            margin: 4px 0 0 6px;
+            font-size: 12px;
+            color: #e5484d;
+
+            &:empty {
+                display: none;
+            }
+        }
+
+        &.error {
+            input,
+            textarea {
+                border-color: #e5484d;
+                box-shadow: 0 0 0 4px rgba(229, 72, 77, 0.12);
+                animation: fieldShake 0.4s ease;
+            }
+
+            label,
+            .fieldIcon {
+                color: #e5484d;
+            }
+        }
+    }
+
+    // captcha field has no icon
+    .captchaRow .field {
+        input {
+            padding-left: 16px;
+        }
+
+        label {
+            left: 16px;
+        }
+    }
+
+    .captchaRow {
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 16px;
+        align-items: start;
+        margin-top: 18px;
+    }
+
+    .captchaCode {
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+        padding: 0 8px 0 16px;
+        border-radius: 14px;
+        border: 1.5px dashed rgba(41, 165, 135, 0.45);
+        // faint strike-through lines so it reads as a captcha
+        background:
+            repeating-linear-gradient(-12deg, transparent 0 9px, rgba(41, 165, 135, 0.12) 9px 10px),
+            rgba(41, 165, 135, 0.06);
+        user-select: none;
+
+        span {
+            font-family: var(--cursive-font);
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--green-color);
+            transform: skewX(-8deg);
+        }
+
+        .refresh {
+            width: 32px;
+            height: 32px;
+            flex: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            color: var(--green-color);
+            background: rgba(41, 165, 135, 0.12);
+            transition: transform 0.5s $contact-ease, background-color 0.3s ease;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            &:hover {
+                transform: rotate(180deg);
+                background: rgba(41, 165, 135, 0.22);
+            }
+        }
+    }
+
+    .sendBtn {
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 22px;
+        padding: 15px 28px;
+        border: 0;
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--pure-white);
+        background: linear-gradient(135deg, var(--green-color), var(--blue-color));
+        box-shadow: 0 12px 28px rgba(41, 165, 135, 0.4);
+        transition: transform 0.3s $contact-ease, box-shadow 0.3s ease;
+
+        svg {
+            display: block;
+            flex: none;
+            width: 18px;
+            height: 18px;
+        }
+
+        // light sweep on hover
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.7s ease;
+        }
+
+        &:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 34px rgba(41, 165, 135, 0.5);
+
+            &::after {
+                left: 120%;
+            }
+
+            // plane flies off to the top-right and lands back in place, so it never rests off-centre
+            svg:not(.spin) {
+                animation: planeFly 0.7s $contact-ease;
+            }
+        }
+
+        &:active:not(:disabled) {
+            transform: translateY(0) scale(0.98);
+        }
+
+        &:disabled {
+            opacity: 0.75;
+            cursor: progress;
+        }
+
+        .spin {
+            animation: spin 0.9s linear infinite;
+        }
+    }
+}
+
+/* ---------- Night theme ---------- */
+
+.main-wrapper.dark {
+    .contactCard {
+        color: var(--light-color);
+        background: rgba(18, 26, 48, 0.6);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .contactForm .field {
+        input,
+        textarea {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.12);
+
+            &:focus {
+                background: rgba(255, 255, 255, 0.08);
+                border-color: var(--green-color);
+            }
+        }
+
+        label,
+        .fieldIcon {
+            color: #8f9bb0;
+        }
+    }
+
+    .contactInfo .mapCard {
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+
+        // turn the Google map into a night map
+        iframe {
+            filter: invert(0.9) hue-rotate(180deg) saturate(0.7) brightness(0.9);
+        }
+
+        .mapBadge {
+            color: var(--light-color);
+            background: rgba(14, 20, 38, 0.85);
+        }
+    }
+}
+
+/* ---------- responsive ---------- */
+
+@media only screen and (max-width: 991px) {
+    .contactGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .contactInfo {
+        .pitch {
+            font-size: 26px;
+        }
+
+        .mapCard {
+            flex: none;
+            height: 260px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .contactCard {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
+
+    .contactForm {
+        .fields {
+            grid-template-columns: 1fr;
+        }
+
+        .captchaRow {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@keyframes contactPulse {
+    to {
+        transform: scale(2.6);
+        opacity: 0;
+    }
+}
+
+@keyframes planeFly {
+    40% {
+        transform: translate(18px, -18px) scale(0.8);
+        opacity: 0;
+    }
+
+    41% {
+        transform: translate(-14px, 14px) scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes fieldShake {
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contactCard::before,
+    .contactInfo .availability .pulse::after,
+    .contactForm .field.error input,
+    .contactForm .field.error textarea {
+        animation: none;
+    }
+}

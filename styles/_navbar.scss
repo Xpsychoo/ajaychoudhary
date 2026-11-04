@@ -21,6 +21,10 @@ $nav-ease: cubic-bezier(0.16, 1, 0.3, 1);
             background-color 0.4s ease;
         // no fill-mode: once it ends, the hide/show transform transitions take over
         animation: navDrop 0.9s $nav-ease;
+        // keep the bar on its own GPU layer; mobile browsers otherwise flicker the
+        // backdrop-filter while it slides in and out
+        will-change: transform;
+        backface-visibility: hidden;
 
         // spinning gradient border, faint at the top of the page, brighter once scrolled
         &::before {

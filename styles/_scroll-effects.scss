@@ -98,8 +98,9 @@ $reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
             transform: translateY(calc(var(--scroll-y, 0) * -0.25px));
         }
 
+        // drifts up into the hero (not down), so it never slides over the next section's heading
         .dots-shapes.bottom {
-            transform: translateY(calc(var(--scroll-y, 0) * 0.2px));
+            transform: translateY(calc(var(--scroll-y, 0) * -0.15px));
         }
     }
 }
@@ -119,8 +120,40 @@ $reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 0 12px rgba(41, 165, 135, 0.6);
 }
 
+// The portrait always sits above the hero's decorative dots
+// (its own z-index is trapped inside .img-wrapper, which is transformed for parallax).
+.header_sec {
+    .img-sec {
+        position: relative;
+        z-index: 1;
+    }
+
+    .dots-shapes {
+        z-index: 0;
+    }
+}
+
+// On phones the portrait stacks under the text, right where the bottom dots land.
+@media only screen and (max-width: 767px) {
+    .header_sec .dots-shapes.bottom {
+        display: none;
+    }
+}
+
+// Content sections paint above the hero, so its decorative dots stay behind headings.
+// (In the dark theme .header_sec has z-index: 2.)
+.homeSecHead {
+    position: relative;
+    z-index: 3;
+}
+
 // experience line "draws" itself as you scroll through the section (--line-progress)
 .ExperienceTimeline {
+    // dots sit on top of both lines instead of being cut through by them
+    .timelineDot {
+        z-index: 1;
+    }
+
     &::before {
         background: rgba(41, 165, 135, 0.15);
     }

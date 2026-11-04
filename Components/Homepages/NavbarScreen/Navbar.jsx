@@ -14,24 +14,38 @@ const useIsoLayoutEffect = typeof window === 'undefined' ? useEffect : useLayout
  * hidden:   user is scrolling down (navbar slides away, comes back on scroll up)
  * activeId: id of the section currently on screen
  */
+const HIDE_AFTER = 300; // px from the top before the bar is allowed to hide
+const DIRECTION_THRESHOLD = 24; // px of travel in one direction before hiding / showing
+
 const useNavScroll = () => {
     const [state, setState] = useState({ scrolled: false, hidden: false, activeId: null });
 
     useEffect(() => {
+        const root = document.documentElement;
         let lastY = window.scrollY;
+        let travel = 0; // distance moved in the current direction (+ down, - up)
+        let hidden = false;
         let frame = 0;
 
         const update = () => {
             frame = 0;
-            const y = window.scrollY;
+            // clamp: iOS rubber-band overscroll reports y < 0 or past the end, which used to toggle the bar
+            const maxY = Math.max(0, root.scrollHeight - window.innerHeight);
+            const y = Math.min(Math.max(window.scrollY, 0), maxY);
+            const delta = y - lastY;
+            lastY = y;
+
+            if (delta !== 0) {
+                // reset the counter whenever the direction flips, so small jitters never add up
+                travel = Math.sign(delta) === Math.sign(travel) ? travel + delta : delta;
+            }
+            if (y < HIDE_AFTER) hidden = false;
+            else if (travel > DIRECTION_THRESHOLD) hidden = true;
+            else if (travel < -DIRECTION_THRESHOLD) hidden = false;
+
             const sections = [...document.querySelectorAll('main section[id]')];
             const current = sections.filter((s) => s.getBoundingClientRect().top <= window.innerHeight * 0.4).pop();
-            const next = {
-                scrolled: y > 40,
-                hidden: y > 300 && y > lastY + 4,
-                activeId: current ? current.id : null,
-            };
-            if (Math.abs(y - lastY) > 4) lastY = y;
+            const next = { scrolled: y > 40, hidden, activeId: current ? current.id : null };
             setState((prev) => (
                 prev.scrolled === next.scrolled && prev.hidden === next.hidden && prev.activeId === next.activeId ? prev : next
             ));
